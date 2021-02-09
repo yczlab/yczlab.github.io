@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Hexo博客系统的搭建, 大虫のBlog">
-    <meta name="description" content="One today is worth two tomorrows.">
+    <meta name="description" content="电子科技大学 | 信软学院 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -146,7 +146,7 @@
         <div class="logo-name">大虫のBlog</div>
         <div class="logo-desc">
             
-            One today is worth two tomorrows.
+            电子科技大学 | 信软学院 | 软件工程
             
         </div>
     </div>
@@ -556,7 +556,7 @@ hexo s</code></pre>
 <ul>
 <li><p><strong>生成ssh公钥添加到Github</strong><br>保证 Git 已经正确安装好。进入“C:\Users\Administrator.ssh”目录下（其中Administrator为你的用户名），鼠标右键点击打开“Git Bash Here”，输入以下命令，并连续按三次回车键：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"你的邮箱名称"</span> -f <span class="token string">"产生的公私钥名称"</span></code></pre>
-<p>其中“你的邮箱”为你注册Github时使用的邮箱地址，比如QQ邮箱；“产生的公私钥名称”为你想要为其命名的名称，若不命名，则会使用默认的名称，会覆盖以前也使用默认名称的公私钥文件。比如我执行 ‘ssh-keygen -t rsa -C “<a href="mailto:&#50;&#54;&#x38;&#x35;&#x37;&#x33;&#x33;&#x38;&#x33;&#x32;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#50;&#54;&#x38;&#x35;&#x37;&#x33;&#x33;&#x38;&#x33;&#x32;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a>“ -f “github_rsa” ‘，结果如下：<br><img src="/2020/02/20/EnvConfig-notes/1/11.png" alt="image"><br>此时会在当前目录下生成两个文件“github_rsa”和“github_ras.pub”，一个为私钥（不要公开），另一个为私钥（可以公开）：<br><img src="/2020/02/20/EnvConfig-notes/1/12.png" alt="image"><br>用自己注册的账号登录Github官网，点击右上角的”Settings”——&gt;点击”SSH and GPG keys”——&gt;点击“New SSH key”，添加刚刚生成的公钥：<br><img src="/2020/02/20/EnvConfig-notes/1/13.png" alt="image"><br>现在还不能正常使用，因为在新生成这个公私钥文件的时候不是采用的默认命名，而是带了“-f”参数对该公私钥文件进行了重命名，所以本地的ssh服务可能就找不到我们新生成的公私钥文件，所以还需要在本地配置一下，才能正常使用。在该公私钥文件所在的目录下新建一个名为“config”的文件(注意该文件没有后缀)，往该文件中写入以下的信息，并保存：</p>
+<p>其中“你的邮箱”为你注册Github时使用的邮箱地址，比如QQ邮箱；“产生的公私钥名称”为你想要为其命名的名称，若不命名，则会使用默认的名称，会覆盖以前也使用默认名称的公私钥文件。比如我执行 ‘ssh-keygen -t rsa -C “<a href="mailto:&#50;&#x36;&#x38;&#x35;&#55;&#51;&#51;&#x38;&#x33;&#50;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#50;&#x36;&#x38;&#x35;&#55;&#51;&#51;&#x38;&#x33;&#50;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a>“ -f “github_rsa” ‘，结果如下：<br><img src="/2020/02/20/EnvConfig-notes/1/11.png" alt="image"><br>此时会在当前目录下生成两个文件“github_rsa”和“github_ras.pub”，一个为私钥（不要公开），另一个为私钥（可以公开）：<br><img src="/2020/02/20/EnvConfig-notes/1/12.png" alt="image"><br>用自己注册的账号登录Github官网，点击右上角的”Settings”——&gt;点击”SSH and GPG keys”——&gt;点击“New SSH key”，添加刚刚生成的公钥：<br><img src="/2020/02/20/EnvConfig-notes/1/13.png" alt="image"><br>现在还不能正常使用，因为在新生成这个公私钥文件的时候不是采用的默认命名，而是带了“-f”参数对该公私钥文件进行了重命名，所以本地的ssh服务可能就找不到我们新生成的公私钥文件，所以还需要在本地配置一下，才能正常使用。在该公私钥文件所在的目录下新建一个名为“config”的文件(注意该文件没有后缀)，往该文件中写入以下的信息，并保存：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Github的公钥配置</span>
 Host github.com
 HostName github.com
@@ -1416,7 +1416,6 @@ $(function () {
     
 	
 	<!-- 以下为自己的一些个修改 -->
-	
 	<!-- 个性化document.title -->
 	<script type="text/javascript">
 	var OriginTitile = document.title,st;
@@ -1424,7 +1423,6 @@ $(function () {
 		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
 	});
 	</script>
-	
 	<!-- 根据主题中的配置，显示天气预报 -->
 	
 	<!-- weather_forecast 天气接口 -->
@@ -1441,7 +1439,6 @@ $(function () {
 </script>
 
 	
-	
 	<!-- 根据主题中的配置，背景樱花飘落特效 -->
 	
 		<script type="text/javascript">
@@ -1452,7 +1449,6 @@ $(function () {
 		}
 		</script>
 	
-	
 	<!-- 根据主题中的配置，背景雪花飘落特效 -->
 	
 		<script type="text/javascript">
@@ -1462,7 +1458,6 @@ $(function () {
 			document.write('<script type="text/javascript" src="/js/xuehuapiaoluo.js"><\/script>');
 		}
 		</script>
-	
 	
 	<!-- 根据主题中的配置，数字雨特效 -->
 	
@@ -1475,7 +1470,10 @@ $(function () {
 		}
 		</script>
 	
-
+	<!-- 根据主题中的配置，鼠标点击烟花爆炸效果 -->
+	
+	<!-- 根据主题中的配置，鼠标点击文字特效 -->
+	
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","superSample":2,"hOffset":0,"vOffset":-20,"width":150,"height":300},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"mobile":{"show":false,"scale":0.5},"log":false});</script></body>
 
 </html>
