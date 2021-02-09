@@ -1371,6 +1371,34 @@ $(function () {
     
 
     
+        <script src="//code.tidio.co/ef3vil8uaqrvp7giqeg545xldzmymqss.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-5px" : ($("div.toc-title").length&&$(window).width()>977)>0?"115px":"55px";
+                        document.getElementById("tidio-chat-iframe").style.right="-5px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="9999";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-5px":"50px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-5px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="9999";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"50px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="9999";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="9999";
+                    }
+                }
+            });
+        </script>
+    
 
     
 
@@ -1456,6 +1484,6 @@ $(function () {
 	
 	<!-- 根据主题中的配置，鼠标点击文字特效 -->
 	
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","superSample":2,"hOffset":0,"vOffset":-20,"width":150,"height":300},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"mobile":{"show":false,"scale":0.5},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","superSample":2,"hOffset":-30,"vOffset":-20,"width":150,"height":300},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"mobile":{"show":false,"scale":0.5},"log":false});</script></body>
 
 </html>
