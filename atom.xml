@@ -6,7 +6,7 @@
   <link href="https://yczlab.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://yczlab.gitee.io/"/>
-  <updated>2021-02-04T11:30:55.573Z</updated>
+  <updated>2021-02-14T12:54:59.195Z</updated>
   <id>https://yczlab.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>并查集模板</title>
+    <link href="https://yczlab.gitee.io/2021/02/14/Algorithm-notes/1/"/>
+    <id>https://yczlab.gitee.io/2021/02/14/Algorithm-notes/1/</id>
+    <published>2021-02-14T12:46:23.000Z</published>
+    <updated>2021-02-14T12:54:59.195Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot; title=&quot;引言：&quot;&gt;&lt;/a&gt;引言：&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;关于“并查集”的解释和使用场景网上有很多教程，这里就不在啰嗦了。仅提供代码模板方便知情人快速使用。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Algorithm" scheme="https://yczlab.gitee.io/categories/Algorithm-notes/"/>
+    
+    
+    <category term="Java" scheme="https://yczlab.gitee.io/tags/Java/"/>
+    
+    <category term="Algorithm" scheme="https://yczlab.gitee.io/tags/Algorithm/"/>
+    
+    <category term="DataStructure" scheme="https://yczlab.gitee.io/tags/DataStructure/"/>
+    
+  </entry>
   
   <entry>
     <title>滑动窗口的最大值</title>
@@ -99,7 +125,7 @@
     <link href="https://yczlab.gitee.io/2021/01/24/Diary-notes/1/"/>
     <id>https://yczlab.gitee.io/2021/01/24/Diary-notes/1/</id>
     <published>2021-01-24T07:40:50.000Z</published>
-    <updated>2021-02-01T11:41:31.828Z</updated>
+    <updated>2021-02-14T12:48:11.022Z</updated>
     
     
     <summary type="html">&lt;p&gt;  &lt;/p&gt;
@@ -397,7 +423,7 @@
     <link href="https://yczlab.gitee.io/2021/01/13/Java-notes/1/"/>
     <id>https://yczlab.gitee.io/2021/01/13/Java-notes/1/</id>
     <published>2021-01-13T02:46:58.000Z</published>
-    <updated>2021-02-03T13:44:07.048Z</updated>
+    <updated>2021-02-14T12:47:09.071Z</updated>
     
     
     <summary type="html">&lt;p&gt;  &lt;/p&gt;
@@ -447,28 +473,6 @@
     <summary type="html">&lt;p&gt;  &lt;/p&gt;
 &lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot; title=&quot;引言：&quot;&gt;&lt;/a&gt;引言：&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;Java中的集合可分为 &lt;strong&gt;Collection&lt;/strong&gt; 和 &lt;strong&gt;Map&lt;/strong&gt; 两种体系。Collection接口：单列数据，定义了存取一组对象的方法的集合。Map接口：双列数据，保存具有映射关系“key-value对”的集合。Java 集合类可以用于&lt;strong&gt;存储数量不等的多个对象&lt;/strong&gt;，还可用于&lt;strong&gt;保存具有映射关系的关联数组&lt;/strong&gt;。Java 集合就像一种&lt;strong&gt;容器&lt;/strong&gt;，可以动态地把多个对象的引用放入容器中。&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Java" scheme="https://yczlab.gitee.io/categories/Java-notes/"/>
-    
-    
-    <category term="Java" scheme="https://yczlab.gitee.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中的注解</title>
-    <link href="https://yczlab.gitee.io/2021/01/09/Java-notes/3/"/>
-    <id>https://yczlab.gitee.io/2021/01/09/Java-notes/3/</id>
-    <published>2021-01-09T04:56:56.000Z</published>
-    <updated>2021-01-09T08:38:22.803Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;  &lt;/p&gt;
-&lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot; title=&quot;引言：&quot;&gt;&lt;/a&gt;引言：&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;从 JDK5.0开始，Java增加了对元数据(MetaData)的支持，也就是Annotation(注解)&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
