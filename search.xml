@@ -12640,7 +12640,7 @@ A intelligent</code></pre>
 <p>假定你想向上移动9行，你可以使用<code>kkkkkkkkk</code>或者你可以直接输入<code>9k</code>。实际上，你可以在很多命令前加上一个数字。例如你可以通过输入<code>a!!!&lt;Esc&gt;</code>在当前光标所在位置后面增加三个感叹号。另一个方法是使用命令<code>3a!&lt;Esc&gt;</code>。计数3要求把后面的命令执行三次。同理<code>3x</code>删除三个字符。<strong>计数总是放在要被处理多次的命令的前面。</strong></p>
 </blockquote>
 <h4 id="6、退出"><a href="#6、退出" class="headerlink" title="6、退出"></a>6、退出</h4><h5 id="保存文件并退出"><a href="#保存文件并退出" class="headerlink" title="保存文件并退出"></a>保存文件并退出</h5><blockquote>
-<p>使用大写的<code>ZZ</code>命令可以退出。这个命令保存当前文件并退出。与其他编辑器不一样，Vim不会自动建立一个备份文件。如果你输入<code>ZZ</code>，你的修改</p>
+<p>使用大写的<code>ZZ</code>命令可以退出。这个命令保存当前文件并退出。与其他编辑器不一样，Vim不会自动建立一个备份文件。如果你输入<code>ZZ</code>，你的修改立即生效并且不能恢复。</p>
 </blockquote>
 <h5 id="放弃修改并退出"><a href="#放弃修改并退出" class="headerlink" title="放弃修改并退出"></a>放弃修改并退出</h5><blockquote>
 <p>有时你会发现做了一系列的修改还不如不修改。Vim有放弃修改并退出的命令，那就是<code>:q!</code>，别忘了按回车使你的命令生效。</p>
