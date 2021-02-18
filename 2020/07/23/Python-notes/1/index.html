@@ -468,7 +468,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-02
+                    2021-02-18
                 </div>
                 
 
@@ -507,9 +507,6 @@
                 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
 <p>这里分享一下YOLOv1网络的Pytorch实现，关于YOLOv1的网络结构，建议还是看一下原论文，因为这里只是介绍代码实现。文中代码均使用了GPU，如果要用CPU尝试，可以将代码中的.cuda()都去掉，但是不建议这么做，因为这个网络还挺大的，CPU很可能跑不动。如有错误，请评论指出，共同进步，谢谢。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41424926/article/details/105383064">https://blog.csdn.net/weixin_41424926/article/details/105383064</a></p>
 </blockquote>
-<a id="more"></a>
-
-
 <h3 id="1、数据处理"><a href="#1、数据处理" class="headerlink" title="1、数据处理"></a>1、数据处理</h3><h4 id="1-1-数据集介绍"><a href="#1-1-数据集介绍" class="headerlink" title="1.1 数据集介绍"></a>1.1 数据集介绍</h4><p>  搭建网络前首先要将原始数据集的数据格式转变为我们方便使用的格式。这里使用的是VOC2012数据集，下载下来有如下五个文件夹：<br><img src="/2020/07/23/Python-notes/1/1.png" alt="image"><br>  Annotations文件夹是存放图片对应的xml文件，比如“2007_000027.xml”存放的是图片2007_000027.jpg对应的信息，用记事本打开可以看到，这是xml格式的数据，里面除了图片的基本信息以外，还有一项&lt; object &gt;类，里面分别存放了类别的名称(&lt; name &gt;)，识别的难易程度(&lt; difficult &gt;)，以及bounding box的坐标信息&lt; bndbox &gt;，这里存放的box信息是以两点式存放，也就是左上角点和右下角点。当然，VOC数据集不只是用于目标检测任务，所以还存放了一些其他信息，比如人体的具体部分(&lt; part &gt;)等，这些就不用关注了。<br><img src="/2020/07/23/Python-notes/1/2.png" alt="image"><br>  ImageSets文件夹里存放了官方为我们划分好的训练集和验证集的txt文件。我们主要使用“ImageSets/Main/“文件夹下的train.txt和val.txt文件，train.txt文件存放了官方划分的训练集的图片名称，val.txt文件存放了验证集图片的名称。<br>  还有一个需要关注的文件夹就是JEPGImages，里面存放了对应图片名称的原始图片。剩下的两个文件夹我们就不需要特别关注了。</p>
 <h4 id="1-2-数据的提取和转换"><a href="#1-2-数据的提取和转换" class="headerlink" title="1.2 数据的提取和转换"></a>1.2 数据的提取和转换</h4><p>  了解数据集后，很明显，我们需要将图片对应的xml文件中bounding box的信息提取出来，并转换为我们需要的(cls,xc,yc,w,h)格式，其中cls是根据物体类别的序号决定的，物体类别排序储存在全局变量CLASSES中。</p>
 <pre class="language-python" data-language="python"><code class="language-python">CLASSES <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'person'</span><span class="token punctuation">,</span> <span class="token string">'bird'</span><span class="token punctuation">,</span> <span class="token string">'cat'</span><span class="token punctuation">,</span> <span class="token string">'cow'</span><span class="token punctuation">,</span> <span class="token string">'dog'</span><span class="token punctuation">,</span> <span class="token string">'horse'</span><span class="token punctuation">,</span> <span class="token string">'sheep'</span><span class="token punctuation">,</span>
@@ -1479,9 +1476,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言：
-有时候使用conda安装环境时，遇到较大的包下载极其缓慢，并且在设置好镜像后还是安装缓慢，这里分享一个离线安装的办法。
-
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1530,8 +1525,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言：
-区域卷积神经网络（region-based CNN或regions with CNN features, R-CNN）是将深度模型应用于目标检测的开创性工作之一。这里将介绍R-CNN和它的一系列改进方法：Fast R-CNN、Fas
+                            
                         
                     </div>
                     <div class="publish-info">

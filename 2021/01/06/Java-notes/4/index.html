@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-06
+                    2021-02-18
                 </div>
                 
 
@@ -511,8 +511,6 @@
 <li>当多条语句在操作同一个线程共享数据时，一个线程对多条语句只执行了一部分，还没有执行完，另一个线程参与进来执行。导致共享数据的错误。</li>
 </ul>
 </blockquote>
-<a id="more"></a>
-
 <p>  三个窗口同时卖票，以下实现可能存在线程的安全问题</p>
 <pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Window1</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">private</span> <span class="token keyword">int</span> ticket <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>
@@ -1305,10 +1303,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              
-引言：
-使用java中的同步机制可以将单例模式中的“懒汉式”改写为线程安全的。而“饿汉式”单例模型本身就是线程安全的。
-
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1357,10 +1352,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              
-引言：
-想要实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的声明周期中通常要经历不同的几种状态。
-
+                            
                         
                     </div>
                     <div class="publish-info">

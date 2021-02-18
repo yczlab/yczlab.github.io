@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-02
+                    2021-02-18
                 </div>
                 
 
@@ -503,8 +503,6 @@
                 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
 <p>有时候使用conda安装环境时，遇到较大的包下载极其缓慢，并且在设置好镜像后还是安装缓慢，这里分享一个离线安装的办法。</p>
 </blockquote>
-<a id="more"></a>
-
 <h3 id="通过其他方法下载所需要的包"><a href="#通过其他方法下载所需要的包" class="headerlink" title="通过其他方法下载所需要的包"></a>通过其他方法下载所需要的包</h3><h4 id="1-通过浏览器下载"><a href="#1-通过浏览器下载" class="headerlink" title="1. 通过浏览器下载"></a>1. 通过浏览器下载</h4><p>  在镜像网站中找到需要的安装包的下载地址（或者通过conda安装时，提示你下载出错的那个网址），比如这个pytorch包的镜像下载地址：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64/pytorch-0.3.1-py27_cuda8.0.61_cudnn7.1.2_3.tar.bz2">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64/pytorch-0.3.1-py27_cuda8.0.61_cudnn7.1.2_3.tar.bz2</a> 有几百兆，通常通过conda安装时会因为网络原因下载错误。那么就可以直接将该网址复制到浏览器中进行下载。下载速度应该是会有提升的，如果还是下载很慢（最近我就是遇到了这样情况），接着往下看。</p>
 <h4 id="2-通过自己的服务器进行下载"><a href="#2-通过自己的服务器进行下载" class="headerlink" title="2. 通过自己的服务器进行下载"></a>2. 通过自己的服务器进行下载</h4><p>  如果通过浏览器下载需要的包，速度还是很慢，那就可以尝试采用通过自己的服务器来进行下载，当然前提是得有自己的服务器。在本地通过<code>ssh</code>命令，使用<code>用户名</code>和<code>密码</code>登录自己的服务器；然后使用<code>wget</code>命令将包下载到自己的服务器上，比如<code>wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/linux-64/pytorch-0.3.1-py27_cuda8.0.61_cudnn7.1.2_3.tar.bz2</code>，这个过程通常不是一般的快（反正我再阿里云服务器上这样操作还挺快的）。这个时候安装包已经下载到你的服务器上了，但是还没有下载到你的本地，接下来在本地通过<code>scp</code>命令将你服务器上的安装包传到你本地来。比如<code>scp username@serverName:/文件路径 本地路径</code>，注意此处的“本地路径”前有空格，具体可以百度一下scp命令，这样就可以将安装包传递到本地了。这两个过程所需要的时间可能比从浏览器直接下载还快，反正我测试的时候就是挺快的。浏览器下载需要大约2小时（我也不知道为啥这么慢，反正就是很不稳定），然而这两个操作（先下载到服务器，再从服务器传递到本地）只需要大于10分钟不到。</p>
 <h3 id="将下载好的包放入指定文件目录下"><a href="#将下载好的包放入指定文件目录下" class="headerlink" title="将下载好的包放入指定文件目录下"></a>将下载好的包放入指定文件目录下</h3><p>  将下载来的安装包复制到Anaconda安装目录中的pkgs子目录中</p>
@@ -1029,9 +1027,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言：
-目标检测中的AP和mAP计算方法,看了几篇相关资料，知乎上一篇文章https://zhuanlan.zhihu.com/p/43068926 写的容易理解，转载以学习，为了方便自己理解。
-
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1084,8 +1080,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言：
-这里分享一下YOLOv1网络的Pytorch实现，关于YOLOv1的网络结构，建议还是看一下原论文，因为这里只是介绍代码实现。文中代码均使用了GPU，如果要用CPU尝试，可以将代码中的.cuda()都去掉，但是不建议这么做，因为这个
+                            
                         
                     </div>
                     <div class="publish-info">

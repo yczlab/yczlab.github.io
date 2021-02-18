@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-20
+                    2021-02-18
                 </div>
                 
 
@@ -503,8 +503,6 @@
                 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
 <p>区域卷积神经网络（region-based CNN或regions with CNN features, R-CNN）是将深度模型应用于目标检测的开创性工作之一。这里将介绍R-CNN和它的一系列改进方法：Fast R-CNN、Faster R-CNN、Mask R-CNN，当然这里只是介绍这些模型的设计思路。</p>
 </blockquote>
-<a id="more"></a>
-
 <h3 id="1、R-CNN"><a href="#1、R-CNN" class="headerlink" title="1、R-CNN"></a>1、R-CNN</h3><p>R-CNN首先是对图像选取若干提议区域（如锚框也是一种选取方法）并标注它们的类别和边界框（如偏移量）。然后，用卷积神经网络对每个提议区域做前向计算抽取特征。之后，我们用每个提议区域的特征预测类别和边界框。<br><img src="/2020/07/20/Diary-notes/1/1.png" alt="R-CNN模型"><br>具体来说，R-CNN主要由以下4步构成:</p>
 <ol>
 <li>对输入图像使用选择性搜索（selective search）来选取多个高质量的提议区域。这些提议区域通常是在多个尺度下选取的，并具有不同的形状和大小。每个提议区域将被标注类别和真实边界框。</li>
@@ -1050,8 +1048,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言：
-这里分享一下YOLOv1网络的Pytorch实现，关于YOLOv1的网络结构，建议还是看一下原论文，因为这里只是介绍代码实现。文中代码均使用了GPU，如果要用CPU尝试，可以将代码中的.cuda()都去掉，但是不建议这么做，因为这个
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1104,9 +1101,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            引言：
-如何在CentOS中安装配置最新版的Nodejs。
-
+                            
                         
                     </div>
                     <div class="publish-info">

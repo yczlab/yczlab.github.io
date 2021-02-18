@@ -472,7 +472,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-04
+                    2021-02-18
                 </div>
                 
 
@@ -512,8 +512,6 @@
 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
 <p>LeetCode中遇到的一道题，记录一下。<br>转自 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/solution/mian-shi-ti-59-i-hua-dong-chuang-kou-de-zui-da-1-6/">求滑动窗口的最大值</a></p>
 </blockquote>
-<a id="more"></a>
-
 <h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>  给定一个数组 nums 和滑动窗口的大小 k，要求找出所有滑动窗口中的最大值。<br><img src="/2021/02/04/Algorithm-notes/1/1.png" alt="示例"><br>(可以假设 k 总是有效的，在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的长度)</p>
 <h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路 1"></a>解题思路 1</h3><p><strong>单调队列</strong><br>  设窗口区间为 [i,j]，最大值为 x<sub>j</sub>。当窗口向前移动一格，则区间变为 [i+1, j+1]，即添加了 nums[j+1]，删除了 nums[i]。若只向窗口 [i,j] 右边添加数字 nums[j+1]，则新窗口最大值可以<strong>通过一次对比</strong>使用O(1)时间得到，即：x<sub>j+1</sub> = max(x<sub>j</sub>, nums[j+1])。但是由于删除的 nums[i] 可能恰好是窗口内唯一的最大值 x<sub>j</sub>，因此不能通过以上方法直接计算 x<sub>j+1</sub>，而必须使用 O(j-i)时间，<strong>遍历整个窗口区间</strong>获取最大值，即：x<sub>j+1</sub> = max(nums[i+1],···,nums[j+1])。<br>  根据以上分析可知，可得<strong>暴力法</strong>的时间复杂度为 O((n-k+1)k)≈O(nk)。①设数组nums的长度为n，则共有(n-k+1)个窗口；②获取每个窗口的最大值需线性遍历，时间复杂度为O(k)。<strong>本题的难点是：如何在每次窗口滑动后，将“获取窗口内最大值”的时间复杂度从O(k)降低至O(1)。会议一下LeetCode中的这道题 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/solution/mian-shi-ti-30-bao-han-minhan-shu-de-zhan-fu-zhu-z/">面试题30. 包含min函数的栈</a>，其使用</strong>单调栈<strong>实现了随意入栈，出栈情况下的 O(1) 时间获取</strong>栈内最小值<strong>。本题同理，不同点在于“出栈操作”删除的是“列表尾部元素”，而“滑动窗口”删除的是“列表首部元素”。<br>  窗口对应的数据结构为</strong>双端队列<strong>，本题使用</strong>单调队列**解决以上问题。遍历数组时，每轮保证单调队列 deque：</p>
 <blockquote>
@@ -1198,10 +1196,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              
-引言：
-关于“并查集”的解释和使用场景网上有很多教程，这里就不在啰嗦了。仅提供代码模板方便知情人快速使用。
-
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -1258,10 +1253,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                              
-引言：
-LeetCode中遇到的一道题，记录一下。转自 求滑动窗口中的中位数
-
+                            
                         
                     </div>
                     <div class="publish-info">
