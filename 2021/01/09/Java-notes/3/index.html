@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.3k
                 </div>
                 
 
@@ -743,10 +743,10 @@
     <span class="token class-name">String</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Generic</span><span class="token operator">&lt;</span><span class="token annotation punctuation">@MyAnnotation</span> <span class="token class-name">T</span><span class="token operator">></span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token annotation punctuation">@MyAnnotation</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">&#123;</span>
-        <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token annotation punctuation">@MyAnnotation</span> <span class="token class-name">String</span><span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token annotation punctuation">@MyAnnotation</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token number">10L</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Generic</span><span class="token operator">&lt;</span><span class="token annotation punctuation">@MyAnnotation</span> <span class="token class-name">T</span><span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token comment">//TYPE_PARAMETER起作用</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token annotation punctuation">@MyAnnotation</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">&#123;</span><span class="token comment">//TYPE_USE起作用</span>
+        <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token annotation punctuation">@MyAnnotation</span> <span class="token class-name">String</span><span class="token operator">></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//TYPE_USE起作用</span>
+        <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token annotation punctuation">@MyAnnotation</span> <span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token number">10L</span><span class="token punctuation">;</span><span class="token comment">//TYPE_USE起作用</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
                 
@@ -1548,7 +1548,7 @@ java中枚举关于枚举类的使用说明
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">149.9k</span>&nbsp;字
+                class="white-color">150.7k</span>&nbsp;字
             
             
             

@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -792,7 +792,7 @@
 </li>
 <li><p>写入list&lt;?&gt;中的元素时，不行。因为我们不知道c的元素类型，我们不能向其中添加对象。但是，唯一的例外是null，它是所有类型的成员。</p>
 <blockquote>
-<p>Collection&lt;?&gt; c = new ArrayList&lt;String&gt;();<br>c.add(new Object());//编译时错误<br>  因为我们并不知道c的元素类型，我们不能像其中添加对象。add方法有类型参数E作为集合的元素类型。我们传给add的任何参数都必须是一个未知类型的子类。因为我们不知道那是什么类型，所以我们无法传任何东西进去。<br>  另一方面，我们可以调用get()方法并使用期返回值。返回值是一个未知的类型，但是我们知道，他总是一个Object</p>
+<p>Collection&lt;?&gt; c = new ArrayList&lt;String&gt;();<br>c.add(new Object());//编译时错误<br>  因为我们并不知道c的元素类型，我们不能向其中添加对象。add方法有类型参数E作为集合的元素类型。我们传给add的任何参数都必须是一个未知类型的子类。因为我们不知道那是什么类型，所以我们无法传任何东西进去。<br>  另一方面，我们可以调用get()方法并使用其返回值。返回值是一个未知的类型，但是我们知道，他总是一个Object</p>
 </blockquote>
 </li>
 <li><p><strong>类A是类B的父类，G&lt;A&gt; 和 G&lt;B&gt;是没有子父类关系的，但二者共同父类是 G&lt;?&gt;</strong></p>
@@ -843,7 +843,7 @@
 <li><p>举例：</p>
 <blockquote>
 <ul>
-<li>&lt;? extends Number&gt; 表示只允许泛型为Number即Number子类的引用调用</li>
+<li>&lt;? extends Number&gt; 表示只允许泛型为Number及Number子类的引用调用</li>
 <li>&lt;? super Number&gt; 表示只允许泛型为Number及Number父类的引用调用</li>
 <li>&lt;? extends Comparable&gt; 表示只允许泛型为实现Comparable接口的实现类调用</li>
 </ul>
@@ -878,10 +878,11 @@
         <span class="token class-name">Object</span> obj <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
         <span class="token comment">//写入数据</span>
-        <span class="token comment">//a.add(new Student());//报错</span>
-        <span class="token comment">//a.add(new Person());//报错</span>
+        <span class="token comment">//a.add(new Student());//报错。将?理解成未知类型，未知类型可能是Student的子类，所以会报错</span>
+        <span class="token comment">//a.add(new Person());//报错。未知类型可能是Student，所以会报错</span>
+        <span class="token comment">//a.add(new Object());//报错。未知类型可能的最大值为Person，所以会报错</span>
 
-        <span class="token comment">//b.add(new Object());//报错</span>
+        <span class="token comment">//b.add(new Object());//报错。未知类型可能为Person，所以会报错</span>
         b<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         b<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
@@ -1690,7 +1691,7 @@ int length()：返回字
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">149.9k</span>&nbsp;字
+                class="white-color">150.7k</span>&nbsp;字
             
             
             

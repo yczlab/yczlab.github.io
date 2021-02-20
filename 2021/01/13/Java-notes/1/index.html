@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    16 分
                 </div>
                 
 
@@ -871,7 +871,71 @@
 <li>default Stream&lt;E&gt; parallelStream()</li>
 </ul>
 </blockquote>
-<h3 id="六、Map接口中的常用方法"><a href="#六、Map接口中的常用方法" class="headerlink" title="六、Map接口中的常用方法"></a>六、Map接口中的常用方法</h3><h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3>
+<h3 id="六、Map接口中的常用方法"><a href="#六、Map接口中的常用方法" class="headerlink" title="六、Map接口中的常用方法"></a>六、Map接口中的常用方法</h3><h3 id="七、Collections工具类"><a href="#七、Collections工具类" class="headerlink" title="七、Collections工具类"></a>七、Collections工具类</h3><p>Collections工具类不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; boolean <strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements)</li>
+</ul>
+</blockquote>
+<p>2.排序</p>
+<p>3.查找，统计</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</li>
+<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c)</li>
+<li>public static int <strong>indexOfSubList</strong>(List<?> source, List<?> target)</li>
+<li>public static int <strong>lastIndexOfSubList</strong>(List<?> source, List<?> target)</li>
+<li>public static int <strong>frequency</strong>(Collection&lt;?&gt; c, Object o)</li>
+<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll)</li>
+<li>public static &lt;T&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll)</li>
+<li>public static &lt;T&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+</ul>
+</blockquote>
+<p>4.替换</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; void <strong>fill</strong>(List&lt;? super T&gt; list, T obj)</li>
+<li>public static &lt;T&gt; boolean <strong>replaceAll</strong>(List&lt;T&gt; list, T oldVal, T newVal)</li>
+</ul>
+</blockquote>
+<p>5.复制</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; void <strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</li>
+</ul>
+</blockquote>
+<p>7.同步控制</p>
+<p>8.返回一个空集合</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>emptyList</strong>()</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>emptySet</strong>()</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>emptyMap</strong>()</li>
+<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>emptySortedSet</strong>()</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>emptySortedMap</strong>()</li>
+<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>emptyEnumeration</strong>()</li>
+<li>public static &lt;T&gt; Iterator&lt;T&gt; <strong>emptyIterator</strong>()</li>
+<li>public static &lt;T&gt; ListIterator&lt;T&gt; <strong>emptyListIterator</strong>()</li>
+<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>emptyNavigableSet</strong>()</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>emptyNavigableMap</strong>()</li>
+</ul>
+</blockquote>
+<p>9.返回一个可进行元素类型检查(添加元素时)的集合，相当于将现有的集合封装成在添加元素时可以进行元素类型检查的集合。</p>
+<blockquote>
+<ul>
+<li>public static &lt;E&gt; Collection&lt;E&gt; <strong>checkedCollection</strong>(Collection&lt;E&gt; c, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; List&lt;E&gt; <strong>checkedList</strong>(List&lt;E&gt; list, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; Set&lt;E&gt; <strong>checkedSet</strong>(Set&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>checkedMap</strong>(Map&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>checkedSortedSet</strong>(SortedSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>checkedSortedMap</strong>(SortedMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;E&gt; Queue&lt;E&gt; <strong>checkedQueue</strong>(Queue&lt;E&gt; queue, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>checkedNavigableSet</strong>(NavigableSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>checkedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m, Class&lt;V&gt; keyType, Class&lt;V&gt; valueType)</li>
+</ul>
+</blockquote>
+<h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3>
                 
             </div>
             <hr/>
@@ -1671,7 +1735,7 @@ Collections工具类可以用来操作Collection，还能用来操作Map。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">149.9k</span>&nbsp;字
+                class="white-color">150.7k</span>&nbsp;字
             
             
             

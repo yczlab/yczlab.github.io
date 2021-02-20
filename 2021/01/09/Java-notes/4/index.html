@@ -464,14 +464,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.7k
+                    9.8k
                 </div>
                 
 
@@ -583,7 +583,7 @@
 <li>Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所有实现了Collection接口的集合类都有一个iterator()方法，用以<strong>返回一个实现了Iterator接口的对象</strong>。</li>
 <li>Iterator 仅用于遍历集合，Iterator <strong>本身并不提供承装对象的能力</strong>。如果需要创建Iterator 对象，则必须有一个被迭代的集合。</li>
 <li>集合对象每次调用iterator()方法都得到一个<strong>全新的迭代器对象</strong>，默认游标都在集合的第一个元素之前。</li>
-<li>内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()。如果<strong>还未调用过next()**或</strong>在上一次调用 next 方法之后已经调用了remove 方法，再调用remove<strong>都会报</strong>IllegalStateException**异常。</li>
+<li>内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()。如果<strong>还未调用过next()**或在上一次调用 next 方法之后已经调用了remove 方法，再调用remove都会报</strong>IllegalStateException**异常。</li>
 <li>在调用it.next()方法之前必须要调用it.hasNext()进行检测。若不调用，且下一条记录无效，直接调用it.next()会抛出<strong>NoSuchElementException</strong>异常。<br><img src="/2021/01/09/Java-notes/4/3.png"><pre class="language-java" data-language="java"><code class="language-java"><span class="token comment">/*Iterator遍历集合的正确使用*/</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">IteratorTest</span> <span class="token punctuation">&#123;</span>
     <span class="token annotation punctuation">@Test</span>
@@ -665,7 +665,7 @@
 </blockquote>
 </li>
 </ol>
-<p>  <strong>注意：</strong>Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合。</p>
+<p>  <strong>注意：</strong>Arrays.asList(T… a) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(T… a) 返回值是一个固定长度的 List 集合，Arrays类中有一个内部类private static class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt; implements RandomAccess, java.io.Serializable。</p>
 <h4 id="1、List接口中的常用方法"><a href="#1、List接口中的常用方法" class="headerlink" title="1、List接口中的常用方法"></a>1、List接口中的常用方法</h4><p>  List除了从Collection集合继承的方法外，List 集合里添加了一些根据索引来操作集合元素的方法。</p>
 <blockquote>
 <ul>
@@ -732,6 +732,7 @@
 <li><strong>void insertElementAt(Object obj,int index)</strong></li>
 <li><strong>void setElementAt(Object obj,int index)</strong></li>
 <li><strong>void removeElement(Object obj)</strong></li>
+<li><strong>void removeElementAt(int index)</strong></li>
 <li><strong>void removeAllElements()</strong></li>
 </ul>
 </blockquote>
@@ -816,9 +817,9 @@
 </ul>
 </blockquote>
 <p>  HashSet 集合判断两个元素相等的标准：<strong>两个对象通过 hashCode() 方法比较相等，并且两个对象的 equals() 方法返回值也相等</strong>。对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Object obj)方法，以实现对象相等规则。即：“<strong>相等的对象必须具有相等的散列码</strong>”。</p>
-<h5 id="向HashSet中添加元素的过程："><a href="#向HashSet中添加元素的过程：" class="headerlink" title="向HashSet中添加元素的过程："></a>向HashSet中添加元素的过程：</h5><p>  当向 HashSet 集合中存入一个元素时，HashSet 会调用该对象的 hashCode() 方法来得到该对象的 hashCode 值，然后根据 hashCode 值，通过某种<strong>散列函数</strong>决定该对象在 HashSet <strong>底层数组</strong>中的存储位置。（这个散列函数会与底层数组的长度相机算得到在数组中的下标，即使：索引位置。并且这种散列函数计算出的位置还尽可能地保证能均匀存储元素，越是散列分布，该散列函数设计得越好）。如果两个元素的 hashCode() 值相等，会继续调用 equals() 方法，如果equals方法结果为true，则添加失败；如果如false，那么会保存该元素，但是该数组的位置上已经有元素了，那么会通过<strong>链表的方式</strong>继续链接。如果两个元素的equals()方法返回true，但是他们的hashCode()返回值不相等，HashSet会将他们存储在不同的位置上，也就是说依然可以添加成功。</p>
+<h5 id="向HashSet中添加元素的过程："><a href="#向HashSet中添加元素的过程：" class="headerlink" title="向HashSet中添加元素的过程："></a>向HashSet中添加元素的过程：</h5><p>  当向 HashSet 集合中存入一个元素时，HashSet 会调用该对象的 hashCode() 方法来得到该对象的 hashCode 值，然后根据 hashCode 值，通过某种<strong>散列函数</strong>决定该对象在 HashSet <strong>底层数组</strong>中的存储位置。（这个散列函数会与底层数组的长度相计算得到在数组中的下标，即使：索引位置。并且这种散列函数计算出的位置还尽可能地保证能均匀存储元素，越是散列分布，该散列函数设计得越好）。如果两个元素的 hashCode() 值相等，会继续调用 equals() 方法，如果equals方法结果为true，则添加失败；如果为false，那么会保存该元素，但是该数组的位置上已经有元素了，那么会通过<strong>链表的方式</strong>继续链接。如果两个元素的equals()方法返回true，但是他们的hashCode()返回值不相等，HashSet会将他们存储在不同的位置上，也就是说依然可以添加成功，这点很重要。</p>
 <blockquote>
-<p>  我们向HashSet中添加元素a时，首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，此哈希值接着通过某种散列算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断：数组此位置上是否已经有元素：</p>
+<p>  我们向HashSet中添加元素a时，首先调用元素a所在类对象的hashCode()方法，计算元素a的哈希值，此哈希值接着通过某种散列算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断：数组此位置上是否已经有元素：</p>
 <blockquote>
 <ul>
 <li>如果此位置上没有其他元素，则元素a添加成功。 —&gt;<strong>情况 ①</strong></li>
@@ -892,8 +893,8 @@
         p1<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"CC"</span><span class="token punctuation">;</span>
         set<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//[Person&#123;id=1002, name='BB'&#125;, Person&#123;id=1001, name='CC'&#125;]</span>
-        set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"CC"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//[Person&#123;id=1002, name='BB'&#125;, Person&#123;id=1001, name='CC'&#125;, Person&#123;id=1001, name='CC'&#125;]</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"CC"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//[Person&#123;id=1002, name='BB'&#125;, Person&#123;id=1001, name='CC'&#125;, Person&#123;id=1001, name='CC'&#125;]</span>
         set<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token string">"AA"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>set<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//[Person&#123;id=1002, name='BB'&#125;, Person&#123;id=1001, name='CC'&#125;, Person&#123;id=1001, name='CC'&#125;, Person&#123;id=1001, name='AA'&#125;]</span>
     <span class="token punctuation">&#125;</span>
@@ -943,7 +944,7 @@
 <li><strong>使用定制排序判断两个元素相等的标准是：通过Comparator比较两个元素返回了0</strong>。</li>
 </ul>
 </blockquote>
-<h3 id="六、Map接口"><a href="#六、Map接口" class="headerlink" title="六、Map接口"></a>六、Map接口</h3><p>  Map与Collection并列存在。用于保存具有<strong>映射关系</strong>的数据对：key-value。Map 中的 key 和 value 都可以是<strong>任何引用类型</strong>的数据。Map 中的 key 用Set来存放，<strong>不允许重复</strong>，即同一个 Map 对象所对应的类，须重写hashCode()和equals()方法。开发中常用String类作为Map的“键”。key 和 value 之间存在单向一对一关系，即通过指定的key 总能找到唯一的、确定的 value。Map接口的常用实现类：<strong>HashMap</strong>、<strong>LinkedHashMap</strong>、<strong>TreeMap</strong>、<strong>HashTable</strong>、<strong>Properties</strong>。其中，<strong>HashMap是 Map 接口使用频率最高的实现类</strong>。</p>
+<h3 id="六、Map接口"><a href="#六、Map接口" class="headerlink" title="六、Map接口"></a>六、Map接口</h3><p>  Map与Collection并列存在。用于保存具有<strong>映射关系</strong>的数据对：key-value。Map 中的 key 和 value 都可以是<strong>任何引用类型</strong>的数据。Map 中的 key 用Set来存放，<strong>不允许重复</strong>，所以key所对应的类，须重写hashCode()和equals()方法。开发中常用String类作为Map的“键”。key 和 value 之间存在单向一对一关系，即通过指定的key 总能找到唯一的、确定的 value。Map接口的常用实现类：<strong>HashMap</strong>、<strong>LinkedHashMap</strong>、<strong>TreeMap</strong>、<strong>HashTable</strong>、<strong>Properties</strong>。其中，<strong>HashMap是 Map 接口使用频率最高的实现类</strong>。</p>
 <blockquote>
 <ul>
 <li><p><strong>HashMap：</strong>作为Map的主要实现类；<strong>线程不安全，效率高</strong>；可以存储null的key和value</p>
@@ -983,6 +984,7 @@
 <p>元素查询的操作：</p>
 <ul>
 <li>Object get(Object key)：获取指定key对应的value</li>
+<li>Object getOrDefault(Object key, Object defaultValue)：获取指定key对应的value，如果不存在该key，则返回指定的默认值</li>
 <li>boolean containsKey(Object key)：是否包含指定的key</li>
 <li>boolean containsValue(Object value)：是否包含指定的value</li>
 <li>int size()：返回map中key-value对的个数</li>
@@ -997,7 +999,7 @@
 </ul>
 <p>总结：</p>
 <blockquote>
-<p>添加：put(Object key,Object value)<br>删除：remove(Object key)<br>修改：put(Object key,Object value)<br>查询：get(Object key)<br>长度：size()<br>遍历：keySet() / values() / entrySet()</p>
+<p>添加：put(Object key,Object value)<br>删除：remove(Object key)<br>修改：put(Object key,Object value)<br>查询：get(Object key) / getOrDefault(Object key, Object defaultValue)<br>长度：size()<br>遍历：keySet() / values() / entrySet()</p>
 </blockquote>
 </blockquote>
 <h4 id="3-Map的遍历-keySet-、values-、entrySet"><a href="#3-Map的遍历-keySet-、values-、entrySet" class="headerlink" title="3. Map的遍历 keySet()、values()、entrySet()"></a>3. Map的遍历 keySet()、values()、entrySet()</h4><blockquote>
@@ -1096,7 +1098,7 @@
 <li>DEFAULT_LOAD_FACTOR：HashMap的默认加载因子 0.75</li>
 <li>TREEIFY_THRESHOLD：Bucket中链表长度大于该默认值 8，转化为红黑树</li>
 <li>UNTREEIFY_THRESHOLD：Bucket中红黑树存储的Node小于该默认值，转化为链表</li>
-<li>MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量 64。（当桶中Node的数量大到需要变红黑树时，若hash表容量小于MIN_TREEIFY_CAPACITY时，此时应执行resize扩容操作这个MIN_TREEIFY_CAPACITY的值至少是TREEIFY_THRESHOLD的4倍。）</li>
+<li>MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量 64。（当桶中Node的数量大到需要变红黑树时，若hash表容量小于MIN_TREEIFY_CAPACITY时，此时应执行resize扩容操作。这个MIN_TREEIFY_CAPACITY的值至少是TREEIFY_THRESHOLD的4倍。）</li>
 <li>table：存储元素的数组，总是2的n次幂</li>
 <li>entrySet：存储具体元素的集</li>
 <li>size：HashMap中存储的键值对的数量</li>
@@ -1105,7 +1107,7 @@
 <li>loadFactor：填充因子</li>
 <li>负载因子的大小，对HashMap有什么影响<blockquote>
 <ul>
-<li>负载因子的大小决定了HashMap的数据密度。</li>
+<li>负载因子的大小<strong>决定了HashMap的数据密度</strong>。</li>
 <li>负载因子越大密度越大，发生碰撞的几率越高，数组中的链表越容易长,造成查询或插入时的比较次数增多，性能会下降。</li>
 <li>负载因子越小，就越容易触发扩容，数据密度也越小，意味着发生碰撞的几率越小，数组中的链表也就越短，查询和插入时比较的次数也越小，性能会更高。但是会浪费一定的内容空间。而且经常扩容也会影响性能，建议初始化预设大一点的空间。</li>
 <li>按照其他语言的参考及研究经验，会考虑将负载因子设置为0.7~0.75，此时平均检索长度接近于常数。</li>
@@ -1114,7 +1116,7 @@
 </li>
 </ul>
 </blockquote>
-<h5 id="向HashMap中添加元素的过程"><a href="#向HashMap中添加元素的过程" class="headerlink" title="向HashMap中添加元素的过程"></a>向HashMap中添加元素的过程</h5><p>  以IDK7为例，向HashMap中添加entry1(key，value)时，向HashMap中添加entry1(key，value)，需要首先计算entry1中key的哈希值(根据key所在类的hashCode()计算得到)，此哈希值经过处理以后，得到在底层Entry[]数组中要存储的位置i。如果位置i上没有元素，则entry1直接添加成功。如果位置i上已经存在entry2(或还有链表存在的entry3，entry4)，则需要通过循环的方法，依次比较entry1中key和其他的entry。如果彼此hash值不同，则直接添加成功。如果hash值相同，继续比较二者是否equals。如果返回值为true，则使用entry1的value去替换equals为true的entry的value。如果遍历一遍以后，发现所有的equals返回都为false,则entry1仍可添加成功。entry1指向原有的entry元素。</p>
+<h5 id="向HashMap中添加元素的过程"><a href="#向HashMap中添加元素的过程" class="headerlink" title="向HashMap中添加元素的过程"></a>向HashMap中添加元素的过程</h5><p>  以IDK7为例，向HashMap中添加entry1(key，value)时，向HashMap中添加entry1(key，value)，需要首先计算entry1中key的哈希值(根据key所在类的hashCode()计算得到)，此哈希值经过处理以后，得到在底层Entry[]数组中要存储的位置i。如果位置i上没有元素，则entry1直接添加成功。如果位置i上已经存在entry2(或还有链表存在的entry3，entry4)，则需要通过循环的方法，依次比较entry1中key和其他的entry。如果彼此hash值不同，则直接添加成功。如果hash值相同，继续比较二者是否equals。如果返回值为true，则使用entry1的value去替换equals为true的entry的value。如果遍历一遍以后，发现所有的equals返回都为false,则entry1仍可添加成功。entry1指向该数组位置上原有的entry元素。</p>
 <blockquote>
 <p>map.put(key1,value1):<br>首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。</p>
 <blockquote>
@@ -2026,7 +2028,7 @@ Annotat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">149.9k</span>&nbsp;字
+                class="white-color">150.7k</span>&nbsp;字
             
             
             
