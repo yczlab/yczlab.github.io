@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-21
                 </div>
                 
 
@@ -581,7 +581,7 @@
 <h4 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h4><p>  上述 Lambda 表达式中的参数类型都是由编译器推断得出的。Lambda表达式中无需指定类型，程序依然可以编译，这是因为 javac 根据程序的上下文，在后台推断出了参数的类型。Lambda 表达式的类型依赖于上下文环境，是由编译器推断出来的。这就是所谓的“类型推断”。</p>
 <h3 id="二、函数式（Functional）接口"><a href="#二、函数式（Functional）接口" class="headerlink" title="二、函数式（Functional）接口"></a>二、函数式（Functional）接口</h3><ol>
 <li><strong>只包含一个抽象方法的接口，称为函数式接口。</strong></li>
-<li>你可以通过 Lambda 表达式来创建该接口的对象。（若 Lambda 表达式抛出一个受检异常(即：非运行时异常)，那么该异常需要在目标接口的抽象方法上进行声明）。</li>
+<li>你可以通过 Lambda 表达式来创建该函数式接口的对象。（若 Lambda 表达式抛出一个受检异常(即：非运行时异常)，那么该异常需要在目标接口的抽象方法上进行声明）。</li>
 <li>我们可以在一个接口上使用 <strong>@FunctionalInterface</strong> 注解，这样做可以检查它是否是一个函数式接口。同时 javadoc 也会包含一条声明，说明这个接口是一个函数式接口。</li>
 <li>在java.util.function包下定义了Java 8 的丰富的函数式接口</li>
 <li>Java从诞生日起就是一直倡导“一切皆对象”，在Java里面面向对象(OOP)编程是一切。但是随着python、scala等语言的兴起和新技术的挑战，Java不得不做出调整以便支持更加广泛的技术要求，也即java不但可以支持OOP还可以支持OOF（面向函数编程）</li>
@@ -685,43 +685,43 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>BiFunction&lt;T,U,R&gt;</td>
+<td><strong>BiFunction&lt;T,U,R&gt;</strong></td>
 <td>T, U</td>
 <td>R</td>
 <td>对类型为 T, U 参数应用操作，返回 R 类型的结果。包含方法为：R apply(T t, U u)</td>
 </tr>
 <tr>
-<td>UnaryOperator&lt;T&gt; (Function子接口)</td>
+<td><strong>UnaryOperator&lt;T&gt;</strong> (Function子接口)</td>
 <td>T</td>
 <td>T</td>
 <td>对类型为T的对象进行一元运算，并返回T类型的结果。包含方法为：T apply(T t)</td>
 </tr>
 <tr>
-<td>BinaryOperator&lt;T&gt; (BiFunction 子接口)</td>
+<td><strong>BinaryOperator&lt;T&gt;</strong> (BiFunction 子接口)</td>
 <td>T, T</td>
 <td>T</td>
 <td>对类型为T的对象进行二元运算，并返回T类型的结果。包含方法为：T apply(T t1, T t2)</td>
 </tr>
 <tr>
-<td>BiConsumer&lt;T,U&gt;</td>
+<td><strong>BiConsumer&lt;T,U&gt;</strong></td>
 <td>T, U</td>
 <td>void</td>
 <td>对类型为T, U 参数应用操作。包含方法为：void accept(T t, U u)</td>
 </tr>
 <tr>
-<td>BiPredicate&lt;T,U&gt;</td>
+<td><strong>BiPredicate&lt;T,U&gt;</strong></td>
 <td>T,U</td>
 <td>boolean</td>
 <td>包含方法为：boolean test(T t, U u)</td>
 </tr>
 <tr>
-<td>ToIntFunction&lt;T&gt; <br> ToLongFunction&lt;T&gt; <br> ToDoubleFunction&lt;T&gt;</td>
+<td><strong>ToIntFunction&lt;T&gt;</strong> <br> <strong>ToLongFunction&lt;T&gt;</strong> <br> <strong>ToDoubleFunction&lt;T&gt;</strong></td>
 <td>T</td>
 <td>int <br> long <br> double</td>
 <td>分别计算int、long、double值的函数</td>
 </tr>
 <tr>
-<td>IntFunction&lt;R&gt; <br> LongFunction&lt;R&gt; <br> DoubleFunction&lt;R&gt;</td>
+<td><strong>IntFunction&lt;R&gt;</strong> <br> <strong>LongFunction&lt;R&gt;</strong> <br> <strong>DoubleFunction&lt;R&gt;</strong></td>
 <td>int <br> long <br> double</td>
 <td>R</td>
 <td>参数分别为int、long、double 类型的函数</td>
@@ -1759,7 +1759,7 @@ KMP算法是一种改进的字符串匹配算法，由D.E.Knuth，J.H.Morris和V
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.7k</span>&nbsp;字
+                class="white-color">150.8k</span>&nbsp;字
             
             
             

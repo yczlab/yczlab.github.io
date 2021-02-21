@@ -1415,7 +1415,7 @@ hexo d</code></pre>
     <url>/2021/01/14/Java-notes/1/</url>
     <content><![CDATA[<p>  </p>
 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
-<p>java.io.File 使用来表示文件和文件目录路径的抽象形式，与平台无关。</p>
+<p>java.io.File 是用来表示文件和文件目录路径的抽象形式，与平台无关。</p>
 </blockquote>
 <ol>
 <li>File 能新建、删除、重命名文件和目录，但是<strong>File不能访问文件内容本身</strong>。如果需要访问文件内容本身，则需要使用<strong>输入/输出流</strong>。</li>
@@ -1490,7 +1490,7 @@ hexo d</code></pre>
 <li><strong>public boolean createNewFile()：</strong>创建文件。若文件存在，则不创建，返回false</li>
 <li><strong>public boolean mkdir()：</strong>创建文件目录。如果此文件目录存在，就不创建了。如果此文件目录的上层目录不存在，也不创建。</li>
 <li><strong>public boolean mkdirs()：</strong>创建文件目录。如果上层文件目录不存在，一并创建</li>
-<li>** 注意事项：**如果你创建文件或者文件目录没有写盘符路径，那么，默认在项目<br>路径下。</li>
+<li><strong>注意事项：</strong>如果你创建文件或者文件目录没有写盘符路径，那么，默认在项目<br>路径下。</li>
 </ul>
 </blockquote>
 </li>
@@ -13930,7 +13930,7 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 <h4 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h4><p>  上述 Lambda 表达式中的参数类型都是由编译器推断得出的。Lambda表达式中无需指定类型，程序依然可以编译，这是因为 javac 根据程序的上下文，在后台推断出了参数的类型。Lambda 表达式的类型依赖于上下文环境，是由编译器推断出来的。这就是所谓的“类型推断”。</p>
 <h3 id="二、函数式（Functional）接口"><a href="#二、函数式（Functional）接口" class="headerlink" title="二、函数式（Functional）接口"></a>二、函数式（Functional）接口</h3><ol>
 <li><strong>只包含一个抽象方法的接口，称为函数式接口。</strong></li>
-<li>你可以通过 Lambda 表达式来创建该接口的对象。（若 Lambda 表达式抛出一个受检异常(即：非运行时异常)，那么该异常需要在目标接口的抽象方法上进行声明）。</li>
+<li>你可以通过 Lambda 表达式来创建该函数式接口的对象。（若 Lambda 表达式抛出一个受检异常(即：非运行时异常)，那么该异常需要在目标接口的抽象方法上进行声明）。</li>
 <li>我们可以在一个接口上使用 <strong>@FunctionalInterface</strong> 注解，这样做可以检查它是否是一个函数式接口。同时 javadoc 也会包含一条声明，说明这个接口是一个函数式接口。</li>
 <li>在java.util.function包下定义了Java 8 的丰富的函数式接口</li>
 <li>Java从诞生日起就是一直倡导“一切皆对象”，在Java里面面向对象(OOP)编程是一切。但是随着python、scala等语言的兴起和新技术的挑战，Java不得不做出调整以便支持更加广泛的技术要求，也即java不但可以支持OOP还可以支持OOF（面向函数编程）</li>
@@ -14034,43 +14034,43 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 </tr>
 </thead>
 <tbody><tr>
-<td>BiFunction&lt;T,U,R&gt;</td>
+<td><strong>BiFunction&lt;T,U,R&gt;</strong></td>
 <td>T, U</td>
 <td>R</td>
 <td>对类型为 T, U 参数应用操作，返回 R 类型的结果。包含方法为：R apply(T t, U u)</td>
 </tr>
 <tr>
-<td>UnaryOperator&lt;T&gt; (Function子接口)</td>
+<td><strong>UnaryOperator&lt;T&gt;</strong> (Function子接口)</td>
 <td>T</td>
 <td>T</td>
 <td>对类型为T的对象进行一元运算，并返回T类型的结果。包含方法为：T apply(T t)</td>
 </tr>
 <tr>
-<td>BinaryOperator&lt;T&gt; (BiFunction 子接口)</td>
+<td><strong>BinaryOperator&lt;T&gt;</strong> (BiFunction 子接口)</td>
 <td>T, T</td>
 <td>T</td>
 <td>对类型为T的对象进行二元运算，并返回T类型的结果。包含方法为：T apply(T t1, T t2)</td>
 </tr>
 <tr>
-<td>BiConsumer&lt;T,U&gt;</td>
+<td><strong>BiConsumer&lt;T,U&gt;</strong></td>
 <td>T, U</td>
 <td>void</td>
 <td>对类型为T, U 参数应用操作。包含方法为：void accept(T t, U u)</td>
 </tr>
 <tr>
-<td>BiPredicate&lt;T,U&gt;</td>
+<td><strong>BiPredicate&lt;T,U&gt;</strong></td>
 <td>T,U</td>
 <td>boolean</td>
 <td>包含方法为：boolean test(T t, U u)</td>
 </tr>
 <tr>
-<td>ToIntFunction&lt;T&gt; <br> ToLongFunction&lt;T&gt; <br> ToDoubleFunction&lt;T&gt;</td>
+<td><strong>ToIntFunction&lt;T&gt;</strong> <br> <strong>ToLongFunction&lt;T&gt;</strong> <br> <strong>ToDoubleFunction&lt;T&gt;</strong></td>
 <td>T</td>
 <td>int <br> long <br> double</td>
 <td>分别计算int、long、double值的函数</td>
 </tr>
 <tr>
-<td>IntFunction&lt;R&gt; <br> LongFunction&lt;R&gt; <br> DoubleFunction&lt;R&gt;</td>
+<td><strong>IntFunction&lt;R&gt;</strong> <br> <strong>LongFunction&lt;R&gt;</strong> <br> <strong>DoubleFunction&lt;R&gt;</strong></td>
 <td>int <br> long <br> double</td>
 <td>R</td>
 <td>参数分别为int、long、double 类型的函数</td>
@@ -14354,7 +14354,7 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 <h4 id="2、通过数组"><a href="#2、通过数组" class="headerlink" title="2、通过数组"></a>2、通过数组</h4><p>Java8 中的 Arrays 的静态方法 stream() 可以获取数组流：</p>
 <blockquote>
 <ul>
-<li>**static &lt;T&gt; Stream&lt;T&gt; stream(T[] array): **返回一个流</li>
+<li><strong>static &lt;T&gt; Stream&lt;T&gt; stream(T[] array)：</strong>返回一个流</li>
 </ul>
 <p>重载形式，能够处理对应基本类型的数组：</p>
 <blockquote>
@@ -14675,14 +14675,14 @@ mysql<span class="token operator">></span>select host,user from user<span class=
     <span class="token comment">// sorted(Comparator com) —— 定制排序</span>
     <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> employees <span class="token operator">=</span> <span class="token class-name">EmployeeData</span><span class="token punctuation">.</span><span class="token function">getEmployees</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     employees<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> ageValue <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ageValue <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>ageValue <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">return</span> <span class="token operator">-</span><span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> ageValue<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="五、Stream-的终止操作"><a href="#五、Stream-的终止操作" class="headerlink" title="五、Stream 的终止操作"></a>五、Stream 的终止操作</h3><p>  终端操作会从流的流水线生成结果。其结果可以是任何不是流的值，例如：List、Integer，甚至是 void 。流进行了终止操作后，不能再次使用。</p>
+<h3 id="五、Stream-的终止操作"><a href="#五、Stream-的终止操作" class="headerlink" title="五、Stream 的终止操作"></a>五、Stream 的终止操作</h3><p>  终端操作会从流的流水线生成结果。其结果可以是任何不是流的值，例如：List、Integer，甚至是 void 。<strong>流进行了终止操作后，不能再次使用</strong>。</p>
 <h4 id="1、匹配与查找"><a href="#1、匹配与查找" class="headerlink" title="1、匹配与查找"></a>1、匹配与查找</h4><table>
 <thead>
 <tr>
@@ -14755,7 +14755,7 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 <td>将流转换为其他形式。接收一个 Collector接口的实现，用于给Stream中元素做汇总的方法</td>
 </tr>
 </tbody></table>
-<p>  Collector 接口中方法的实现决定了如何对流执行收集的操作(如收集到 List、Set、<br>Map)。另外， Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例，具体方法与实例如下表：</p>
+<p>  Collector 接口中方法的实现决定了如何对流执行收集的操作(如收集到 List、Set、Map)。另外， Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例，具体方法与实例如下表：</p>
 <table>
 <thead>
 <tr>
@@ -14787,17 +14787,17 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 <tr>
 <td>summingInt</td>
 <td>Integer</td>
-<td>对流中元素的整数属性求和</td>
+<td>对流中元素的整数(Integer)属性求和</td>
 </tr>
 <tr>
 <td>averagingInt</td>
 <td>Double</td>
-<td>计算流中元素Integer属性的平均值</td>
+<td>对流中元素的整数(Integer)属性求平均</td>
 </tr>
 <tr>
 <td>summarizingInt</td>
 <td>IntSummaryStatistics</td>
-<td>收集流中Integer属性的统计值。如：平均值</td>
+<td>收集流中整数(Integer)属性的统计值。如：平均值、和、个数、最大值、最小值等</td>
 </tr>
 <tr>
 <td>joining</td>
@@ -14895,13 +14895,13 @@ mysql<span class="token operator">></span>select host,user from user<span class=
     <span class="token comment">/* 2-归约 */</span>
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token comment">// reduce(T identity, BinaryOperator) —— 可以将流中元素反复结合起来，得到一个值。返回 T</span>
+        <span class="token comment">// reduce(T identity, BinaryOperator op) —— 可以将流中元素反复结合起来，得到一个值。返回 T</span>
         <span class="token comment">/*练习1：计算1-10的自然数的和*/</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">Integer</span> sum <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">sum</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment">// reduce(BinaryOperator) —— 可以将流中元素反复结合起来，得到一个值。返回 Optional&lt;T></span>
+        <span class="token comment">// reduce(BinaryOperator op) —— 可以将流中元素反复结合起来，得到一个值。返回 Optional&lt;T></span>
         <span class="token comment">/*练习2：计算公司所有员工工资的总和*/</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> employees <span class="token operator">=</span> <span class="token class-name">EmployeeData</span><span class="token punctuation">.</span><span class="token function">getEmployees</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">></span></span> salaryStream <span class="token operator">=</span> employees<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">Employee</span><span class="token operator">::</span><span class="token function">getSalary</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -15072,7 +15072,7 @@ mysql<span class="token operator">></span>select host,user from user<span class=
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <h3 id="二、Class类的理解"><a href="#二、Class类的理解" class="headerlink" title="二、Class类的理解"></a>二、Class类的理解</h3><h4 id="1、Class类"><a href="#1、Class类" class="headerlink" title="1、Class类"></a>1、Class类</h4><ol>
-<li>在Object类中定义了一下的方法，此方法将被所有的子类继承：public final Class getClass()</li>
+<li>在Object类中定义了以下的方法，此方法将被所有的子类继承：public final Class getClass()</li>
 <li>以上的方法返回值的类型是一个Class类，此类是Java反射的源头，实际上所谓反射从程序的运行结果来看也很好理解，即：可以通过对象反射求出类的名称。</li>
 <li>通过反射可以得到的信息：某个类的属性、方法和构造器、某个类到底实现了哪些接口。对于每个类而言，JRE都为其保留了一个不变的Class类型的对象。一个Class对象包含了特定某个结构（class/interface/enum/annotation/primitive type/void/[]）的有关信息。<blockquote>
 <ul>
@@ -15240,10 +15240,10 @@ mysql<span class="token operator">></span>select host,user from user<span class=
         <span class="token comment">//调用扩展类加载器的getParent()：无法获取引导类加载器</span>
         <span class="token comment">//引导类加载器主要负责加载java的核心类库，无法加载自定义类的。</span>
         <span class="token class-name">ClassLoader</span> classLoader2 <span class="token operator">=</span> classLoader1<span class="token punctuation">.</span><span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
 
         <span class="token class-name">ClassLoader</span> classLoader3 <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader3<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
     <span class="token punctuation">&#125;</span>
 
     <span class="token annotation punctuation">@Test</span>
@@ -15258,7 +15258,7 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 
         <span class="token comment">//3.获取扩展类加载器的父类加载器，即引导类加载器</span>
         classLoader <span class="token operator">=</span> classLoader<span class="token punctuation">.</span><span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
 
         <span class="token comment">//4.测试当前类由哪个类加载器进行加载</span>
         classLoader <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"ClassLoaderTest"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -15266,7 +15266,7 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 
         <span class="token comment">//5.测试JDK提供的Object类由哪个类加载器加载</span>
         classLoader <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"java.lang.Object"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
 
         <span class="token comment">//6. 关于类加载器的一个主要方法：getResourceAsStream(String str)：获取类路径下的指定文件的输入流</span>
         <span class="token class-name">InputStream</span> in <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -17942,7 +17942,7 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
 <li>void write(byte[] b / char[] cbuf)</li>
 <li>void writer(byte[] b / char[] cbuf, int off, int len)</li>
 <li>void flush() 刷新</li>
-<li>void close() 关闭，需要先刷新，在关闭</li>
+<li>void close() 关闭，需要先刷新，再关闭</li>
 </ul>
 </blockquote>
 </li>
@@ -17962,7 +17962,7 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
 <li><strong>void write(int b)：</strong>将指定的字节写入此输出流。write 的常规协定是：向输出流写入一个字节。要写入的字节是参数 b 的八个低位。b 的 24 个高位将被忽略。即写入0~255范围的。</li>
 <li><strong>void write(byte[] b)：</strong>将 b.length 个字节从指定的 byte 数组写入此输出流。write(b) 的常规协定是：应该与调用 write(b, 0, b.length) 的效果完全相同。</li>
 <li><strong>void write(byte[] b, int off, int len)：</strong>将指定 byte 数组中从偏移量 off 开始的 len 个字节写入此输出流。</li>
-<li><strong>public void flush() throws IOException：</strong>刷新此输出流并强制写出所有缓冲的输出字节，调用此方法指示应将这些字节立即写入它们预期的目标。</li>
+<li><strong>public void flush() throws IOException：</strong>刷新此输出流并强制写出所有缓冲的输出字节，调用此方法表示应将这些字节立即写入它们预期的目标。</li>
 <li><strong>public void close() throws IOException：</strong>关闭此输出字节流并释放与该流关联的所有系统资源。</li>
 </ul>
 </blockquote>
@@ -18302,7 +18302,7 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
     <span class="token punctuation">&#125;</span>
 
     <span class="token comment">//指定路径下文件的复制</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">copyFile</span><span class="token punctuation">(</span><span class="token class-name">String</span> srcPath<span class="token punctuation">,</span><span class="token class-name">String</span> destPath<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">copyFile</span><span class="token punctuation">(</span><span class="token class-name">String</span> srcPath<span class="token punctuation">,</span> <span class="token class-name">String</span> destPath<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token class-name">FileInputStream</span> fis <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token class-name">FileOutputStream</span> fos <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
@@ -18515,7 +18515,7 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
     <span class="token punctuation">&#125;</span>
 
     <span class="token comment">//实现文件复制的方法</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">copyFileWithBuffered</span><span class="token punctuation">(</span><span class="token class-name">String</span> srcPath<span class="token punctuation">,</span><span class="token class-name">String</span> destPath<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">copyFileWithBuffered</span><span class="token punctuation">(</span><span class="token class-name">String</span> srcPath<span class="token punctuation">,</span> <span class="token class-name">String</span> destPath<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
         <span class="token class-name">BufferedInputStream</span> bis <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
         <span class="token class-name">BufferedOutputStream</span> bos <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
@@ -18649,7 +18649,7 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
 <li><p>字符集</p>
 <blockquote>
 <ul>
-<li>ASCII：美国标准信息交换码。（用一个字节的7为可以表示）</li>
+<li>ASCII：美国标准信息交换码。（用一个字节的7位可以表示）</li>
 <li>ISO8859-1：拉丁码表。欧洲码表。（用一个字节的8为表示）</li>
 <li>GB2312：中国的中文编码表。（最多两个字节编码所有字符）</li>
 <li>GBK：中国的中文编码表升级，融合了更多的中文文字符号。（最多两个字节编码）</li>
@@ -18899,7 +18899,7 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <h3 id="十、处理流之六：对象流"><a href="#十、处理流之六：对象流" class="headerlink" title="十、处理流之六：对象流"></a>十、处理流之六：对象流</h3><ol>
-<li>用于<strong>存储</strong>和<strong>读取**</strong>基本数据类型数据<strong>或</strong>对象**的处理流。它的强大之处就是可以把Java中的对象写入到数据源中，也能把对象从数据源中还原回来。</li>
+<li>用于<strong>存储</strong>和<strong>读取</strong> <strong>基本数据类型数据</strong>或<strong>对象</strong>的处理流。它的强大之处就是可以把Java中的对象写入到数据源中，也能把对象从数据源中还原回来。</li>
 <li>对象流有两个类：<strong>ObjectInputStream</strong> 和 <strong>OjbectOutputSteam</strong></li>
 <li><strong>序列化：</strong>用ObjectOutputStream类<strong>保存</strong>基本类型数据或对象的机制</li>
 <li><strong>反序列化：</strong>用ObjectInputStream类<strong>读取</strong>基本类型数据或对象的机制</li>
@@ -19136,9 +19136,15 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
 <p>用于操作内容</p>
 <ul>
 <li>SeekableByteChannel newByteChannel(Path path, OpenOption…how)：获取与指定文件的连接，how 指定打开方式。</li>
-<li>DirectoryStream<Path> newDirectoryStream(Path path)：打开 path： 指定的目录</Path></li>
-<li>InputStream newInputStream(Path path, OpenOption…how)：获取 InputStream 对象</li>
-<li>OutputStream newOutputStream(Path path, OpenOption…how)：获取 OutputStream 对象</li>
+<li>InputStream <strong>newInputStream</strong>(Path path, OpenOption…how)：获取 InputStream 对象</li>
+<li>OutputStream <strong>newOutputStream</strong>(Path path, OpenOption…how)：获取 OutputStream 对象</li>
+<li>BufferedReader <strong>newBufferedReader</strong>(Path path)</li>
+<li>BufferedReader <strong>newBufferedReader</strong>(Path path, Charset cs)</li>
+<li>BufferedWriter <strong>newBufferedWriter</strong>(Path path, OpenOption… options)</li>
+<li>BufferedWriter <strong>newBufferedWriter</strong>(Path path, Charset cs, OpenOption… options)</li>
+<li>DirectoryStream&lt;Path&gt; newDirectoryStream(Path dir)：打开dir指定的目录</li>
+<li>DirectoryStream&lt;Path&gt; newDirectoryStream(Path dir, String glob)</li>
+<li>DirectoryStream&lt;Path&gt; newDirectoryStream(Path dir, DirectoryStream.Filter&lt;? super Path&gt; filter)</li>
 </ul>
 </blockquote>
 </li>

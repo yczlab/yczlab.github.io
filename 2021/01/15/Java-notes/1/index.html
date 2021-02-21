@@ -464,14 +464,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.1k
                 </div>
                 
 
@@ -636,7 +636,7 @@
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
 <h3 id="二、Class类的理解"><a href="#二、Class类的理解" class="headerlink" title="二、Class类的理解"></a>二、Class类的理解</h3><h4 id="1、Class类"><a href="#1、Class类" class="headerlink" title="1、Class类"></a>1、Class类</h4><ol>
-<li>在Object类中定义了一下的方法，此方法将被所有的子类继承：public final Class getClass()</li>
+<li>在Object类中定义了以下的方法，此方法将被所有的子类继承：public final Class getClass()</li>
 <li>以上的方法返回值的类型是一个Class类，此类是Java反射的源头，实际上所谓反射从程序的运行结果来看也很好理解，即：可以通过对象反射求出类的名称。</li>
 <li>通过反射可以得到的信息：某个类的属性、方法和构造器、某个类到底实现了哪些接口。对于每个类而言，JRE都为其保留了一个不变的Class类型的对象。一个Class对象包含了特定某个结构（class/interface/enum/annotation/primitive type/void/[]）的有关信息。<blockquote>
 <ul>
@@ -804,10 +804,10 @@
         <span class="token comment">//调用扩展类加载器的getParent()：无法获取引导类加载器</span>
         <span class="token comment">//引导类加载器主要负责加载java的核心类库，无法加载自定义类的。</span>
         <span class="token class-name">ClassLoader</span> classLoader2 <span class="token operator">=</span> classLoader1<span class="token punctuation">.</span><span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
 
         <span class="token class-name">ClassLoader</span> classLoader3 <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader3<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
     <span class="token punctuation">&#125;</span>
 
     <span class="token annotation punctuation">@Test</span>
@@ -822,7 +822,7 @@
 
         <span class="token comment">//3.获取扩展类加载器的父类加载器，即引导类加载器</span>
         classLoader <span class="token operator">=</span> classLoader<span class="token punctuation">.</span><span class="token function">getParent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
 
         <span class="token comment">//4.测试当前类由哪个类加载器进行加载</span>
         classLoader <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"ClassLoaderTest"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -830,7 +830,7 @@
 
         <span class="token comment">//5.测试JDK提供的Object类由哪个类加载器加载</span>
         classLoader <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"java.lang.Object"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>classLoader<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//null</span>
 
         <span class="token comment">//6. 关于类加载器的一个主要方法：getResourceAsStream(String str)：获取类路径下的指定文件的输入流</span>
         <span class="token class-name">InputStream</span> in <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
@@ -1888,7 +1888,7 @@ I/O是Input/Output的缩写，I/O技术是非常实用的技术，用于处理�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.7k</span>&nbsp;字
+                class="white-color">150.8k</span>&nbsp;字
             
             
             

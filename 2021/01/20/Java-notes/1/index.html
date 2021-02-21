@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-02-21
                 </div>
                 
 
@@ -543,7 +543,7 @@
 <h4 id="2、通过数组"><a href="#2、通过数组" class="headerlink" title="2、通过数组"></a>2、通过数组</h4><p>Java8 中的 Arrays 的静态方法 stream() 可以获取数组流：</p>
 <blockquote>
 <ul>
-<li>**static &lt;T&gt; Stream&lt;T&gt; stream(T[] array): **返回一个流</li>
+<li><strong>static &lt;T&gt; Stream&lt;T&gt; stream(T[] array)：</strong>返回一个流</li>
 </ul>
 <p>重载形式，能够处理对应基本类型的数组：</p>
 <blockquote>
@@ -864,14 +864,14 @@
     <span class="token comment">// sorted(Comparator com) —— 定制排序</span>
     <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> employees <span class="token operator">=</span> <span class="token class-name">EmployeeData</span><span class="token punctuation">.</span><span class="token function">getEmployees</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     employees<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sorted</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">int</span> ageValue <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ageValue <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">if</span> <span class="token punctuation">(</span>ageValue <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
             <span class="token keyword">return</span> <span class="token operator">-</span><span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>e1<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e2<span class="token punctuation">.</span><span class="token function">getSalary</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">&#125;</span>
         <span class="token keyword">return</span> ageValue<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token operator">::</span><span class="token function">println</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="五、Stream-的终止操作"><a href="#五、Stream-的终止操作" class="headerlink" title="五、Stream 的终止操作"></a>五、Stream 的终止操作</h3><p>  终端操作会从流的流水线生成结果。其结果可以是任何不是流的值，例如：List、Integer，甚至是 void 。流进行了终止操作后，不能再次使用。</p>
+<h3 id="五、Stream-的终止操作"><a href="#五、Stream-的终止操作" class="headerlink" title="五、Stream 的终止操作"></a>五、Stream 的终止操作</h3><p>  终端操作会从流的流水线生成结果。其结果可以是任何不是流的值，例如：List、Integer，甚至是 void 。<strong>流进行了终止操作后，不能再次使用</strong>。</p>
 <h4 id="1、匹配与查找"><a href="#1、匹配与查找" class="headerlink" title="1、匹配与查找"></a>1、匹配与查找</h4><table>
 <thead>
 <tr>
@@ -944,7 +944,7 @@
 <td>将流转换为其他形式。接收一个 Collector接口的实现，用于给Stream中元素做汇总的方法</td>
 </tr>
 </tbody></table>
-<p>  Collector 接口中方法的实现决定了如何对流执行收集的操作(如收集到 List、Set、<br>Map)。另外， Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例，具体方法与实例如下表：</p>
+<p>  Collector 接口中方法的实现决定了如何对流执行收集的操作(如收集到 List、Set、Map)。另外， Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例，具体方法与实例如下表：</p>
 <table>
 <thead>
 <tr>
@@ -976,17 +976,17 @@
 <tr>
 <td>summingInt</td>
 <td>Integer</td>
-<td>对流中元素的整数属性求和</td>
+<td>对流中元素的整数(Integer)属性求和</td>
 </tr>
 <tr>
 <td>averagingInt</td>
 <td>Double</td>
-<td>计算流中元素Integer属性的平均值</td>
+<td>对流中元素的整数(Integer)属性求平均</td>
 </tr>
 <tr>
 <td>summarizingInt</td>
 <td>IntSummaryStatistics</td>
-<td>收集流中Integer属性的统计值。如：平均值</td>
+<td>收集流中整数(Integer)属性的统计值。如：平均值、和、个数、最大值、最小值等</td>
 </tr>
 <tr>
 <td>joining</td>
@@ -1084,13 +1084,13 @@
     <span class="token comment">/* 2-归约 */</span>
     <span class="token annotation punctuation">@Test</span>
     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token comment">// reduce(T identity, BinaryOperator) —— 可以将流中元素反复结合起来，得到一个值。返回 T</span>
+        <span class="token comment">// reduce(T identity, BinaryOperator op) —— 可以将流中元素反复结合起来，得到一个值。返回 T</span>
         <span class="token comment">/*练习1：计算1-10的自然数的和*/</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Integer</span><span class="token punctuation">></span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">Integer</span> sum <span class="token operator">=</span> list<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token operator">::</span><span class="token function">sum</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment">// reduce(BinaryOperator) —— 可以将流中元素反复结合起来，得到一个值。返回 Optional&lt;T></span>
+        <span class="token comment">// reduce(BinaryOperator op) —— 可以将流中元素反复结合起来，得到一个值。返回 Optional&lt;T></span>
         <span class="token comment">/*练习2：计算公司所有员工工资的总和*/</span>
         <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Employee</span><span class="token punctuation">></span></span> employees <span class="token operator">=</span> <span class="token class-name">EmployeeData</span><span class="token punctuation">.</span><span class="token function">getEmployees</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Double</span><span class="token punctuation">></span></span> salaryStream <span class="token operator">=</span> employees<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token class-name">Employee</span><span class="token operator">::</span><span class="token function">getSalary</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1912,7 +1912,7 @@ Java 8 (又称为 jdk 1.8) 是 Java 语言开发的一个主要版本。Java 8 �
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.7k</span>&nbsp;字
+                class="white-color">150.8k</span>&nbsp;字
             
             
             
