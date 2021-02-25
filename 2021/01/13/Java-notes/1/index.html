@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -871,13 +871,22 @@
 <li>default Stream&lt;E&gt; parallelStream()</li>
 </ul>
 </blockquote>
-<h3 id="六、Map接口中的常用方法"><a href="#六、Map接口中的常用方法" class="headerlink" title="六、Map接口中的常用方法"></a>六、Map接口中的常用方法</h3><h3 id="七、Collections工具类"><a href="#七、Collections工具类" class="headerlink" title="七、Collections工具类"></a>七、Collections工具类</h3><p>Collections工具类不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
+<h3 id="六、Map接口中的常用方法"><a href="#六、Map接口中的常用方法" class="headerlink" title="六、Map接口中的常用方法"></a>六、Map接口中的常用方法</h3><h3 id="七、Collections工具类"><a href="#七、Collections工具类" class="headerlink" title="七、Collections工具类"></a>七、Collections工具类</h3><p>Collections工具类提供了很多静态方法。不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
 <blockquote>
 <ul>
 <li>public static &lt;T&gt; boolean <strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements)</li>
 </ul>
 </blockquote>
 <p>2.排序</p>
+<blockquote>
+<ul>
+<li>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void <strong>sort</strong>(List&lt;T&gt; list)：自然排序</li>
+<li>public static &lt;T&gt; vois <strong>sort</strong>(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)：定制排序</li>
+<li><strong>reverse</strong>()</li>
+<li><strong>suffle</strong>()</li>
+<li><strong>swap</strong>()</li>
+</ul>
+</blockquote>
 <p>3.查找，统计</p>
 <blockquote>
 <ul>
@@ -890,6 +899,7 @@
 <li>public static &lt;T&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
 <li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll)</li>
 <li>public static &lt;T&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+<li>public static <strong>disjoint</strong>(Collection<?> c1, Collection<?> c2)：如果两个集合没有相同的集合，则返回 true</li>
 </ul>
 </blockquote>
 <p>4.替换</p>
@@ -903,6 +913,7 @@
 <blockquote>
 <ul>
 <li>public static &lt;T&gt; void <strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>nCopies</strong>(int n, T o)：将 o 复制 n 份，形成不可变 list 并返回</li>
 </ul>
 </blockquote>
 <p>7.同步控制</p>
@@ -932,7 +943,14 @@
 <li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>checkedSortedMap</strong>(SortedMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
 <li>public static &lt;E&gt; Queue&lt;E&gt; <strong>checkedQueue</strong>(Queue&lt;E&gt; queue, Class&lt;E&gt; type)</li>
 <li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>checkedNavigableSet</strong>(NavigableSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
-<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>checkedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m, Class&lt;V&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>checkedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+</ul>
+</blockquote>
+<p>10.其他</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>enumeration</strong>(Collection&lt;T&gt; c)</li>
+<li>public static &lt;E&gt; Set&lt;E&gt; <strong>newSetFromMap</strong>(Map&lt;E,Boolean&gt; map)：提供一个和 Map 实现相对应的Set实现</li>
 </ul>
 </blockquote>
 <h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3>
@@ -1735,7 +1753,7 @@ Collections工具类可以用来操作Collection，还能用来操作Map。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">150.8k</span>&nbsp;字
+                class="white-color">150.9k</span>&nbsp;字
             
             
             
