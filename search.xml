@@ -12638,7 +12638,8 @@ A intelligent</code></pre>
 <blockquote>
 <ul>
 <li>insert(num)：将一个数 num 加入该数据结构中</li>
-<li>erase(num)：将一个数 num 移除该数据结构<br>getMedian()：返回当前数据结构中所有数的中位数</li>
+<li>erase(num)：将一个数 num 移除该数据结构</li>
+<li>getMedian()：返回当前数据结构中所有数的中位数</li>
 </ul>
 </blockquote>
 <p>  我们可以使用两个优先队列(堆)维护窗口内的所有元素，第一个优先队列 small 是一个大根对堆，它负责维护所有元素中较小的那一半；第二个优先队列 large 是一个小根堆，它负责维护所有元素中较大的那一半。具体地，如果当前需要维护的元素个数为 x，那么 samll 中维护了 ⌈x/2⌉ 个元素，large 中维护了 ⌊x/2⌋ 个元素，其中⌈y⌉和⌊y⌋分别表示将 y 向上取整和向下取整。也就是说：<strong>samll 中的元素个数要么与 large 中的元素个数相同，要么比 large 中的元素个数恰好多 1 个</strong>。这样设计的好处在于：当二者包含的元素个数相同时，它们各自的堆顶元素的平均值即为中位数；而当 small 包含的元素多了一个时，small 的堆顶元素即为中位数。这样 getMedian() 就设计完成了。<br>  而对于 insert(num) 而言，如果当前两个优先队列都为空，那么根据元素个数的要求，我们必须将这个元素加入 small（显然不会存在 samll 空而 large 非空的情况）；如果 samll 非空，我们就可以将 num 与 samll 的堆顶元素top比较：</p>
@@ -12818,7 +12819,7 @@ A intelligent</code></pre>
 <p>LeetCode中遇到的一道题，记录一下。<br>转自 <a href="https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/solution/mian-shi-ti-59-i-hua-dong-chuang-kou-de-zui-da-1-6/">求滑动窗口的最大值</a></p>
 </blockquote>
 <h3 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h3><p>  给定一个数组 nums 和滑动窗口的大小 k，要求找出所有滑动窗口中的最大值。<br><img src="/2021/02/04/Algorithm-notes/1/1.png" alt="示例"><br>(可以假设 k 总是有效的，在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的长度)</p>
-<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路 1"></a>解题思路 1</h3><p><strong>单调队列</strong><br>  设窗口区间为 [i,j]，最大值为 x<sub>j</sub>。当窗口向前移动一格，则区间变为 [i+1, j+1]，即添加了 nums[j+1]，删除了 nums[i]。若只向窗口 [i,j] 右边添加数字 nums[j+1]，则新窗口最大值可以<strong>通过一次对比</strong>使用O(1)时间得到，即：x<sub>j+1</sub> = max(x<sub>j</sub>, nums[j+1])。但是由于删除的 nums[i] 可能恰好是窗口内唯一的最大值 x<sub>j</sub>，因此不能通过以上方法直接计算 x<sub>j+1</sub>，而必须使用 O(j-i)时间，<strong>遍历整个窗口区间</strong>获取最大值，即：x<sub>j+1</sub> = max(nums[i+1],···,nums[j+1])。<br>  根据以上分析可知，可得<strong>暴力法</strong>的时间复杂度为 O((n-k+1)k)≈O(nk)。①设数组nums的长度为n，则共有(n-k+1)个窗口；②获取每个窗口的最大值需线性遍历，时间复杂度为O(k)。<strong>本题的难点是：如何在每次窗口滑动后，将“获取窗口内最大值”的时间复杂度从O(k)降低至O(1)。会议一下LeetCode中的这道题 <a href="https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/solution/mian-shi-ti-30-bao-han-minhan-shu-de-zhan-fu-zhu-z/">面试题30. 包含min函数的栈</a>，其使用</strong>单调栈<strong>实现了随意入栈，出栈情况下的 O(1) 时间获取</strong>栈内最小值<strong>。本题同理，不同点在于“出栈操作”删除的是“列表尾部元素”，而“滑动窗口”删除的是“列表首部元素”。<br>  窗口对应的数据结构为</strong>双端队列<strong>，本题使用</strong>单调队列**解决以上问题。遍历数组时，每轮保证单调队列 deque：</p>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路 1"></a>解题思路 1</h3><p><strong>单调队列</strong><br>  设窗口区间为 [i,j]，最大值为 x<sub>j</sub>。当窗口向前移动一格，则区间变为 [i+1, j+1]，即添加了 nums[j+1]，删除了 nums[i]。若只向窗口 [i,j] 右边添加数字 nums[j+1]，则新窗口最大值可以<strong>通过一次对比</strong>使用O(1)时间得到，即：x<sub>j+1</sub> = max(x<sub>j</sub>, nums[j+1])。但是由于删除的 nums[i] 可能恰好是窗口内唯一的最大值 x<sub>j</sub>，因此不能通过以上方法直接计算 x<sub>j+1</sub>，而必须使用 O(j-i)时间，<strong>遍历整个窗口区间</strong>获取最大值，即：x<sub>j+1</sub> = max(nums[i+1],···,nums[j+1])。<br>  根据以上分析可知，可得<strong>暴力法</strong>的时间复杂度为 O((n-k+1)k)≈O(nk)。①设数组nums的长度为n，则共有(n-k+1)个窗口；②获取每个窗口的最大值需线性遍历，时间复杂度为O(k)。<strong>本题的难点是：如何在每次窗口滑动后，将“获取窗口内最大值”的时间复杂度从O(k)降低至O(1)。</strong>回忆一下LeetCode中的这道题 <a href="https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/solution/mian-shi-ti-30-bao-han-minhan-shu-de-zhan-fu-zhu-z/">面试题30. 包含min函数的栈</a>，其使用<strong>单调栈</strong>实现了<strong>随意入栈，出栈情况下的 O(1) 时间获取栈内最小值</strong>。本题同理，不同点在于“出栈操作”删除的是“列表尾部元素”，而“滑动窗口”删除的是“列表首部元素”。<br>  窗口对应的数据结构为<strong>双端队列</strong>，本题使用<strong>单调队列</strong>解决以上问题。遍历数组时，每轮保证单调队列 deque：</p>
 <blockquote>
 <ul>
 <li>deque 内<strong>仅包含窗口内的元素</strong> ⇒ 每轮窗口滑动移除了元素 nums[i]，需将 deque 内的对应元素一起删除。</li>
@@ -15472,10 +15473,13 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 <blockquote>
 <ul>
 <li>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void <strong>sort</strong>(List&lt;T&gt; list)：自然排序</li>
-<li>public static &lt;T&gt; vois <strong>sort</strong>(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)：定制排序</li>
-<li><strong>reverse</strong>()</li>
-<li><strong>suffle</strong>()</li>
-<li><strong>swap</strong>()</li>
+<li>public static &lt;T&gt; void <strong>sort</strong>(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)：定制排序</li>
+<li>public static void <strong>reverse</strong>(List&lt;?&gt; list)：逆序</li>
+<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>()：返回一个与自然排序逆序的比较器，要求泛型T需实现Comparabale接口。</li>
+<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>(Comparator&lt;T&gt; cmp)：返回一个与指定比较器逆序的比较器。</li>
+<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list)：每次打乱的顺序都不一样</li>
+<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list, Random rnd)：每次打乱的顺序一样</li>
+<li>public static void <strong>swap</strong>(List&lt;?&gt; int i, int j)：交换对应位置的元素</li>
 </ul>
 </blockquote>
 <p>3.查找，统计</p>
@@ -19173,6 +19177,84 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二进制状态压缩枚举子集</title>
+    <url>/2021/02/27/Algorithm-notes/1/</url>
+    <content><![CDATA[<p>  </p>
+<h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
+<p>二进制数可以用来表示一个状态，比如当我们需要去表示一个集合的子集时，可以用二进制数来表示该子集。</p>
+</blockquote>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>  比如有一个集合，集合中的元素为 {1, 5, 7, 9, 12}，如何快速找到其所有的子集合呢。这就可以采用二进制来压缩该集合，并枚举其所有的子集合状态。</p>
+<h3 id="方法一：先二进制压缩，再枚举"><a href="#方法一：先二进制压缩，再枚举" class="headerlink" title="方法一：先二进制压缩，再枚举"></a>方法一：先二进制压缩，再枚举</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BinaryStateEnumTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> set <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> binary <span class="token operator">=</span> <span class="token number">0b100101010001</span><span class="token punctuation">;</span><span class="token comment">//12位二进制数。将该集合压缩成一个二进制数。该二进制数从右往左非零元素所在位置对应set中的数</span>
+
+        <span class="token keyword">int</span> status <span class="token operator">=</span> binary<span class="token punctuation">;</span><span class="token comment">//最多只有 2^set.length 种状态，每个状态对应一个set的子集</span>
+        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBinaryString</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            status <span class="token operator">=</span> <span class="token punctuation">(</span>status <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> binary<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>status <span class="token operator">!=</span> binary<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//枚举状态包括0，即0b000000000000</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"*******************************"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">do</span> <span class="token punctuation">&#123;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBinaryString</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            status <span class="token operator">=</span> <span class="token punctuation">(</span>status <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> binary<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>status <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//枚举状态不包括0</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token function">getBinaryString</span><span class="token punctuation">(</span><span class="token keyword">int</span> number<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//保证输出长度为12位</span>
+        <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toBinaryString</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span> sb<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="方法二：直接二进制枚举"><a href="#方法二：直接二进制枚举" class="headerlink" title="方法二：直接二进制枚举"></a>方法二：直接二进制枚举</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BinaryStateEnumTest</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> set <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> length <span class="token operator">=</span> set<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+
+        <span class="token comment">//枚举其子集状态</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> status <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    status <span class="token operator">|=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> set<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//最多左移11位，所以是一个12位二进制</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token comment">//status是一个12位二进制数表示的状态</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBinaryString</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//枚举状态包括0，即0b000000000000</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"*********************"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> status <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>i <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    status <span class="token operator">|=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> set<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token function">getBinaryString</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//枚举状态不包括0</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> <span class="token function">getBinaryString</span><span class="token punctuation">(</span><span class="token keyword">int</span> number<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token comment">//保证输出长度为5位</span>
+        <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toBinaryString</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">)</span> sb<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Algorithm</tag>
+        <tag>DataStructure</tag>
       </tags>
   </entry>
 </search>
