@@ -19270,4 +19270,31 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
         <tag>Java</tag>
       </tags>
   </entry>
+  <entry>
+    <title>快速排序模板</title>
+    <url>/2021/03/03/Algorithm-notes/1/</url>
+    <content><![CDATA[<p>  </p>
+<h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
+<p>快速排序由于排序效率在同为O(N*logN)的几种排序方法中效率较高，因此经常被采用。</p>
+</blockquote>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>  快速排序算法经常被采用，而且快速排序也采用了分治的思想，因此很多软件公司的笔试面试，包括像腾讯，微软等知名IT公司都喜欢考这个，还有大大小的程序方面的考试如软考，考研中也常常出现快速排序的身影。<br>  总的说来，要直接默写出快速排序还是有一定难度的，以下为快速排序的模板，希望对大家快速上手有帮助，达到快速排序，快速搞定的效果。</p>
+<blockquote>
+<p>该方法的基本思想是：</p>
+<ul>
+<li>先从数列中取出一个数作为基准数。</li>
+<li>分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。</li>
+<li>再对左右区间重复第二步，直到各区间只有一个数。</li>
+</ul>
+</blockquote>
+<h3 id="模板一"><a href="#模板一" class="headerlink" title="模板一"></a>模板一</h3><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="模板二"><a href="#模板二" class="headerlink" title="模板二"></a>模板二</h3><pre class="language-java" data-language="java"><code class="language-java"></code></pre>]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Algorithm</tag>
+        <tag>DataStructure</tag>
+      </tags>
+  </entry>
 </search>
