@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-18
+                    2021-03-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    578
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    8 分
                 </div>
                 
 
@@ -504,28 +504,117 @@
 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
 <p>Collections工具类可以用来操作Collection，还能用来操作Map。</p>
 </blockquote>
-<p>  Collections 中提供了一系列静态的方法对集合元素进行<strong>排序、查询和修改等操作</strong>，还提供了对集合对象设置不可变、对集合对象实现同步控制等方法。功能还是比较强大。</p>
-<h3 id="排序操作：（均为static方法）"><a href="#排序操作：（均为static方法）" class="headerlink" title="排序操作：（均为static方法）"></a>排序操作：（均为static方法）</h3><blockquote>
+<p>  Collections 中提供了一系列<strong>静态的方法</strong>对集合元素进行<strong>排序、查询、修改、复制等操作</strong>，还提供了对集合对象设置不可变、对集合对象实现同步控制、返回空集合、检测集合元素类型等方法。功能还是比较强大。</p>
+<p><strong>1. 添加元素</strong></p>
+<blockquote>
 <ul>
-<li><strong>reverse(List)：</strong>反转 List 中元素的顺序。Set本来就是无序的，没必要翻转Set</li>
-<li><strong>shuffle(List)：</strong>对 List 集合元素进行随机排序</li>
-<li><strong>sort(List)：</strong>根据元素的自然顺序对指定 List 集合元素按升序排序</li>
-<li><strong>sort(List，Comparator)：</strong>根据指定的 Comparator 产生的顺序对 List 集合元素进行排序</li>
-<li>swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换</li>
+<li>public static &lt;T&gt; boolean <strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements)</li>
 </ul>
 </blockquote>
-<h3 id="查找、替换"><a href="#查找、替换" class="headerlink" title="查找、替换"></a>查找、替换</h3><blockquote>
+<p><strong>2. 排序</strong></p>
+<blockquote>
 <ul>
-<li><strong>Object max(Collection)：</strong>根据元素的自然顺序，返回给定集合中的最大元素</li>
-<li><strong>Object max(Collection，Comparator)：</strong>根据 Comparator 指定的顺序，返回给定集合中的最大元素</li>
-<li><strong>Object min(Collection)</strong></li>
-<li><strong>Object min(Collection，Comparator)</strong></li>
-<li><strong>int frequency(Collection，Object)：</strong>返回指定集合中指定元素的出现次数</li>
-<li><strong>void copy(List dest, List src)：</strong>将src中的内容复制到dest中</li>
-<li><strong>boolean replaceAll(List list，Object oldVal，Object newVal)：</strong>使用新值替换List 对象的所有旧值</li>
+<li>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void <strong>sort</strong>(List&lt;T&gt; list)：自然排序</li>
+<li>public static &lt;T&gt; void <strong>sort</strong>(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)：定制排序</li>
+<li>public static void <strong>reverse</strong>(List&lt;?&gt; list)：逆序</li>
+<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>()：返回一个与自然排序逆序的比较器，要求泛型T需实现Comparabale接口。</li>
+<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>(Comparator&lt;T&gt; cmp)：返回一个与指定比较器逆序的比较器。</li>
+<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list)：每次打乱的顺序都不一样</li>
+<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list, Random rnd)：每次打乱的顺序一样</li>
+<li>public static void <strong>swap</strong>(List&lt;?&gt; int i, int j)：交换对应位置的元素</li>
 </ul>
 </blockquote>
-<h3 id="同步控制"><a href="#同步控制" class="headerlink" title="同步控制"></a>同步控制</h3><p>Collections 类中提供了多个 synchronizedXxx() 方法，该方法可使将指定集合包装成线程同步的集合，从而可以解决多线程并发访问集合时的线程安全问题。<br><img src="/2021/01/11/Java-notes/1/1.png" alt="Collections常用方法之同步控制"></p>
+<p><strong>3. 查找，统计</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</li>
+<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c)</li>
+<li>public static int <strong>indexOfSubList</strong>(List<?> source, List<?> target)</li>
+<li>public static int <strong>lastIndexOfSubList</strong>(List<?> source, List<?> target)</li>
+<li>public static int <strong>frequency</strong>(Collection&lt;?&gt; c, Object o)</li>
+<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll)</li>
+<li>public static &lt;T&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll)</li>
+<li>public static &lt;T&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+<li>public static <strong>disjoint</strong>(Collection<?> c1, Collection<?> c2)：如果两个集合没有相同的集合，则返回 true</li>
+</ul>
+</blockquote>
+<p><strong>4. 替换</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; void <strong>fill</strong>(List&lt;? super T&gt; list, T obj)</li>
+<li>public static &lt;T&gt; boolean <strong>replaceAll</strong>(List&lt;T&gt; list, T oldVal, T newVal)</li>
+</ul>
+</blockquote>
+<p><strong>5. 复制</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; void <strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>nCopies</strong>(int n, T o)：将 o 复制 n 份，形成不可变 list 并返回</li>
+</ul>
+</blockquote>
+<p><strong>6. 同步控制(返回线程安全的集合)。Collections工具类提供了多个 synchronizedXxx() 方法，这些方法可以将指定集合包装成线程同步的集合，从而可以解决多线程并发访问集合时的线程安全问题。我们知道Vector是线程安全的，ArrayList是线程不安全的，但是往往ArrayList的执行效率比Vector高，所以可以使用以下方法将ArrayList包装成线程安全的List。</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Collection&lt;T&gt; <strong>synchronizedCollection</strong>(Collection&lt;T&gt; c)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>synchronizedList</strong>(List&lt;T&gt; list)</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>synchronizedSet</strong>(Set&lt;T&gt; s)</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>synchronizedMap</strong>(Map&lt;K,V&gt; m)</li>
+<li>public static &lt;T&gt; SortedSet&lt;T&gt; <strong>synchronizedSortedSet</strong>(SortedSet&lt;T&gt; s)</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>synchronizedSortedMap</strong>(SortedMap&lt;K,V&gt; m)</li>
+<li>public static &lt;T&gt; NavigableSet&lt;T&gt; <strong>synchronizedNavigableSet</strong>(NavigableSet&lt;T&gt; s)</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>synchronizedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m)</li>
+</ul>
+</blockquote>
+<p><strong>7. 返回一个空集合</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>emptyList</strong>()</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>emptySet</strong>()</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>emptyMap</strong>()</li>
+<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>emptySortedSet</strong>()</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>emptySortedMap</strong>()</li>
+<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>emptyEnumeration</strong>()</li>
+<li>public static &lt;T&gt; Iterator&lt;T&gt; <strong>emptyIterator</strong>()</li>
+<li>public static &lt;T&gt; ListIterator&lt;T&gt; <strong>emptyListIterator</strong>()</li>
+<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>emptyNavigableSet</strong>()</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>emptyNavigableMap</strong>()</li>
+</ul>
+</blockquote>
+<p><strong>8. 返回一个可进行元素类型检查(添加元素时)的集合，相当于将现有的集合封装成在添加元素时可以进行元素类型检查的集合。</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;E&gt; Collection&lt;E&gt; <strong>checkedCollection</strong>(Collection&lt;E&gt; c, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; List&lt;E&gt; <strong>checkedList</strong>(List&lt;E&gt; list, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; Set&lt;E&gt; <strong>checkedSet</strong>(Set&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>checkedMap</strong>(Map&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>checkedSortedSet</strong>(SortedSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>checkedSortedMap</strong>(SortedMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;E&gt; Queue&lt;E&gt; <strong>checkedQueue</strong>(Queue&lt;E&gt; queue, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>checkedNavigableSet</strong>(NavigableSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>checkedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+</ul>
+</blockquote>
+<p><strong>9. 创建只读，不可改变的集合</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Collection&lt;T&gt; <strong>unmodifiableCollection</strong>(Collection&lt;? extends T&gt; c)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>unmodifiableList</strong>(List&lt;? extends T&gt; list)</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>unmodifiableSet</strong>(Set&lt;? extends T&gt; s)</li>
+<li>public static &lt;K, V&gt; Map&lt;K, V&gt; <strong>unmodifiableMap</strong>(Map&lt;? extends K, ? extends V&gt; m)</li>
+<li>public static &lt;T&gt; SortedSet&lt;T&gt; <strong>unmodifiableSortedSet</strong>(SortedSet&lt;T&gt; s)</li>
+<li>public static &lt;K, V&gt; SortedMap&lt;K, V&gt; <strong>unmodifiableSortedMap</strong>(SortedMap&lt;K, ? extends V&gt; m)</li>
+<li>public static &lt;T&gt; NavigableSet&lt;T&gt; <strong>unmodifiableNavigableSet</strong>(NavigableSet&lt;T&gt; s)</li>
+<li>public static &lt;K, V&gt; NavigableMap&lt;K, V&gt; <strong>unmodifiableNavigableMap</strong>(NavigableMap&lt;K, ? extends V&gt; m)</li>
+</ul>
+</blockquote>
+<p><strong>10. 其他</strong></p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>enumeration</strong>(Collection&lt;T&gt; c)</li>
+<li>public static &lt;E&gt; Set&lt;E&gt; <strong>newSetFromMap</strong>(Map&lt;E,Boolean&gt; map)：提供一个和 Map 实现相对应的Set实现</li>
+</ul>
+</blockquote>
 <h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CollectionsTest</span> <span class="token punctuation">&#123;</span>
 
     <span class="token annotation punctuation">@Test</span>
@@ -1377,7 +1466,7 @@ Java中的集合可分为 Collection 和 Map 两种体系。Collection接口：�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">153.7k</span>&nbsp;字
+                class="white-color">154.9k</span>&nbsp;字
             
             
             
