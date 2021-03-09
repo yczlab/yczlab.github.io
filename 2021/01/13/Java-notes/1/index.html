@@ -471,14 +471,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.7k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    22 分
                 </div>
                 
 
@@ -552,7 +552,27 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="二、String类"><a href="#二、String类" class="headerlink" title="二、String类"></a>二、String类</h3><ol>
+<h3 id="二、Objects工具类"><a href="#二、Objects工具类" class="headerlink" title="二、Objects工具类"></a>二、Objects工具类</h3><blockquote>
+<ul>
+<li>public static &lt;T&gt; int <strong>compare(T a, T b, Comparator&lt;? super T&gt; c)</strong></li>
+<li>public static boolean **deepEquals(Object a, Objetc b)**：可以深度比较两个数组是否相等</li>
+<li>public static boolean <strong>equals(Object a, Objetc b)</strong></li>
+<li>public static int <strong>hash(Object… values)</strong></li>
+<li>public static int <strong>hashCode(Object o)</strong></li>
+<li>public static boolean <strong>isNull(Objetc obj)</strong></li>
+<li>public static boolean <strong>nonNull(Object obj)</strong></li>
+<li>public static &lt;T&gt; T <strong>requireNonNull(T obj)</strong></li>
+<li>public static &lt;T&gt; T **requireNonNull(T obj, String message)**：抛出带指定消息异常</li>
+<li>public static &lt;T&gt; T **requireNonNull(T obj, Supplier&lt;String&gt; messageSupplier)**：抛出带指定消息异常</li>
+<li>public static &lt;T&gt; T <strong>requireNonNullElse(T obj, T defaultObj)</strong></li>
+<li>public static &lt;T&gt; T <strong>requireNonNullElseGet(T obj, Supplier&lt;? extends T&gt; supplier)</strong></li>
+<li>public static String <strong>toString(Object o)</strong></li>
+<li>public static String <strong>toString(Object o, String nullDefault)</strong></li>
+<li>public static int **checkFromToIndex(int fromIndex, int toIndex, int length)**：判断 [fromIndex, toIndex) 是否在 [0, length) 中</li>
+<li>public static int **checkFromIndexSize(int fromIndex, int size, int length)**：判断 [fromIndex, fromIndex + size) 是否在 [0, length) 中</li>
+</ul>
+</blockquote>
+<h3 id="三、String类"><a href="#三、String类" class="headerlink" title="三、String类"></a>三、String类</h3><ol>
 <li>int length()：返回字符串的长度：return value.length</li>
 </ol>
 <hr>
@@ -679,7 +699,7 @@
 <li>String(byte[] bytes, int offset, int count, Charset charset)：指定字符集</li>
 <li>String(byte[] bytes, int offset, int count, String charsetName)：指定字符集</li>
 </ol>
-<h3 id="三、StringBuffer-线程安全-、StringBuilder类"><a href="#三、StringBuffer-线程安全-、StringBuilder类" class="headerlink" title="三、StringBuffer(线程安全)、StringBuilder类"></a>三、StringBuffer(线程安全)、StringBuilder类</h3><ol>
+<h3 id="四、StringBuffer-线程安全-、StringBuilder类"><a href="#四、StringBuffer-线程安全-、StringBuilder类" class="headerlink" title="四、StringBuffer(线程安全)、StringBuilder类"></a>四、StringBuffer(线程安全)、StringBuilder类</h3><ol>
 <li><p>字符串拼接</p>
 <blockquote>
 <ul>
@@ -765,7 +785,7 @@
 </blockquote>
 </li>
 </ol>
-<h3 id="四、Collection-lt-E-gt-接口中的通用方法"><a href="#四、Collection-lt-E-gt-接口中的通用方法" class="headerlink" title="四、Collection&lt;E&gt;接口中的通用方法"></a>四、Collection&lt;E&gt;接口中的通用方法</h3><p>  注意，Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)实现。集合Collection中存储的如果是自定义类的对象，需要自定义类重写equals()方法，因为在调用equals()和contains()等方法时会用到。JDK 5.0增加了泛型，若未指定泛型 E 的具体类型，则默认为Object类型。</p>
+<h3 id="五、Collection-lt-E-gt-接口中的通用方法"><a href="#五、Collection-lt-E-gt-接口中的通用方法" class="headerlink" title="五、Collection&lt;E&gt;接口中的通用方法"></a>五、Collection&lt;E&gt;接口中的通用方法</h3><p>  注意，Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)实现。集合Collection中存储的如果是自定义类的对象，需要自定义类重写equals()方法，因为在调用equals()和contains()等方法时会用到。JDK 5.0增加了泛型，若未指定泛型 E 的具体类型，则默认为Object类型。</p>
 <ol>
 <li>添加元素<blockquote>
 <ul>
@@ -831,7 +851,7 @@
 </blockquote>
 </li>
 </ol>
-<h3 id="五、List-lt-E-gt-接口中的通用方法"><a href="#五、List-lt-E-gt-接口中的通用方法" class="headerlink" title="五、List&lt;E&gt;接口中的通用方法"></a>五、List&lt;E&gt;接口中的通用方法</h3><p><strong>List除了从Collection集合中继承的方法外，还多了一些根据索引来操作集合元素的方法。因为我们知道List中存放的数据是有序的。</strong></p>
+<h3 id="六、List-lt-E-gt-接口中的通用方法"><a href="#六、List-lt-E-gt-接口中的通用方法" class="headerlink" title="六、List&lt;E&gt;接口中的通用方法"></a>六、List&lt;E&gt;接口中的通用方法</h3><p><strong>List除了从Collection集合中继承的方法外，还多了一些根据索引来操作集合元素的方法。因为我们知道List中存放的数据是有序的。</strong></p>
 <p><strong>在Collection接口中就具有的方法：</strong></p>
 <blockquote>
 <ul>
@@ -895,7 +915,7 @@
 <blockquote>
 <p>增：add(Object o) / addAll(Collection c)<br>删：remove(Object o) / remove(int index) / removeAll(Collection c)<br>改：set(int index, Object obj) / repalceAll(UnaryOperator&lt;E&gt; operator)<br>取：get(int index)<br>查：indexOf(Object o) / lastIndexOf(Object o)<br>插：add(int index, Object o) / addAll(int index, Collection c)<br>长度：size()<br>遍历：①Iterator迭代器；②增强For循环；③普通循环(因为其具有索引)；④forEach方法；⑤利用stream()方法转换成流后，再使用forEach()方法。</p>
 </blockquote>
-<h3 id="六、Set接口中的通用方法"><a href="#六、Set接口中的通用方法" class="headerlink" title="六、Set接口中的通用方法"></a>六、Set接口中的通用方法</h3><p>  Set 接口是Collection接口的另一个子接口，没有提供额外的方法，其使用的都是Collection中声明过的方法。</p>
+<h3 id="七、Set接口中的通用方法"><a href="#七、Set接口中的通用方法" class="headerlink" title="七、Set接口中的通用方法"></a>七、Set接口中的通用方法</h3><p>  Set 接口是Collection接口的另一个子接口，没有提供额外的方法，其使用的都是Collection中声明过的方法。</p>
 <blockquote>
 <ul>
 <li>boolean add(E e)</li>
@@ -919,7 +939,7 @@
 <li>default Stream&lt;E&gt; parallelStream()</li>
 </ul>
 </blockquote>
-<h3 id="七、Map接口中的常用方法"><a href="#七、Map接口中的常用方法" class="headerlink" title="七、Map接口中的常用方法"></a>七、Map接口中的常用方法</h3><h3 id="八、Collections工具类"><a href="#八、Collections工具类" class="headerlink" title="八、Collections工具类"></a>八、Collections工具类</h3><p>Collections工具类提供了很多静态方法。不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
+<h3 id="八、Map接口中的常用方法"><a href="#八、Map接口中的常用方法" class="headerlink" title="八、Map接口中的常用方法"></a>八、Map接口中的常用方法</h3><h3 id="九、Collections工具类"><a href="#九、Collections工具类" class="headerlink" title="九、Collections工具类"></a>九、Collections工具类</h3><p>Collections工具类提供了很多静态方法。不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
 <blockquote>
 <ul>
 <li>public static &lt;T&gt; boolean <strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements)</li>
@@ -1829,7 +1849,7 @@ Collections工具类可以用来操作Collection，还能用来操作Map。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">155.4k</span>&nbsp;字
+                class="white-color">155.6k</span>&nbsp;字
             
             
             
