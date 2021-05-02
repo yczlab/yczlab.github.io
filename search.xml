@@ -19610,4 +19610,91 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
         <tag>Java</tag>
       </tags>
   </entry>
+  <entry>
+    <title>十大经典排序算法</title>
+    <url>/2021/05/02/Algorithm-notes/1/</url>
+    <content><![CDATA[<p>  </p>
+<h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
+<p>排序算法是《数据结构与算法》中最基本的算法之一。这里对十大经典的排序算法做一下解释说明。不知道的道友可以来这里扫下盲。转自“菜鸟教程”。</p>
+</blockquote>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>  排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等。用下图来概括:</p>
+<p><strong>“冒选插希归快堆、计数、基数、桶”</strong><br><img src="/2021/05/02/Algorithm-notes/1/1.png"><br><strong>名词解释：</strong></p>
+<ul>
+<li>n：数据规模</li>
+<li>k：”桶”的个数</li>
+<li>In-place：占用常数内存，不占用额外内存</li>
+<li>Out-place：占用额外内存</li>
+<li>稳定性：排序后 2 个相等键值的顺序和排序之前它们的顺序相同</li>
+</ul>
+<p><img src="/2021/05/02/Algorithm-notes/1/2.png"></p>
+<p><strong>平方阶 O(n<sup>2</sup>) 排序 各类简单排序：</strong>直接插入、直接选择和冒泡排序。<br><strong>线性对数阶 O(nlog<sub>2</sub>n)) 排序：</strong> 快速排序、堆排序和归并排。<br><strong>O(n1+§)) 排序，§ 是介于 0 和 1 之间的常数：</strong> 希尔排序。<br><strong>线性阶 O(n) 排序：</strong> 基数排序，此外还有桶、箱排序。<br><strong>稳定的排序算法：</strong>冒泡排序、插入排序、归并排序和基数排序。<br><strong>不稳定的排序算法：</strong>选择排序、快速排序、希尔排序、堆排序。</p>
+<h3 id="一、冒泡排序"><a href="#一、冒泡排序" class="headerlink" title="一、冒泡排序"></a>一、冒泡排序</h3><p>  冒泡排序（Bubble Sort）也是一种简单直观的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢”浮”到数列的顶端。<br>  作为最简单的排序算法之一，冒泡排序给我的感觉就像 Abandon 在单词书里出现的感觉一样，每次都在第一页第一位，所以最熟悉。冒泡排序还有一种优化算法，就是立一个 flag，当在一趟序列遍历中元素没有发生交换，则证明该序列已经有序。但这种改进对于提升性能来说，并没有什么太大作用。</p>
+<h4 id="1、算法步骤"><a href="#1、算法步骤" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><ul>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ul>
+<h4 id="2、动画演示"><a href="#2、动画演示" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><p><img src="/2021/05/02/Algorithm-notes/1/1.gif"></p>
+<h4 id="3、java代码示例"><a href="#3、java代码示例" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">bubbleSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sourceArray<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>sourceArray<span class="token punctuation">,</span> sourceArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">boolean</span> flag <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//标记。若为true，则表示此次循环没有进行交换</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+                flag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="二、选择排序"><a href="#二、选择排序" class="headerlink" title="二、选择排序"></a>二、选择排序</h3><p>  选择排序是一种简单直观的排序算法，无论什么数据进去都是 O(n<sup>2</sup>) 的时间复杂度。所以用到它的时候，数据规模越小越好。唯一的好处可能就是不占用额外的内存空间了吧。</p>
+<h4 id="1、算法步骤-1"><a href="#1、算法步骤-1" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><ul>
+<li>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。</li>
+<li>再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</li>
+<li>重复第二步，直到所有元素均排序完毕。</li>
+</ul>
+<h4 id="2、动画演示-1"><a href="#2、动画演示-1" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><p><img src="/2021/05/02/Algorithm-notes/1/2.gif"></p>
+<h4 id="3、java代码示例-1"><a href="#3、java代码示例-1" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">selectionSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sourceArray<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>sourceArray<span class="token punctuation">,</span> sourceArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 总共要经过 N-1 轮比较</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> min <span class="token operator">=</span> i<span class="token punctuation">;</span>
+
+        <span class="token comment">// 每轮需要比较的次数 N-i</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                min <span class="token operator">=</span> j<span class="token punctuation">;</span> <span class="token comment">// 记录目前能找到的最小值元素的下标</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// 将找到的最小值和i位置所在的值进行交换</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">!=</span> min<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>min<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="三、插入排序"><a href="#三、插入排序" class="headerlink" title="三、插入排序"></a>三、插入排序</h3><h4 id="1、算法步骤-2"><a href="#1、算法步骤-2" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-2"><a href="#2、动画演示-2" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-2"><a href="#3、java代码示例-2" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="四、希尔排序"><a href="#四、希尔排序" class="headerlink" title="四、希尔排序"></a>四、希尔排序</h3><h4 id="1、算法步骤-3"><a href="#1、算法步骤-3" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-3"><a href="#2、动画演示-3" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-3"><a href="#3、java代码示例-3" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="五、并归排序"><a href="#五、并归排序" class="headerlink" title="五、并归排序"></a>五、并归排序</h3><h4 id="1、算法步骤-4"><a href="#1、算法步骤-4" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-4"><a href="#2、动画演示-4" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-4"><a href="#3、java代码示例-4" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="六、快速排序"><a href="#六、快速排序" class="headerlink" title="六、快速排序"></a>六、快速排序</h3><h4 id="1、算法步骤-5"><a href="#1、算法步骤-5" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-5"><a href="#2、动画演示-5" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-5"><a href="#3、java代码示例-5" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="七、堆排序"><a href="#七、堆排序" class="headerlink" title="七、堆排序"></a>七、堆排序</h3><h3 id="八、计数排序"><a href="#八、计数排序" class="headerlink" title="八、计数排序"></a>八、计数排序</h3><h3 id="九、桶排序"><a href="#九、桶排序" class="headerlink" title="九、桶排序"></a>九、桶排序</h3><h3 id="十、基数排序"><a href="#十、基数排序" class="headerlink" title="十、基数排序"></a>十、基数排序</h3>]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Algorithm</tag>
+        <tag>DataStructure</tag>
+      </tags>
+  </entry>
 </search>
