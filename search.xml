@@ -19683,10 +19683,64 @@ uint <span class="token function">parse_2</span><span class="token punctuation">
     <span class="token punctuation">&#125;</span>
     <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<h3 id="三、插入排序"><a href="#三、插入排序" class="headerlink" title="三、插入排序"></a>三、插入排序</h3><h4 id="1、算法步骤-2"><a href="#1、算法步骤-2" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-2"><a href="#2、动画演示-2" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-2"><a href="#3、java代码示例-2" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
-<h3 id="四、希尔排序"><a href="#四、希尔排序" class="headerlink" title="四、希尔排序"></a>四、希尔排序</h3><h4 id="1、算法步骤-3"><a href="#1、算法步骤-3" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-3"><a href="#2、动画演示-3" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-3"><a href="#3、java代码示例-3" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
-<h3 id="五、并归排序"><a href="#五、并归排序" class="headerlink" title="五、并归排序"></a>五、并归排序</h3><h4 id="1、算法步骤-4"><a href="#1、算法步骤-4" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-4"><a href="#2、动画演示-4" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-4"><a href="#3、java代码示例-4" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
-<h3 id="六、快速排序"><a href="#六、快速排序" class="headerlink" title="六、快速排序"></a>六、快速排序</h3><h4 id="1、算法步骤-5"><a href="#1、算法步骤-5" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-5"><a href="#2、动画演示-5" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><h4 id="3、java代码示例-5"><a href="#3、java代码示例-5" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="三、插入排序"><a href="#三、插入排序" class="headerlink" title="三、插入排序"></a>三、插入排序</h3><p>  插入排序的代码实现虽然没有冒泡排序和选择排序那么简单粗暴，但它的原理应该是最容易理解的了。插入排序是一种最简单直观的排序算法，它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。插入排序和冒泡排序一样，也有一种优化算法，叫做拆半插入。</p>
+<h4 id="1、算法步骤-2"><a href="#1、算法步骤-2" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><ul>
+<li>将排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当成是未排序序列。</li>
+<li>从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素与有序序列中的某个元素相等，则将待插入元素插入到相等元素的后面，保持稳定性）</li>
+</ul>
+<h4 id="2、动画演示-2"><a href="#2、动画演示-2" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><p><img src="/2021/05/02/Algorithm-notes/1/3.gif"></p>
+<h4 id="3、java代码示例-2"><a href="#3、java代码示例-2" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">insertSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sourceArray<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">copyOf</span><span class="token punctuation">(</span>sourceArray<span class="token punctuation">,</span> sourceArray<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 从下标为1的元素开始选择合适的位置插入，因为下标为0的只有一个元素，默认是有序的</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 记录要插入的数据</span>
+
+        <span class="token comment">// 从已经排序的序列最右边的开始比较，找到比其小的数</span>
+        <span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> tmp <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 将第j-1个元素往后挪</span>
+            j<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+
+        <span class="token comment">// 存在比其小的数，插入</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">!=</span> i<span class="token punctuation">)</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="四、希尔排序"><a href="#四、希尔排序" class="headerlink" title="四、希尔排序"></a>四、希尔排序</h3><p>  希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。但希尔排序是非稳定排序算法。希尔排序是基于插入排序的以下两点性质而提出改进方法的：</p>
+<blockquote>
+<ul>
+<li>插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率；</li>
+<li>但插入排序一般来说是低效的，因为插入排序每次只能将数据移动一位；</li>
+</ul>
+</blockquote>
+<p><strong>希尔排序的基本思想是：</strong>先将整个待排序的记录序列分割成为若干子序列分别进行直接插入排序，待整个序列中的记录”基本有序”时，再对全体记录进行依次直接插入排序。</p>
+<h4 id="1、算法步骤-3"><a href="#1、算法步骤-3" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><ul>
+<li>选择一个增量序列 t<sub>1</sub>，t<sub>2</sub>，……，t<sub>k</sub>，其中 t<sub>i</sub> &gt; t<sub>j</sub>， t<sub>k</sub> = 1；</li>
+<li>按增量序列个数 k，对序列进行 k 趟排序；</li>
+<li>每趟排序，根据对应的增量 t<sub>i</sub>，将待排序列分割成若干长度为 m 的子序列，分别对各子表进行直接插入排序。仅增量因子为 1 时，整个序列作为一个表来处理，表长度即为整个序列的长度。</li>
+</ul>
+<h4 id="2、动画演示-3"><a href="#2、动画演示-3" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><p><img src="/2021/05/02/Algorithm-notes/1/4.gif"></p>
+<h4 id="3、java代码示例-3"><a href="#3、java代码示例-3" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">shellSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> length <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> temp<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> step <span class="token operator">=</span> length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span> step <span class="token operator">>=</span> <span class="token number">1</span><span class="token punctuation">;</span> step <span class="token operator">/=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> step<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">-</span> step<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>j <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> temp<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                arr<span class="token punctuation">[</span>j <span class="token operator">+</span> step<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                j <span class="token operator">-=</span> step<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            arr<span class="token punctuation">[</span>j <span class="token operator">+</span> step<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="五、并归排序"><a href="#五、并归排序" class="headerlink" title="五、并归排序"></a>五、并归排序</h3><h4 id="1、算法步骤-4"><a href="#1、算法步骤-4" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-4"><a href="#2、动画演示-4" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><p><img src="/2021/05/02/Algorithm-notes/1/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"></p>
+<h4 id="3、java代码示例-4"><a href="#3、java代码示例-4" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
+<h3 id="六、快速排序"><a href="#六、快速排序" class="headerlink" title="六、快速排序"></a>六、快速排序</h3><h4 id="1、算法步骤-5"><a href="#1、算法步骤-5" class="headerlink" title="1、算法步骤"></a>1、算法步骤</h4><h4 id="2、动画演示-5"><a href="#2、动画演示-5" class="headerlink" title="2、动画演示"></a>2、动画演示</h4><p><img src="/2021/05/02/Algorithm-notes/1/%E5%8D%81%E5%A4%A7%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"></p>
+<h4 id="3、java代码示例-5"><a href="#3、java代码示例-5" class="headerlink" title="3、java代码示例"></a>3、java代码示例</h4><pre class="language-java" data-language="java"><code class="language-java"></code></pre>
 <h3 id="七、堆排序"><a href="#七、堆排序" class="headerlink" title="七、堆排序"></a>七、堆排序</h3><h3 id="八、计数排序"><a href="#八、计数排序" class="headerlink" title="八、计数排序"></a>八、计数排序</h3><h3 id="九、桶排序"><a href="#九、桶排序" class="headerlink" title="九、桶排序"></a>九、桶排序</h3><h3 id="十、基数排序"><a href="#十、基数排序" class="headerlink" title="十、基数排序"></a>十、基数排序</h3>]]></content>
       <categories>
         <category>Algorithm</category>
