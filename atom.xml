@@ -3,11 +3,11 @@
   <title>大虫のBlog</title>
   
   <subtitle>错过春华 亦可秋实</subtitle>
-  <link href="https://yczlab.top/atom.xml" rel="self"/>
+  <link href="https://www.yczlab.top/atom.xml" rel="self"/>
   
-  <link href="https://yczlab.top/"/>
+  <link href="https://www.yczlab.top/"/>
   <updated>2021-05-03T03:53:10.361Z</updated>
-  <id>https://yczlab.top/</id>
+  <id>https://www.yczlab.top/</id>
   
   <author>
     <name>YangChongZi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>十大经典排序算法</title>
-    <link href="https://yczlab.top/2021/05/02/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/05/02/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/05/02/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/05/02/Algorithm-notes/1/</id>
     <published>2021-05-02T02:28:21.000Z</published>
     <updated>2021-05-03T03:53:10.361Z</updated>
     
@@ -35,21 +35,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>华为2021软件精英挑战赛复赛赛后方案分享</title>
-    <link href="https://yczlab.top/2021/04/20/Competition-notes/1/"/>
-    <id>https://yczlab.top/2021/04/20/Competition-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/04/20/Competition-notes/1/"/>
+    <id>https://www.yczlab.top/2021/04/20/Competition-notes/1/</id>
     <published>2021-04-20T07:24:16.000Z</published>
     <updated>2021-05-02T08:47:12.407Z</updated>
     
@@ -65,19 +65,19 @@
     
     
     
-    <category term="比赛" scheme="https://yczlab.top/categories/Competition-notes/"/>
+    <category term="比赛" scheme="https://www.yczlab.top/categories/Competition-notes/"/>
     
     
-    <category term="比赛" scheme="https://yczlab.top/tags/Competition/"/>
+    <category term="比赛" scheme="https://www.yczlab.top/tags/Competition/"/>
     
-    <category term="C++" scheme="https://yczlab.top/tags/C/"/>
+    <category term="C++" scheme="https://www.yczlab.top/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>最长递增子序列</title>
-    <link href="https://yczlab.top/2021/03/04/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/03/04/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/03/04/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/03/04/Algorithm-notes/1/</id>
     <published>2021-03-04T10:29:26.000Z</published>
     <updated>2021-03-04T11:40:14.621Z</updated>
     
@@ -93,21 +93,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>快速排序模板</title>
-    <link href="https://yczlab.top/2021/03/03/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/03/03/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/03/03/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/03/03/Algorithm-notes/1/</id>
     <published>2021-03-03T13:51:17.000Z</published>
     <updated>2021-03-04T03:12:20.895Z</updated>
     
@@ -123,21 +123,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>二进制状态压缩枚举子集</title>
-    <link href="https://yczlab.top/2021/02/27/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/02/27/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/02/27/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/02/27/Algorithm-notes/1/</id>
     <published>2021-02-27T05:07:50.000Z</published>
     <updated>2021-02-27T06:04:46.955Z</updated>
     
@@ -153,21 +153,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>并查集模板</title>
-    <link href="https://yczlab.top/2021/02/14/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/02/14/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/02/14/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/02/14/Algorithm-notes/1/</id>
     <published>2021-02-14T12:46:23.000Z</published>
     <updated>2021-02-18T09:16:46.044Z</updated>
     
@@ -183,21 +183,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>滑动窗口的最大值</title>
-    <link href="https://yczlab.top/2021/02/04/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/02/04/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/02/04/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/02/04/Algorithm-notes/1/</id>
     <published>2021-02-04T08:02:55.000Z</published>
     <updated>2021-02-27T11:05:04.214Z</updated>
     
@@ -214,21 +214,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>滑动窗口中位数（优先队列 + 延迟删除）</title>
-    <link href="https://yczlab.top/2021/02/03/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/02/03/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/02/03/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/02/03/Algorithm-notes/1/</id>
     <published>2021-02-03T13:57:34.000Z</published>
     <updated>2021-02-27T07:38:33.012Z</updated>
     
@@ -245,21 +245,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>约瑟夫环问题解释</title>
-    <link href="https://yczlab.top/2021/02/01/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/02/01/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/02/01/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/02/01/Algorithm-notes/1/</id>
     <published>2021-02-01T14:44:54.000Z</published>
     <updated>2021-02-18T09:18:28.557Z</updated>
     
@@ -275,21 +275,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>vim用户手册</title>
-    <link href="https://yczlab.top/2021/01/24/Diary-notes/1/"/>
-    <id>https://yczlab.top/2021/01/24/Diary-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/24/Diary-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/24/Diary-notes/1/</id>
     <published>2021-01-24T07:40:50.000Z</published>
     <updated>2021-02-18T09:36:24.751Z</updated>
     
@@ -306,17 +306,17 @@
     
     
     
-    <category term="Diary" scheme="https://yczlab.top/categories/Diary-notes/"/>
+    <category term="Diary" scheme="https://www.yczlab.top/categories/Diary-notes/"/>
     
     
-    <category term="Diary" scheme="https://yczlab.top/tags/Diary/"/>
+    <category term="Diary" scheme="https://www.yczlab.top/tags/Diary/"/>
     
   </entry>
   
   <entry>
     <title>图的最短路径算法</title>
-    <link href="https://yczlab.top/2021/01/22/Java-notes/1/"/>
-    <id>https://yczlab.top/2021/01/22/Java-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/22/Java-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/22/Java-notes/1/</id>
     <published>2021-01-22T06:33:38.000Z</published>
     <updated>2021-02-18T09:17:55.389Z</updated>
     
@@ -332,21 +332,21 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>连通图的最小生成树算法</title>
-    <link href="https://yczlab.top/2021/01/21/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/01/21/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/21/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/21/Algorithm-notes/1/</id>
     <published>2021-01-21T07:38:35.000Z</published>
     <updated>2021-02-18T09:17:12.186Z</updated>
     
@@ -362,21 +362,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>Java8其他新特性之Optional类</title>
-    <link href="https://yczlab.top/2021/01/20/Java-notes/2/"/>
-    <id>https://yczlab.top/2021/01/20/Java-notes/2/</id>
+    <link href="https://www.yczlab.top/2021/01/20/Java-notes/2/"/>
+    <id>https://www.yczlab.top/2021/01/20/Java-notes/2/</id>
     <published>2021-01-20T10:50:48.000Z</published>
     <updated>2021-02-18T09:20:44.292Z</updated>
     
@@ -392,17 +392,17 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java8其他新特性之Stream_API</title>
-    <link href="https://yczlab.top/2021/01/20/Java-notes/1/"/>
-    <id>https://yczlab.top/2021/01/20/Java-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/20/Java-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/20/Java-notes/1/</id>
     <published>2021-01-20T07:14:15.000Z</published>
     <updated>2021-02-21T14:09:41.980Z</updated>
     
@@ -419,17 +419,17 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java8其他新特性之Lambda表达式</title>
-    <link href="https://yczlab.top/2021/01/19/Java-notes/1/"/>
-    <id>https://yczlab.top/2021/01/19/Java-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/19/Java-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/19/Java-notes/1/</id>
     <published>2021-01-19T12:40:17.000Z</published>
     <updated>2021-02-21T03:42:35.313Z</updated>
     
@@ -446,17 +446,17 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>KMP模式匹配算法</title>
-    <link href="https://yczlab.top/2021/01/16/Algorithm-notes/1/"/>
-    <id>https://yczlab.top/2021/01/16/Algorithm-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/16/Algorithm-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/16/Algorithm-notes/1/</id>
     <published>2021-01-16T14:37:47.000Z</published>
     <updated>2021-02-18T09:25:03.192Z</updated>
     
@@ -472,21 +472,21 @@
     
     
     
-    <category term="Algorithm" scheme="https://yczlab.top/categories/Algorithm-notes/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/categories/Algorithm-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
-    <category term="Algorithm" scheme="https://yczlab.top/tags/Algorithm/"/>
+    <category term="Algorithm" scheme="https://www.yczlab.top/tags/Algorithm/"/>
     
-    <category term="DataStructure" scheme="https://yczlab.top/tags/DataStructure/"/>
+    <category term="DataStructure" scheme="https://www.yczlab.top/tags/DataStructure/"/>
     
   </entry>
   
   <entry>
     <title>Java中使用Socket网络编程</title>
-    <link href="https://yczlab.top/2021/01/15/Java-notes/3/"/>
-    <id>https://yczlab.top/2021/01/15/Java-notes/3/</id>
+    <link href="https://www.yczlab.top/2021/01/15/Java-notes/3/"/>
+    <id>https://www.yczlab.top/2021/01/15/Java-notes/3/</id>
     <published>2021-01-15T11:34:10.000Z</published>
     <updated>2021-02-18T09:11:20.751Z</updated>
     
@@ -505,17 +505,17 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java中的动态代理(反射的应用)</title>
-    <link href="https://yczlab.top/2021/01/15/Java-notes/2/"/>
-    <id>https://yczlab.top/2021/01/15/Java-notes/2/</id>
+    <link href="https://www.yczlab.top/2021/01/15/Java-notes/2/"/>
+    <id>https://www.yczlab.top/2021/01/15/Java-notes/2/</id>
     <published>2021-01-15T09:12:24.000Z</published>
     <updated>2021-02-18T09:23:11.446Z</updated>
     
@@ -532,17 +532,17 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java中的反射机制</title>
-    <link href="https://yczlab.top/2021/01/15/Java-notes/1/"/>
-    <id>https://yczlab.top/2021/01/15/Java-notes/1/</id>
+    <link href="https://www.yczlab.top/2021/01/15/Java-notes/1/"/>
+    <id>https://www.yczlab.top/2021/01/15/Java-notes/1/</id>
     <published>2021-01-15T02:17:14.000Z</published>
     <updated>2021-02-20T08:58:23.287Z</updated>
     
@@ -558,17 +558,17 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>Java中的IO流</title>
-    <link href="https://yczlab.top/2021/01/14/Java-notes/2/"/>
-    <id>https://yczlab.top/2021/01/14/Java-notes/2/</id>
+    <link href="https://www.yczlab.top/2021/01/14/Java-notes/2/"/>
+    <id>https://www.yczlab.top/2021/01/14/Java-notes/2/</id>
     <published>2021-01-14T04:31:51.000Z</published>
     <updated>2021-04-20T07:35:23.194Z</updated>
     
@@ -584,10 +584,10 @@
     
     
     
-    <category term="Java" scheme="https://yczlab.top/categories/Java-notes/"/>
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
     
     
-    <category term="Java" scheme="https://yczlab.top/tags/Java/"/>
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
     
   </entry>
   
