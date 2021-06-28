@@ -13722,7 +13722,7 @@ w<span class="token punctuation">.</span><span class="token function">goShopping
 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
 <p>操作系统中的页面置换算法是很多缓存机制的基础，比较经典的就有LRU和LFU算法。当缓存数据的数量未达到容量大小时，能正常存入缓存的数据结构中；当缓存的数据容量达到了最大容量，而又有新的数据需要缓存时，就得考虑如何删除已存在的缓存。LRU算法考虑删除最近最长时间未使用的缓存，而LFU考虑删除最近最少被使用的缓存。LRU的关键是看缓存数据最后一次被使用的时间，而LFU关键是看一段时间内缓存数据被使用的频率。不管是获取数据还是添加数据都叫做使用。</p>
 </blockquote>
-<p>###一、LRU（Least Recently Used）缓存机制<br>  设计和实现一个 LRU (最近最少使用) 缓存机制的数据结构。实现 LRUCache 类：</p>
+<h3 id="一、LRU（Least-Recently-Used）缓存机制"><a href="#一、LRU（Least-Recently-Used）缓存机制" class="headerlink" title="一、LRU（Least Recently Used）缓存机制"></a>一、LRU（Least Recently Used）缓存机制</h3><p>  设计和实现一个 LRU (最近最少使用) 缓存机制的数据结构。实现 LRUCache 类：</p>
 <ul>
 <li>LRUCache(int capacity)以正整数作为容量 capacity 初始化 LRU 缓存。</li>
 <li>int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1。</li>
@@ -13781,7 +13781,7 @@ w<span class="token punctuation">.</span><span class="token function">goShopping
         <span class="token punctuation">&#125;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></code></pre>
-<p>###二、LFU（Least Frequently Used）缓存机制<br>  设计并实现一个 LFU (最不经常使用) 缓存机制的数据结构，实现 LFU 类:</p>
+<h3 id="二、LFU（Least-Frequently-Used）缓存机制"><a href="#二、LFU（Least-Frequently-Used）缓存机制" class="headerlink" title="二、LFU（Least Frequently Used）缓存机制"></a>二、LFU（Least Frequently Used）缓存机制</h3><p>  设计并实现一个 LFU (最不经常使用) 缓存机制的数据结构，实现 LFU 类:</p>
 <ul>
 <li>LFUCache(int capacity) 初始化缓存的容量</li>
 <li>int get(int key) - 如果键存在于缓存中，则获取键的值，否则返回 -1。</li>
