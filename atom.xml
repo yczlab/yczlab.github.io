@@ -6,7 +6,7 @@
   <link href="https://www.yczlab.top/atom.xml" rel="self"/>
   
   <link href="https://www.yczlab.top/"/>
-  <updated>2021-06-28T12:19:21.623Z</updated>
+  <updated>2021-06-29T11:46:14.878Z</updated>
   <id>https://www.yczlab.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Lombok注解说明</title>
+    <link href="https://www.yczlab.top/2021/06/29/Java-notes/1/"/>
+    <id>https://www.yczlab.top/2021/06/29/Java-notes/1/</id>
+    <published>2021-06-29T11:32:31.000Z</published>
+    <updated>2021-06-29T11:46:14.878Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
+    
+    
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>LRU缓存和LFU缓存</title>
@@ -557,32 +583,6 @@
     <summary type="html">&lt;p&gt;  &lt;/p&gt;
 &lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot; title=&quot;引言：&quot;&gt;&lt;/a&gt;引言：&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;代理设计模式的原理：&lt;/strong&gt;使用一个代理将对象包装起来,</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
-    
-    
-    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中的反射机制</title>
-    <link href="https://www.yczlab.top/2021/01/15/Java-notes/1/"/>
-    <id>https://www.yczlab.top/2021/01/15/Java-notes/1/</id>
-    <published>2021-01-15T02:17:14.000Z</published>
-    <updated>2021-02-20T08:58:23.287Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;  &lt;/p&gt;
-&lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot;</summary>
         
       
     

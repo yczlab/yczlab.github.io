@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java中的常用类常用方法, 大虫のBlog">
+    <meta name="keywords" content="Lombok注解说明, 大虫のBlog">
     <meta name="description" content="电子科技大学 | 信软学院 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java中的常用类常用方法 | 大虫のBlog</title>
+    <title>Lombok注解说明 | 大虫のBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java中的常用类常用方法</h1>
+                    <h1 class="description center-align post-title">Lombok注解说明</h1>
                 </div>
             </div>
         </div>
@@ -457,28 +457,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-13
+                    2021-06-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-13
+                    2021-06-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    383
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    1 分
                 </div>
                 
 
@@ -502,554 +502,66 @@
             <div id="articleContent">
                 <p>  </p>
 <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
-<p>Java中常用类中的常用方法，如果能够记住，对刷题还是有一定的帮助的。</p>
+<p>在过往的Java项目中，充斥着太多不友好的代码：POJO的getter/setter/toString；异常处理；I/O流的关闭操作等等，这些样板代码既没有技术含量，又影响着代码的美观，Lombok应运而生。Lombok是一种Java™实用工具，可用来帮助开发人员消除Java的冗长代码，尤其是对于简单的Java对象（POJO）。它通过注解实现这一目的。通过在开发环境中实现 Lombok，开发人员可以节省构建诸如hashCode()和equals()，get()和set()这样的方法。</p>
 </blockquote>
-<h3 id="一、Object类"><a href="#一、Object类" class="headerlink" title="一、Object类"></a>一、Object类</h3><blockquote>
-<ul>
-<li>public final native Class&lt;?&gt; <strong>getClass()</strong>;<blockquote>
-<p>native方法，用于返回当前运行时对象的Class对象，使用了final关键字修饰，故不允许子类重写。</p>
-</blockquote>
-</li>
-<li>public native int <strong>hashCode()</strong>;<blockquote>
-<p>native方法，用于返回对象的哈希码，主要使用在哈希表中，比如JDK中的HashMap。</p>
-</blockquote>
-</li>
-<li>public boolean <strong>equals(Object obj)</strong><blockquote>
-<p>用于比较2个对象的内存地址是否相等，String类对该方法进行了重写用户比较字符串的值是否相等。</p>
-</blockquote>
-</li>
-<li>protected native Object <strong>clone()</strong> throws CloneNotSupportedException;<blockquote>
-<p>naitive方法，用于创建并返回当前对象的一份拷贝。一般情况下，对于任何对象 x，表达式 x.clone() != x 为true；x.clone().getClass() == x.getClass() 为true。Object本身没有实现Cloneable接口，所以不重写clone方法并且进行调用的话会发生CloneNotSupportedException异常。</p>
-</blockquote>
-</li>
-<li>public String <strong>toString()</strong><blockquote>
-<p>返回类的名字@实例的哈希码的16进制的字符串。建议Object所有的子类都重写这个方法。</p>
-</blockquote>
-</li>
-<li>public final native void <strong>notify()</strong>;<blockquote>
-<p>native方法，并且不能重写。唤醒一个在此对象监视器上等待的线程(监视器相当于就是锁的概念)。如果有多个线程在等待只会任意唤醒一个。</p>
-</blockquote>
-</li>
-<li>public final native void <strong>notifyAll()</strong>;<blockquote>
-<p>native方法，并且不能重写。跟notify一样，唯一的区别就是会唤醒在此对象监视器上等待的所有线程，而不是一个线程。</p>
-</blockquote>
-</li>
-<li>public final native void <strong>wait(long timeout)</strong> throws InterruptedException;<blockquote>
-<p>native方法，并且不能重写。暂停线程的执行，使线程进入阻塞状态。注意：sleep方法没有释放锁，而wait方法释放了锁。timeout 是等待时间，以毫秒为单位。</p>
-</blockquote>
-</li>
-<li>public final void <strong>wait(long timeout, int nanos)</strong> throws InterruptedException<blockquote>
-<p>多了nanos参数，这个参数表示额外时间（以毫微秒为单位，范围是 0-999999）。所以超时的时间还需要加上nanos 毫秒。</p>
-</blockquote>
-</li>
-<li>public final void <strong>wait()</strong> throws InterruptedException<blockquote>
-<p>该方法一直等待，没有超时时间这个概念</p>
-</blockquote>
-</li>
-<li>protected void <strong>finalize()</strong> throws Throwable<blockquote>
-<p>实例被垃圾回收器回收的时候触发的操作@Deprecated(since = “9”)</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<h3 id="二、Objects工具类"><a href="#二、Objects工具类" class="headerlink" title="二、Objects工具类"></a>二、Objects工具类</h3><blockquote>
-<ul>
-<li>public static &lt;T&gt; int <strong>compare(T a, T b, Comparator&lt;? super T&gt; c)</strong></li>
-<li>public static boolean <strong>deepEquals(Object a, Objetc b)：</strong>可以深度比较两个数组是否相等</li>
-<li>public static boolean <strong>equals(Object a, Objetc b)</strong></li>
-<li>public static int <strong>hash(Object… values)</strong></li>
-<li>public static int <strong>hashCode(Object o)</strong></li>
-<li>public static boolean <strong>isNull(Objetc obj)</strong></li>
-<li>public static boolean <strong>nonNull(Object obj)</strong></li>
-<li>public static &lt;T&gt; T <strong>requireNonNull(T obj)</strong></li>
-<li>public static &lt;T&gt; T <strong>requireNonNull(T obj, String message)：</strong>抛出带指定消息异常</li>
-<li>public static &lt;T&gt; T <strong>requireNonNull(T obj, Supplier&lt;String&gt; messageSupplier)：</strong>抛出带指定消息异常</li>
-<li>public static &lt;T&gt; T <strong>requireNonNullElse(T obj, T defaultObj)</strong></li>
-<li>public static &lt;T&gt; T <strong>requireNonNullElseGet(T obj, Supplier&lt;? extends T&gt; supplier)</strong></li>
-<li>public static String <strong>toString(Object o)</strong></li>
-<li>public static String <strong>toString(Object o, String nullDefault)</strong></li>
-<li>public static int <strong>checkFromToIndex(int fromIndex, int toIndex, int length)：</strong>判断 [fromIndex, toIndex) 是否在 [0, length) 中</li>
-<li>public static int <strong>checkFromIndexSize(int fromIndex, int size, int length)：</strong>判断 [fromIndex, fromIndex + size) 是否在 [0, length) 中</li>
-</ul>
-</blockquote>
-<h3 id="三、String类"><a href="#三、String类" class="headerlink" title="三、String类"></a>三、String类</h3><ol>
-<li>int length()：返回字符串的长度：return value.length</li>
-</ol>
-<hr>
-<ol start="2">
-<li>char charAt(int index)： 返回某索引处的字符return value[index]</li>
-</ol>
-<hr>
-<ol start="3">
-<li>boolean isEmpty()：判断是否是空字符串：return value.length == 0</li>
-</ol>
-<hr>
-<ol start="4">
-<li>String toLowerCase()：使用默认语言环境，将 String 中的所有字符转换为小写</li>
-<li>String toUpperCase()：使用默认语言环境，将 String 中的所有字符转换为大写<blockquote>
-<p>转换后的值用新变量接受，调用者本身的值不变。（不可变性）</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<ol start="6">
-<li>String trim()：返回字符串的副本，忽略前导空白和尾部空白，中间的空格不会忽略。</li>
-</ol>
-<hr>
-<ol start="7">
-<li>boolean equals(Object obj)：比较字符串的内容是否相同</li>
-<li>boolean equalsIgnoreCase(String anotherString)：与equals方法类似，但忽略大小写进行比较</li>
-</ol>
-<hr>
-<ol start="9">
-<li>String concat(String str)：将指定字符串连接到此字符串的结尾。 等价于用“+”</li>
-</ol>
-<hr>
-<ol start="10">
-<li>int compareTo(String anotherString)：比较两个字符串的大小</li>
-</ol>
-<hr>
-<ol start="11">
-<li>String substring(int beginIndex)：返回一个新的字符串，它是此字符串的从beginIndex开始截取到最后的一个子字符串。</li>
-<li>String substring(int beginIndex, int endIndex) ：返回一个新字符串，它是此字符串从beginIndex开始截取到endIndex(不包含)的一个子字符串。</li>
-</ol>
-<hr>
-<ol start="13">
-<li>boolean endsWith(String suffix)：测试此字符串是否以指定的后缀结束</li>
-<li>boolean startsWith(String prefix)：测试此字符串是否以指定的前缀开始</li>
-<li>boolean startsWith(String prefix, int toffset)：测试此字符串从指定索引开始的子字符串是否以指定前缀开始</li>
-</ol>
-<hr>
-<ol start="16">
-<li>boolean contains(CharSequence s)：当且仅当此字符串包含指定的 char 值序列时，返回 true</li>
-</ol>
-<hr>
-<ol start="17">
-<li>int indexOf(String str)：返回指定子字符串在此字符串中第一次出现处的索引</li>
-<li>int indexOf(String str, int fromIndex)：返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引处开始向后寻找。但返回值还是相对于首字母开始，并不是从指定索引处开始</li>
-<li>int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引</li>
-<li>int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索<blockquote>
-<p><strong>注：</strong>indexOf和lastIndexOf方法如果未找到都是返回-1<br>什么情况下，indexOf(str)和lastIndexOf(str)返回值相同？①：存在唯一的一个str。②：不存在str</p>
-<blockquote>
-<p>int indexOf(int ch)<br>int indexOf(int ch, int fromIndex)<br>int lastIndexOf(int ch)<br>int lastIndexOf(int ch, int fromIndex)</p>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-<hr>
-<ol start="21">
-<li>String replace(char oldChar, char newChar)：返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。</li>
-<li>String replace(CharSequence target, CharSequence replacement)：使用指定的字面值替换序列替换此字符串所有匹配字面值目标序列的子字符串。</li>
-<li>String replaceAll(String regex, String replacement)：使用给定replacement 替换此字符串所有匹配给定的正则表达式的子字符串。</li>
-<li>String replaceFirst(String regex, String replacement)：使用给定的replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。</li>
-</ol>
-<hr>
-<ol start="25">
-<li>boolean matches(String regex)：告知此字符串是否匹配给定的正则表达式。</li>
-</ol>
-<hr>
-<ol start="26">
-<li>String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。</li>
-<li>String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。</li>
-</ol>
-<hr>
-<ul>
-<li>字符串 &lt;–&gt; 包装类</li>
-</ul>
-<ol start="28">
-<li>包装类.parseXxx(String str)：包装类中的 public static xxx parseXxx(String s) 可以将由“数字”字符组成的字符串转换为基本数据类型。这类包装类包括Byte、Short、Integer、Long、Float、Double。</li>
-<li>public static String valueOf(xxx x)：将相应的参数类型转换到字符串。valueOf(byte b)、valueOf(int i)、valueOf(long l)、valueOf(float f)、valueOf(double)、valueOf(boolean b)。</li>
-</ol>
-<hr>
-<ul>
-<li>字符串 –&gt; 字符数组</li>
-</ul>
-<ol start="30">
-<li>public char[] toCharArray()：将字符串中的全部字符存放在一个字符数组中。</li>
-<li>public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)：将指定索引范围内的字符串存放到指定数组中</li>
-</ol>
-<hr>
-<ul>
-<li>字符数组 –&gt; 字符串</li>
-</ul>
-<ol start="32">
-<li>public static String valueOf(char[] data)：将字符数组转换成字符串。</li>
-<li>public static String valueOf(char[] data, int offset, int count)：用指定的字符数组的一部分，即从数组起始位置offset开始取count个字节构造一个字符串对象。</li>
-<li>String(char[] value)：使用构造器</li>
-<li>String(chat[] value, int offset, int count)：使用构造器，指定字符数组中的一部分来构造字符串。</li>
-</ol>
-<hr>
-<ul>
-<li>编码（String –&gt; byte[]）</li>
-</ul>
-<ol start="36">
-<li>public byte[] getBytes()：使用平台的默认字符集将此 String 编码为byte 序列，并将结果存储到一个新的 byte 数组中。</li>
-<li>public byte[] getBytes(Charset charset)：使用指定的字符集将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</li>
-<li>public byte[] getBytes(String charsetName)：使用指定的字符集将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</li>
-</ol>
-<hr>
-<ul>
-<li>解码（byte[] –&gt; String）</li>
-</ul>
-<ol start="39">
-<li>String(byte[] bytes)：通过使用平台的默认字符集解码指定的 byte 数组，构造一个新的 String。</li>
-<li>String(byte[] bytes, Charset charset)：指定字符集</li>
-<li>String(byte[] bytes, String charsetName)：指定字符集</li>
-<li>String(byte[] bytes, int offset, int count)：用指定的字节数组的一部分，即从数组起始位置offset开始取length个字节构造一个字符串对象。</li>
-<li>String(byte[] bytes, int offset, int count, Charset charset)：指定字符集</li>
-<li>String(byte[] bytes, int offset, int count, String charsetName)：指定字符集</li>
-</ol>
-<h3 id="四、StringBuffer-线程安全-、StringBuilder类"><a href="#四、StringBuffer-线程安全-、StringBuilder类" class="headerlink" title="四、StringBuffer(线程安全)、StringBuilder类"></a>四、StringBuffer(线程安全)、StringBuilder类</h3><ol>
-<li><p>字符串拼接</p>
-<blockquote>
-<ul>
-<li>StringBuffer append(boolean b)</li>
-<li>StringBuffer append(char c)</li>
-<li>StringBuffer append(charp[] str)</li>
-<li>StringBuffer append(char[] str, int offset, int len)</li>
-<li>StringBuffer append(double d)</li>
-<li>StringBuffer append(float f)</li>
-<li>StringBuffer append(int i)</li>
-<li>StringBuffer append(long lng)</li>
-<li>StringBuffer append(Object obj) //实际上是obj.toString()</li>
-<li>StringBuffer append(String str)</li>
-<li>StringBuffer append(StringBuffer sb)</li>
-</ul>
-</blockquote>
-</li>
-<li><p>删除</p>
-<blockquote>
-<ul>
-<li>StringBuffer delete(int start, int end)</li>
-<li>StringBuffer deleteCharAt(int index)</li>
-</ul>
-</blockquote>
-</li>
-<li><p>替换</p>
-<blockquote>
-<ul>
-<li>StringBuffer replace(int start, int end, String str)：把[start, end)位置替换为str</li>
-<li>void setCharAt(int index, char ch)：替换指定位置的字符</li>
-</ul>
-</blockquote>
-</li>
-<li><p>指定位置插入</p>
-<blockquote>
-<ul>
-<li>StringBuffer insert(int offset, boolean b)</li>
-<li>StringBuffer insert(int offset, char c)</li>
-<li>StringBuffer insert(int offset, char[] str)</li>
-<li>StringBuffer insert(int idnex, char[] str, int offset, int len)</li>
-<li>StringBuffer insert(int offset, double d)</li>
-<li>StringBuffer insert(int offset, float f)</li>
-<li>StringBuffer insert(int offset, int i)</li>
-<li>StringBuffer insert(int offset, long l)</li>
-<li>StringBuffer insert(int offset, Object obj)</li>
-<li>StringBuffer insert(int offset, String str)</li>
-</ul>
-</blockquote>
-</li>
-<li><p>查找</p>
-<blockquote>
-<ul>
-<li>int indexOf(String str)</li>
-<li>int indexOf(String str, int fromIndex)</li>
-<li>int lastIndexOf(String str)</li>
-<li>int lastIndexOf(String str, int fromIndex)</li>
-</ul>
-</blockquote>
-</li>
-<li><p>子串</p>
-<blockquote>
-<ul>
-<li>String substring(int start)</li>
-<li>String substring(int start, int end)</li>
-</ul>
-</blockquote>
-</li>
-<li><p>获取字符 char charAt(int index)</p>
-</li>
-<li><p>反转字符串 StringBuffer reverse()</p>
-</li>
-<li><p>总结：</p>
-<blockquote>
-<ul>
-<li><strong>增：</strong>append()</li>
-<li><strong>删：</strong>delete(int start, int end) / deleteCharAt(int index)</li>
-<li><strong>改：</strong>setCharAt(int index, char ch) / replace(int start, int end String str)</li>
-<li><strong>查：</strong>charAt(int index) / indexOf() / lastIndexOf()</li>
-<li><strong>插：</strong>insert()</li>
-<li><strong>长度：</strong>length()</li>
-<li><strong>遍历：</strong>for() + charAt() / toString()</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="五、Collection-lt-E-gt-接口中的通用方法"><a href="#五、Collection-lt-E-gt-接口中的通用方法" class="headerlink" title="五、Collection&lt;E&gt;接口中的通用方法"></a>五、Collection&lt;E&gt;接口中的通用方法</h3><p>  注意，Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)实现。集合Collection中存储的如果是自定义类的对象，需要自定义类重写equals()方法，因为在调用equals()和contains()等方法时会用到。JDK 5.0增加了泛型，若未指定泛型 E 的具体类型，则默认为Object类型。</p>
-<ol>
-<li>添加元素<blockquote>
-<ul>
-<li><strong>boolean add(E e)：</strong>添加单个元素</li>
-<li><strong>boolean add(Collection&lt;? extends E&gt; c)：</strong>添加多个元素</li>
-</ul>
-</blockquote>
-</li>
-<li>获取有效元素个数：<strong>int size()</strong></li>
-<li>清空当前集合：<strong>void clear()</strong></li>
-<li>判断当前集合是否为空：<strong>boolean isEmpty()</strong></li>
-<li>判断是否包含某元素<blockquote>
-<ul>
-<li><strong>boolean contains(Object obj)：</strong>判断当前集合中是否包含形参元素。通过元素的equals()方法来判断是否为同一个对象。将当前集合中的元素依次作为obj.equals()方法的形参。</li>
-<li><strong>boolean containsAll(Collection&lt;?&gt; c)：</strong>判断当前集合中是否包含形参集合中的所有元素。依次遍历形参集合c中的元素obj，然后将调用者集合中的元素依次作为obj.equals()方法的形参来进行判断。相当于形参集合c中的每个元素都要挨个与调用者集合中的每个元素进行判断（最坏的情况下）。</li>
-</ul>
-</blockquote>
-</li>
-<li>判断两个集合是否相等<blockquote>
-<ul>
-<li><strong>boolean equals(Objext o)：</strong>当前集合和形参集合的元素都相同时返回true。针对具体的有序集合List和无序集合Set，稍有不同。</li>
-</ul>
-</blockquote>
-</li>
-<li>删除元素<blockquote>
-<ul>
-<li><strong>boolean remove(Object o)：</strong>通过元素的equals()方法判断是否为要删除的那个方法。<strong>只会删除找到的第一个元素</strong>。</li>
-<li><strong>boolean removeAll(Collection&lt;?&gt; c)：相当于求差集</strong></li>
-<li><strong>default boolean removeIf(Predicate&lt;? super E&gt; filter)：</strong>删除该集合中满足给定条件的所有元素。（这里的形参类型是函数式接口类型，可以使用Lambda表达式）</li>
-</ul>
-</blockquote>
-</li>
-<li>取两个集合的交集<blockquote>
-<ul>
-<li><strong>boolean remainAll(Collection&lt;?&gt; c)：把交集的结果存入当前集合中，不影响形参集合c</strong>。</li>
-</ul>
-</blockquote>
-</li>
-<li>转换成数组<blockquote>
-<ul>
-<li><strong>Object[] toArray()：</strong>转换成Object类型的数组</li>
-<li><strong>&lt;T&gt; T[] toArray(T[] a)：</strong>转换成指定类型的数组</li>
-</ul>
-</blockquote>
-</li>
-<li>获取集合对象的哈希值：<strong>int hashCode()</strong></li>
-<li>遍历<blockquote>
-<ul>
-<li><strong>Iterator&lt;E&gt; iterator()：</strong>返回迭代器对象，用于遍历集合元素。</li>
-<li>增强For循环（底层采用Iterator来实现）</li>
-<li><strong>void forEach(Consumer&lt;? super T&gt; action)：</strong>使用继承自Iterable接口的forEach方法。</li>
-<li>使用Stream新特新。Collection对象.stream().forEach(Consumer action)</li>
-</ul>
-</blockquote>
-</li>
-<li>其他默认方法（JDK 8在接口中可以定义默认方法）<blockquote>
-<ul>
-<li><strong>default Stream&lt;E&gt; parallelStream()</strong></li>
-<li><strong>default boolean removeIf(Predicate&lt;? super E&gt; filter)</strong></li>
-<li><strong>default Spliterator&lt;E&gt; spliterator()</strong></li>
-<li><strong>default Stream&lt;E&gt; stream()</strong></li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="六、List-lt-E-gt-接口中的通用方法"><a href="#六、List-lt-E-gt-接口中的通用方法" class="headerlink" title="六、List&lt;E&gt;接口中的通用方法"></a>六、List&lt;E&gt;接口中的通用方法</h3><p><strong>List除了从Collection集合中继承的方法外，还多了一些根据索引来操作集合元素的方法。因为我们知道List中存放的数据是有序的。</strong></p>
-<p><strong>在Collection接口中就具有的方法：</strong></p>
-<blockquote>
-<ul>
-<li>boolean add(E e)</li>
-<li>boolean addAll(Collection&lt;? extends E&gt; c)</li>
-<li>int size()</li>
-<li>int hashCode()</li>
-<li>void clear()</li>
-<li>boolean isEmpty()</li>
-<li>boolean equals(Object o)</li>
-<li>boolean contains(Object o)</li>
-<li>boolean containsAll(Collection&lt;?&gt; c)</li>
-<li>Iterator&lt;E&gt; iterator()</li>
-<li>boolean remove(Object o)</li>
-<li>boolean removeAll(Collection&lt;?&gt; c)</li>
-<li>boolean retainAll(Collection&lt;?&gt; c)</li>
-<li>Object[] toArray()</li>
-<li>&lt;T&gt; T[] toArray(T[] a)</li>
-<li>default boolean removeIf(Predicate&lt;? super E&gt; filter)</li>
-<li>default Spliterator&lt;E&gt; spliterator()</li>
-<li>default Stream&lt;E&gt; stream()</li>
-<li>default Stream&lt;E&gt; parallelStream()</li>
-</ul>
-</blockquote>
-<p><strong>特有的方法：</strong></p>
-<ol>
-<li>在给定索引位置处添加元素<blockquote>
-<ul>
-<li><strong>void add(int index, E element)</strong></li>
-<li><strong>boolean addAll(int index, Collection&lt;? extends E&gt; c)</strong></li>
-</ul>
-</blockquote>
-</li>
-<li>获取指定位置的元素：<strong>E get(int index)</strong></li>
-<li>查找元素<blockquote>
-<ul>
-<li><strong>int indexOf(Objext o)</strong></li>
-<li><strong>int lastIndexOf(Object o)</strong></li>
-</ul>
-</blockquote>
-</li>
-<li>删除指定位置的元素并返回：<strong>E remove(int index)</strong></li>
-<li>替换(改)元素<blockquote>
-<ul>
-<li><strong>E set(int index, E element)</strong></li>
-<li><strong>default void replaceAll(UnaryOperator&lt;E&gt; operator)：</strong>可能会用到Lambda表达式，UnaryOperator是函数式接口，对类型为E的对象进行一元运算，并返回E类型的结果。</li>
-</ul>
-</blockquote>
-</li>
-<li>获取子集：<strong>List&lt;E&gt; subList(int fromIndex, int toIndex)</strong></li>
-<li>定制排序：<strong>default void sort(Comparator&lt;? super E&gt; com)</strong></li>
-<li>遍历：<blockquote>
-<ul>
-<li><strong>ListIterator&lt;E&gt; listIterator()</strong></li>
-<li><strong>ListIterator&lt;E&gt; listIterator(int index)</strong></li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<p><strong>总结：</strong></p>
-<blockquote>
-<p>增：add(Object o) / addAll(Collection c)<br>删：remove(Object o) / remove(int index) / removeAll(Collection c)<br>改：set(int index, Object obj) / repalceAll(UnaryOperator&lt;E&gt; operator)<br>取：get(int index)<br>查：indexOf(Object o) / lastIndexOf(Object o)<br>插：add(int index, Object o) / addAll(int index, Collection c)<br>长度：size()<br>遍历：①Iterator迭代器；②增强For循环；③普通循环(因为其具有索引)；④forEach方法；⑤利用stream()方法转换成流后，再使用forEach()方法。</p>
-</blockquote>
-<h3 id="七、Set-lt-E-gt-接口中的通用方法"><a href="#七、Set-lt-E-gt-接口中的通用方法" class="headerlink" title="七、Set&lt;E&gt;接口中的通用方法"></a>七、Set&lt;E&gt;接口中的通用方法</h3><p>  Set 接口是Collection接口的另一个子接口，没有提供额外的方法，其使用的都是Collection中声明过的方法。</p>
-<blockquote>
-<ul>
-<li>boolean add(E e)</li>
-<li>boolean addAll(Collection&lt;? extends E&gt; c)</li>
-<li>int size()</li>
-<li>int hashCode()</li>
-<li>void clear()</li>
-<li>boolean isEmpty()</li>
-<li>boolean equals(Object o)</li>
-<li>boolean contains(Object o)</li>
-<li>boolean containsAll(Collection&lt;?&gt; c)</li>
-<li>Iterator&lt;E&gt; iterator()</li>
-<li>boolean remove(Object o)</li>
-<li>boolean removeAll(Collection&lt;?&gt; c)</li>
-<li>boolean retainAll(Collection&lt;?&gt; c)</li>
-<li>Object[] toArray()</li>
-<li>&lt;T&gt; T[] toArray(T[] a)</li>
-<li>default boolean removeIf(Predicate&lt;? super E&gt; filter)</li>
-<li>default Spliterator&lt;E&gt; spliterator()</li>
-<li>default Stream&lt;E&gt; stream()</li>
-<li>default Stream&lt;E&gt; parallelStream()</li>
-</ul>
-</blockquote>
-<h3 id="八、Map-lt-K-V-gt-接口中的常用方法"><a href="#八、Map-lt-K-V-gt-接口中的常用方法" class="headerlink" title="八、Map&lt;K,V&gt;接口中的常用方法"></a>八、Map&lt;K,V&gt;接口中的常用方法</h3><h3 id="九、Collections工具类"><a href="#九、Collections工具类" class="headerlink" title="九、Collections工具类"></a>九、Collections工具类</h3><p>Collections工具类提供了很多静态方法。不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; boolean <strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements)</li>
-</ul>
-</blockquote>
-<p>2.排序</p>
-<blockquote>
-<ul>
-<li>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void <strong>sort</strong>(List&lt;T&gt; list)：自然排序</li>
-<li>public static &lt;T&gt; void <strong>sort</strong>(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)：定制排序</li>
-<li>public static void <strong>reverse</strong>(List&lt;?&gt; list)：逆序</li>
-<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>()：返回一个与自然排序逆序的比较器，要求泛型T需实现Comparabale接口。</li>
-<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>(Comparator&lt;T&gt; cmp)：返回一个与指定比较器逆序的比较器。</li>
-<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list)：每次打乱的顺序都不一样</li>
-<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list, Random rnd)：每次打乱的顺序一样</li>
-<li>public static void <strong>swap</strong>(List&lt;?&gt; int i, int j)：交换对应位置的元素</li>
-</ul>
-</blockquote>
-<p>3.查找，统计</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</li>
-<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c)</li>
-<li>public static int <strong>indexOfSubList</strong>(List<?> source, List<?> target)</li>
-<li>public static int <strong>lastIndexOfSubList</strong>(List<?> source, List<?> target)</li>
-<li>public static int <strong>frequency</strong>(Collection&lt;?&gt; c, Object o)</li>
-<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll)</li>
-<li>public static &lt;T&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
-<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll)</li>
-<li>public static &lt;T&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
-<li>public static <strong>disjoint</strong>(Collection<?> c1, Collection<?> c2)：如果两个集合没有相同的集合，则返回 true</li>
-</ul>
-</blockquote>
-<p>4.替换</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; void <strong>fill</strong>(List&lt;? super T&gt; list, T obj)</li>
-<li>public static &lt;T&gt; boolean <strong>replaceAll</strong>(List&lt;T&gt; list, T oldVal, T newVal)</li>
-</ul>
-</blockquote>
-<p>5.复制</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; void <strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</li>
-<li>public static &lt;T&gt; List&lt;T&gt; <strong>nCopies</strong>(int n, T o)：将 o 复制 n 份，形成不可变 list 并返回</li>
-</ul>
-</blockquote>
-<p>6.同步控制(返回线程安全的集合)</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; Collection&lt;T&gt; <strong>synchronizedCollection</strong>(Collection&lt;T&gt; c)</li>
-<li>public static &lt;T&gt; List&lt;T&gt; <strong>synchronizedList</strong>(List&lt;T&gt; list)</li>
-<li>public static &lt;T&gt; Set&lt;T&gt; <strong>synchronizedSet</strong>(Set&lt;T&gt; s)</li>
-<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>synchronizedMap</strong>(Map&lt;K,V&gt; m)</li>
-<li>public static &lt;T&gt; SortedSet&lt;T&gt; <strong>synchronizedSortedSet</strong>(SortedSet&lt;T&gt; s)</li>
-<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>synchronizedSortedMap</strong>(SortedMap&lt;K,V&gt; m)</li>
-<li>public static &lt;T&gt; NavigableSet&lt;T&gt; <strong>synchronizedNavigableSet</strong>(NavigableSet&lt;T&gt; s)</li>
-<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>synchronizedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m)</li>
-</ul>
-</blockquote>
-<p>7.返回一个空集合</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; List&lt;T&gt; <strong>emptyList</strong>()</li>
-<li>public static &lt;T&gt; Set&lt;T&gt; <strong>emptySet</strong>()</li>
-<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>emptyMap</strong>()</li>
-<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>emptySortedSet</strong>()</li>
-<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>emptySortedMap</strong>()</li>
-<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>emptyEnumeration</strong>()</li>
-<li>public static &lt;T&gt; Iterator&lt;T&gt; <strong>emptyIterator</strong>()</li>
-<li>public static &lt;T&gt; ListIterator&lt;T&gt; <strong>emptyListIterator</strong>()</li>
-<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>emptyNavigableSet</strong>()</li>
-<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>emptyNavigableMap</strong>()</li>
-</ul>
-</blockquote>
-<p>8.返回一个可进行元素类型检查(添加元素时)的集合，相当于将现有的集合封装成在添加元素时可以进行元素类型检查的集合。</p>
-<blockquote>
-<ul>
-<li>public static &lt;E&gt; Collection&lt;E&gt; <strong>checkedCollection</strong>(Collection&lt;E&gt; c, Class&lt;E&gt; type)</li>
-<li>public static &lt;E&gt; List&lt;E&gt; <strong>checkedList</strong>(List&lt;E&gt; list, Class&lt;E&gt; type)</li>
-<li>public static &lt;E&gt; Set&lt;E&gt; <strong>checkedSet</strong>(Set&lt;E&gt; s, Class&lt;E&gt; type)</li>
-<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>checkedMap</strong>(Map&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
-<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>checkedSortedSet</strong>(SortedSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
-<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>checkedSortedMap</strong>(SortedMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
-<li>public static &lt;E&gt; Queue&lt;E&gt; <strong>checkedQueue</strong>(Queue&lt;E&gt; queue, Class&lt;E&gt; type)</li>
-<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>checkedNavigableSet</strong>(NavigableSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
-<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>checkedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
-</ul>
-</blockquote>
-<p>9.创建只读，不可改变的集合</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; Collection&lt;T&gt; <strong>unmodifiableCollection</strong>(Collection&lt;? extends T&gt; c)</li>
-<li>public static &lt;T&gt; List&lt;T&gt; <strong>unmodifiableList</strong>(List&lt;? extends T&gt; list)</li>
-<li>public static &lt;T&gt; Set&lt;T&gt; <strong>unmodifiableSet</strong>(Set&lt;? extends T&gt; s)</li>
-<li>public static &lt;K, V&gt; Map&lt;K, V&gt; <strong>unmodifiableMap</strong>(Map&lt;? extends K, ? extends V&gt; m)</li>
-<li>public static &lt;T&gt; SortedSet&lt;T&gt; <strong>unmodifiableSortedSet</strong>(SortedSet&lt;T&gt; s)</li>
-<li>public static &lt;K, V&gt; SortedMap&lt;K, V&gt; <strong>unmodifiableSortedMap</strong>(SortedMap&lt;K, ? extends V&gt; m)</li>
-<li>public static &lt;T&gt; NavigableSet&lt;T&gt; <strong>unmodifiableNavigableSet</strong>(NavigableSet&lt;T&gt; s)</li>
-<li>public static &lt;K, V&gt; NavigableMap&lt;K, V&gt; <strong>unmodifiableNavigableMap</strong>(NavigableMap&lt;K, ? extends V&gt; m)</li>
-</ul>
-</blockquote>
-<p>10.其他</p>
-<blockquote>
-<ul>
-<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>enumeration</strong>(Collection&lt;T&gt; c)</li>
-<li>public static &lt;E&gt; Set&lt;E&gt; <strong>newSetFromMap</strong>(Map&lt;E,Boolean&gt; map)：提供一个和 Map 实现相对应的Set实现</li>
-</ul>
-</blockquote>
-<h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3>
+<h3 id="val"><a href="#val" class="headerlink" title="val"></a>val</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    val sets <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    val lists <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    val maps <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//=>相当于如下</span>
+    <span class="token keyword">final</span> <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> sets2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashSet</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> lists2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> maps2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="NonNull"><a href="#NonNull" class="headerlink" title="@NonNull"></a>@NonNull</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">notNullExample</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> <span class="token class-name">String</span> string<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    string<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//=>相当于</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">notNullExample</span><span class="token punctuation">(</span><span class="token class-name">String</span> string<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>string <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        string<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">NullPointerException</span><span class="token punctuation">(</span><span class="token string">"null"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="Cleanup"><a href="#Cleanup" class="headerlink" title="@Cleanup"></a>@Cleanup</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        <span class="token annotation punctuation">@Cleanup</span> <span class="token class-name">InputStream</span> inputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">FileNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">//=>相当于</span>
+    <span class="token class-name">InputStream</span> inputStream <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+        inputStream <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span class="token punctuation">(</span>args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">FileNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">finally</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>inputStream <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+                inputStream<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="Getter-Setter"><a href="#Getter-Setter" class="headerlink" title="@Getter/@Setter"></a>@Getter/@Setter</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Setter</span><span class="token punctuation">(</span><span class="token class-name">AccessLevel</span><span class="token punctuation">.</span>PUBLIC<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Getter</span><span class="token punctuation">(</span><span class="token class-name">AccessLevel</span><span class="token punctuation">.</span>PROTECTED<span class="token punctuation">)</span>
+<span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> shap<span class="token punctuation">;</span></code></pre>
+<h3 id="ToString"><a href="#ToString" class="headerlink" title="@ToString"></a>@ToString</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@ToString</span><span class="token punctuation">(</span>exclude <span class="token operator">=</span> <span class="token string">"id"</span><span class="token punctuation">,</span> callSuper <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span> includeFieldNames <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">LombokDemo</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//输出LombokDemo(super=LombokDemo@48524010, name=null, age=0)</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">LombokDemo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<h3 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h3><h3 id="NoArgsConstructor"><a href="#NoArgsConstructor" class="headerlink" title="@NoArgsConstructor"></a>@NoArgsConstructor</h3><h3 id="AllArgsConstructor"><a href="#AllArgsConstructor" class="headerlink" title="@AllArgsConstructor"></a>@AllArgsConstructor</h3><h3 id="RequiredArgsConstructor"><a href="#RequiredArgsConstructor" class="headerlink" title="@RequiredArgsConstructor"></a>@RequiredArgsConstructor</h3><h3 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h3><h3 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h3><h3 id="Builder"><a href="#Builder" class="headerlink" title="@Builder"></a>@Builder</h3><h3 id="SneakyThrows"><a href="#SneakyThrows" class="headerlink" title="@SneakyThrows"></a>@SneakyThrows</h3><h3 id="Synchronized"><a href="#Synchronized" class="headerlink" title="@Synchronized"></a>@Synchronized</h3><h3 id="Getter-lazy-true"><a href="#Getter-lazy-true" class="headerlink" title="@Getter(lazy=true)"></a>@Getter(lazy=true)</h3><h3 id="log"><a href="#log" class="headerlink" title="@log"></a>@log</h3><p>@CommonsLog、@Log、@Log4j、@Log4j2、@Log4j2、@XSlf4j</p>
+
                 
             </div>
             <hr/>
@@ -1075,7 +587,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.yczlab.top/2021/01/13/Java-notes/1/">https://www.yczlab.top/2021/01/13/Java-notes/1/</a>
+                    <a href="https://www.yczlab.top/2021/06/29/Java-notes/1/">https://www.yczlab.top/2021/06/29/Java-notes/1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1552,17 +1064,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/13/Java-notes/2/">
+                <a href="/2021/06/29/Java-notes/1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Java中的泛型使用">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Lombok注解说明">
                         
-                        <span class="card-title">Java中的泛型使用</span>
+                        <span class="card-title">Lombok注解说明</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1570,13 +1083,13 @@
                         
                               
 引言：
-从JDK1.5以后，Java引入了“参数化类型（Parameterized type）”的概念，允许我们在创建集合时再指定集合
+在过往的Java项目中，充斥着太多不友好的代码：POJO的getter/setter/toString；异常处理；I/O流的关
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1589,6 +1102,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1607,13 +1121,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/11/Java-notes/1/">
+                <a href="/2021/06/28/Algorithm-notes/1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java中的集合工具类Collections">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="LRU缓存和LFU缓存">
                         
-                        <span class="card-title">Java中的集合工具类Collections</span>
+                        <span class="card-title">LRU缓存和LFU缓存</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1621,21 +1135,19 @@
                         
                               
 引言：
-Collections工具类可以用来操作Collection，还能用来操作Map。
-
-  Collections 中提供了一系
+操作系统中的页面置换算法是很多缓存机制的基础，比较经典的就有LRU和LFU算法。当缓存数据的数量未达到容量大小时，能正常存入缓
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java-notes/" class="post-category">
-                                    Java
+                            <a href="/categories/Algorithm-notes/" class="post-category">
+                                    Algorithm
                                 </a>
                             
                             
@@ -1647,6 +1159,14 @@ Collections工具类可以用来操作Collection，还能用来操作Map。
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                    <a href="/tags/DataStructure/">
+                        <span class="chip bg-color">DataStructure</span>
                     </a>
                     
                 </div>
