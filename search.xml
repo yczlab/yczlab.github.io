@@ -21559,12 +21559,12 @@ mysql<span class="token operator">></span>select host,user from user<span class=
 <span class="token punctuation">&#125;</span></code></pre>
 <h3 id="log"><a href="#log" class="headerlink" title="@log"></a>@log</h3><p>  根据不同的注解生成不同类型的log对象，但是实例名称都是log，有六种可选实现类</p>
 <ul>
-<li>@CommonsLog Creates log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);</li>
-<li>@Log Creates log = java.util.logging.Logger.getLogger(LogExample.class.getName());</li>
-<li>@Log4j Creates log = org.apache.log4j.Logger.getLogger(LogExample.class);</li>
-<li>@Log4j2 Creates log = org.apache.logging.log4j.LogManager.getLogger(LogExample.class);</li>
-<li>@Slf4j Creates log = org.slf4j.LoggerFactory.getLogger(LogExample.class);</li>
-<li>@XSlf4j Creates log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);</li>
+<li><strong>@CommonsLog</strong> Creates log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);</li>
+<li><strong>@Log</strong> Creates log = java.util.logging.Logger.getLogger(LogExample.class.getName());</li>
+<li><strong>@Log4j</strong> Creates log = org.apache.log4j.Logger.getLogger(LogExample.class);</li>
+<li><strong>@Log4j2</strong> Creates log = org.apache.logging.log4j.LogManager.getLogger(LogExample.class);</li>
+<li><strong>@Slf4j</strong> Creates log = org.slf4j.LoggerFactory.getLogger(LogExample.class);</li>
+<li><strong>@XSlf4j</strong> Creates log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);</li>
 </ul>
 ]]></content>
       <categories>
@@ -21572,6 +21572,112 @@ mysql<span class="token operator">></span>select host,user from user<span class=
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JVM的符号引用和直接引用</title>
+    <url>/2021/06/30/Java-notes/1/</url>
+    <content><![CDATA[<p>  </p>
+<h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
+<p>在JVM中类加载过程中，在链接（验证、准备、解析）的解析阶段，Java虚拟机会把类的二进制数据中的符号引用替换为直接引用。</p>
+</blockquote>
+<h3 id="一、符号引用"><a href="#一、符号引用" class="headerlink" title="一、符号引用"></a>一、符号引用</h3><p>  符号引用（Symbolic Reference）以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能够无歧义的定位到目标即可。例如，在Class文件中它以CONSTANT_Class_info、CONSTANT_Fieldref_info、CONSTANT_Methodref_info等类型的常量出现。符号引用与虚拟机的内存布局无关，引用的目标并不一定加载到内存中。<strong>在Java中，一个java类将会编译成一个class文件。在编译时，java类并不知道所引用的类的实际地址，因此只能使用符号引用来代替，而在解析阶段虚拟机就是为了把这个符号引用转换成真正的引用地址。</strong>比如org.simple.People类引用了org.simple.Language类，在编译时People类并不知道Language类的实际内存地址，因此只能使用符号org.simple.Language（假设是这个，当然实际中是由类似于CONSTANT_Class_info的常量来表示的）来表示Language类的地址。各种虚拟机实现的内存布局可能有所不同，但是它们能接受的符号引用都是一致的，因为符号引用的字面量形式明确定义在Java虚拟机规范的Class文件格式中。</p>
+<h3 id="二、直接引用"><a href="#二、直接引用" class="headerlink" title="二、直接引用"></a>二、直接引用</h3><p>  直接引用和虚拟机的布局是相关的，不同的虚拟机对于相同的符号引用所翻译出来的直接引用一般是不同的。<strong>如果有了直接引用，那么直接引用的目标一定被加载到了内存中的。</strong>直接引用可以是：</p>
+<ul>
+<li>（1）直接指向目标的指针（比如，指向“类型”【Class对象】、类变量、类方法的直接引用可能是指向方法区的指针）</li>
+<li>（2）相对偏移量（比如，指向实例变量、实例方法的直接引用都是偏移量）</li>
+<li>（3）一个能间接定位到目标的句柄</li>
+</ul>
+<h3 id="三、关于偏移量以及内存布局"><a href="#三、关于偏移量以及内存布局" class="headerlink" title="三、关于偏移量以及内存布局"></a>三、关于偏移量以及内存布局</h3><p>  符号引用是只包含语义信息，不涉及具体实现的；而解析（resolve）过后的直接引用则是与具体实现息息相关的。所以当谈及某个符号引用被resolve成怎样的直接引用时，必须要结合某个具体的内存布局实现来讨论才行。<br>  在对象实例方面，HotSpot VM所采用的对象模型是比较直观的一种：Java引用通过直接指针（direct pointer）或语义上是直接指针的压缩指针（compressed pointer）来实现；指针指向的是对象的真实起始位置（没有在负偏移量上放任何数据）。对象内的布局是：最前面是对象头，有两个VM内部字段：_mark 和 _klass。后面紧跟着就是对象的所有实例字段，紧凑排布，继承深度越浅的类所声明的字段越靠前，继承深度越深的类所声明的字段越靠后。在同一个类中声明的字段按字段的类型宽度来重排序，对普通Java类默认的排序是：long/double - 8字节、int/float - 4字节、short/char - 2字节、byte/boolean - 1字节，最后是引用类型字段（4或8字节）。每个字段按照其宽度来对齐；最终对象默认再做一次8字节对齐。在类继承的边界上如果有因对齐而带来的空隙的话，可以把子类的字段拉到空隙里。这种排布方式可以让原始类型字段最大限度地紧凑排布在一起，减少字段间因为对齐而带来的空隙；同时又让引用类型字段尽可能排布在一起，减少OopMap的开销。<br><strong>举例来说，对于下面的类C：</strong></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">A</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">boolean</span> b<span class="token punctuation">;</span>
+  <span class="token class-name">Object</span> o1<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span> <span class="token keyword">extends</span> <span class="token class-name">A</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+  <span class="token keyword">long</span> l<span class="token punctuation">;</span>
+  <span class="token class-name">Object</span> o2<span class="token punctuation">;</span>
+  <span class="token keyword">float</span> f<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">C</span> <span class="token keyword">extends</span> <span class="token class-name">B</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">boolean</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><strong>它的实例对象布局就是：（假定是64位HotSpot VM，开启了压缩指针的话）</strong></p>
+<pre class="language-text" data-language="text"><code class="language-text">--&gt;  +0 [ _mark     ] (64-bit header word)
+     +8 [ _klass    ] (32-bit header word, compressed klass pointer)
+    +12 [ A.b       ] (boolean, 1 byte)
+    +13 [ (padding) ] (padding for alignment, 3 bytes)
+    +16 [ A.o1      ] (reference, compressed pointer, 4 bytes)
+    +20 [ B.i       ] (int, 4 bytes)
+    +24 [ B.l       ] (long, 8 bytes)
+    +32 [ B.f       ] (float, 4 bytes)
+    +36 [ B.o2      ] (reference, compressed pointer, 4 bytes)
+    +40 [ C.b       ] (boolean, 1 byte)
+    +41 [ (padding) ] (padding for object alignment, 7 bytes)</code></pre>
+<p>  所以C类的对象实例大小，在这个设定下是48字节，其中有10字节是为对齐而浪费掉的padding，12字节是对象头，剩下的26字节是用户自己代码声明的实例字段。<br>  留意到C类里字段的排布是按照这个顺序的：对象头 - Object声明的字段（无） - A声明的字段 - B声明的字段 - C声明的字段——按继承深度从浅到深排布。而每个类里面的字段排布顺序则按前面说的规则，按宽度来重排序。同时，如果类继承边界上有空隙（例如这里A和B之间其实本来会有一个4字节的空隙，但B里正好声明了一些不宽于4字节的字段，就可以把第一个不宽于4字节的字段拉到该空隙里，也就是 B.i 的位置）。<br>  同时也请留意到A类和C类都声明了名字为b的字段。它们之间有什么关系？——没关系。Java里，字段是不参与多态的。派生类如果声明了跟基类同名的字段，则两个字段在最终的实例中都会存在；派生类的版本只会在名字上遮盖（shadow / hide）掉基类字段的名字，而不会与基类字段合并或令其消失。上面例子特意演示了一下A.b 与 C.b 同时存在的这个情况。<br><strong>使用JOL工具可以方便地看到同样的信息：</strong></p>
+<pre class="language-text" data-language="text"><code class="language-text">com.yczlab.work.C object internals:
+OFF  SZ        TYPE DESCRIPTION          VALUE
+  0   8        (object header: mark)     0x0000000000000005 (biasable; age: 0)
+  8   4        (object header: class)    0x200ae421
+ 12   1        boolean A.b               false
+ 13   3        (alignment&#x2F;padding gap)
+ 16   4        java.lang.Object A.o1     null
+ 20   4        int B.i                   0
+ 24   8        long B.l                  0
+ 32   4        float B.f                 0.0
+ 36   4        java.lang.Object B.o2     null
+ 40   1        boolean C.b               false
+ 41   7        (object alignment gap)
+Instance size: 48 bytes
+Space losses: 3 bytes internal + 7 bytes external &#x3D; 10 bytes total</code></pre>
+<p>  第一行java对象头的Mark Word共占8个字节，第二行是java对象头的Klass Pointer类指针，本来也是占8个字节，但因JDK默认开启类指针压缩所以占4个字节，对象头总共12个字节。后面是其字段的内存占用情况，继承深度越浅的类所声明的字段越靠前，继承深度越深的类所声明的字段越靠后。<br>  所以，对一个这样的对象模型，实例字段的“偏移量”是从对象起始位置开始算的。对于这样的字节码：<code>getfield cp#12  // C.b:Z</code>（这里用cp#12来表示常量池的第12项的意思）这个C.b:Z的符号引用，最终就会被解析为+40这样的偏移量，外加一些VM自己用的元数据。这个偏移量加上额外元数据比原本的constant pool index要宽，没办法放在原本的constant pool里，所以HotSpot VM有另外一个叫做constant pool cache的东西来存放它们。在HotSpot VM里，上面的字节码经过解析后，就会变成：<code>fast_bgetfield cpc#5  // (offset: +40, type: boolean, ...)</code>（这里用cpc#5来表示constant pool cache的第5项的意思）于是解析后偏移量信息就记录在了constant pool cache里，getfield根据解析出来的constant pool cache entry里记录的类型信息被改写为对应类型的版本的字节码fast_bgetfield来避免以后每次都去解析一次，然后fast_bgetfield就可以根据偏移量信息以正确的类型来访问字段了。</p>
+<hr>
+<p><strong>静态变量（或者有人喜欢叫“类变量”）的情况: **<br>  从JDK 1.3到JDK 6的HotSpot VM，静态变量保存在类的元数据（InstanceKlass）的末尾。而从JDK 7开始的HotSpot VM，静态变量则是保存在类的Java镜像（java.lang.Class实例）的末尾。<br>**在HotSpot VM中，对象、类的元数据（InstanceKlass）、类的Java镜像，三者之间的关系是这样的：</strong></p>
+<pre class="language-text" data-language="text"><code class="language-text">Java object      InstanceKlass       Java mirror
+ [ _mark  ]                          (java.lang.Class instance)
+ [ _klass ] --&gt; [ ...          ] &lt;-\
+ [ fields ]     [ _java_mirror ] --+&gt; [ _mark  ]
+                [ ...          ]   |  [ _klass ]
+                                   |  [ fields ]
+                                    \ [ klass  ]</code></pre>
+<p>  每个Java对象的对象头里，_klass字段会指向一个VM内部用来记录类的元数据用的InstanceKlass对象；InsanceKlass里有个_java_mirror字段，指向该类所对应的Java镜像——java.lang.Class实例。HotSpot VM会给Class对象注入一个隐藏字段“klass”，用于指回到其对应的InstanceKlass对象。这样，klass与mirror之间就有双向引用，可以来回导航。这个模型里，java.lang.Class实例并不负责记录真正的类元数据，而只是对VM内部的InstanceKlass对象的一个包装供Java的反射访问用。<br>  在JDK 6及之前的HotSpot VM里，静态字段依附在InstanceKlass对象的末尾；而在JDK 7开始的HotSpot VM里，静态字段依附在java.lang.Class对象的末尾。<br><strong>假如有这样的A类：</strong></p>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">static</span> <span class="token keyword">int</span> value <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+<p><strong>那么在JDK 6或之前的HotSpot VM里：</strong>可以看到这个A.value静态字段就在InstanceKlass对象的末尾存着了。</p>
+<pre class="language-test" data-language="test"><code class="language-test">Java object      InstanceKlass       Java mirror
+ [ _mark  ]                          (java.lang.Class instance)
+ [ _klass ] --&gt; [ ...          ] &lt;-\
+ [ fields ]     [ _java_mirror ] --+&gt; [ _mark  ]
+                [ ...          ]   |  [ _klass ]
+                [ A.value      ]   |  [ fields ]
+                                    \ [ klass  ]</code></pre>
+<p><strong>而在JDK 7或之后的HotSpot VM里：</strong>可以看到这个A.value静态字段就在java.lang.Class对象的末尾存着了。</p>
+<pre class="language-text" data-language="text"><code class="language-text">Java object      InstanceKlass       Java mirror
+ [ _mark  ]                          (java.lang.Class instance)
+ [ _klass ] --&gt; [ ...          ] &lt;-\
+ [ fields ]     [ _java_mirror ] --+&gt; [ _mark   ]
+                [ ...          ]   |  [ _klass  ]
+                                   |  [ fields  ]
+                                    \ [ klass   ]
+                                      [ A.value ]</code></pre>
+<p>  <strong>所以对于HotSpot VM的对象模型，静态字段的“偏移量”就是：</strong></p>
+<ul>
+<li>JDK 6或之前：相对该类对应的InstanceKlass（实际上是包装InstanceKlass的klassOopDesc）对象起始位置的偏移量</li>
+<li>JDK 7或之后：相对该类对应的java.lang.Class对象起始位置的偏移量。</li>
+</ul>
+<hr>
+<p>好奇的同学可能会关心一下上面说的HotSpot VM里的InstanceKlass和java.lang.Class实例都是放哪里的呢？<br>  在JDK 7或之前的HotSpot VM里，InstanceKlass是被包装在由GC管理的klassOopDesc对象中，存放在GC堆中的所谓Permanent Generation（简称PermGen）中。<br>  从JDK 8开始的HotSpot VM则完全移除了PermGen，改为在native memory里存放这些元数据。新的用于存放元数据的内存空间叫做Metaspace，InstanceKlass对象就存在这里。<br>  至于java.lang.Class对象，它们从来都是“普通”Java对象，跟其它Java对象一样存在普通的Java堆（GC堆的一部分）里。</p>
+<hr>
+<p>那么如果不是HotSpot VM，而是别的JVM呢？——什么可能性都存在。总之“偏移量”什么的全看一个具体的JVM实现的内部各种细节是怎样的。</p>
+<p>  例如说，一个JVM完全可以把所有类的所有静态字段都放在一个大数组里，每新加载一个类就从这个数组里分配一块空间来放该类的静态字段。那么此时静态字段“偏移量”可能直接就是这个静态字段的地址（假定存放它们的数组不移动的话），或者可能是基于这个数组的起始地址的偏移量。<br>  又例如说，一个JVM在实现对象模型时，可能会让指针不指向对象真正的开头，而是指向对象中间的某个位置。例如说，还是HotSpot VM那样的对象布局，指针可以选择指向很多种地方都合理：（下面还是假定64位HotSpot VM，开压缩指针）<br>  <strong>指向对象开头：</strong>_mark位于+0，这是HotSpot VM选择的做法；指向对象头的第二个字段：_klass位于+0，_mark位于-8。这种做法在某些架构上或许可以加快通过_klass做vtable dispatch的速度，所以也有合理性；<br>  <strong>指向实际字段的开头：</strong>_mark位于-12，_klass位于-4，第一个字段位于+0。这主要就是觉得字段访问可能是更频繁的操作，而潜在可能牺牲一点对象头访问的速度。<br>  Maxine VM的对象模型就可以在OHM模型和HOM模型之间选择。所谓OHM就是Origin-Header-Mixed，也就是指针指向对象头第一个字段的做法；所谓HOM就是Header-Origin-Mixed，也就是指针指向对象头之后（也就是第一个字段）的做法。<br>  还有更有趣的对象布局方式：双向布局（bidirectional layout），例如Sable VM所用的布局。一种典型的方案是把引用类型字段全部放在负偏移上，指针指向对象头，然后原始类型字段全部放在正偏移量上。这样的好处是GC在扫描对象的引用类型字段时只需要扫描一块连续的内存，非常方便。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
       </tags>
   </entry>
 </search>

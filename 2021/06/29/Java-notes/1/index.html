@@ -710,12 +710,12 @@
 <span class="token punctuation">&#125;</span></code></pre>
 <h3 id="log"><a href="#log" class="headerlink" title="@log"></a>@log</h3><p>  根据不同的注解生成不同类型的log对象，但是实例名称都是log，有六种可选实现类</p>
 <ul>
-<li>@CommonsLog Creates log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);</li>
-<li>@Log Creates log = java.util.logging.Logger.getLogger(LogExample.class.getName());</li>
-<li>@Log4j Creates log = org.apache.log4j.Logger.getLogger(LogExample.class);</li>
-<li>@Log4j2 Creates log = org.apache.logging.log4j.LogManager.getLogger(LogExample.class);</li>
-<li>@Slf4j Creates log = org.slf4j.LoggerFactory.getLogger(LogExample.class);</li>
-<li>@XSlf4j Creates log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);</li>
+<li><strong>@CommonsLog</strong> Creates log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);</li>
+<li><strong>@Log</strong> Creates log = java.util.logging.Logger.getLogger(LogExample.class.getName());</li>
+<li><strong>@Log4j</strong> Creates log = org.apache.log4j.Logger.getLogger(LogExample.class);</li>
+<li><strong>@Log4j2</strong> Creates log = org.apache.logging.log4j.LogManager.getLogger(LogExample.class);</li>
+<li><strong>@Slf4j</strong> Creates log = org.slf4j.LoggerFactory.getLogger(LogExample.class);</li>
+<li><strong>@XSlf4j</strong> Creates log = org.slf4j.ext.XLoggerFactory.getXLogger(LogExample.class);</li>
 </ul>
 
                 
@@ -1220,18 +1220,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/29/Java-notes/1/">
+                <a href="/2021/06/30/Java-notes/1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Lombok注解说明">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="JVM的符号引用和直接引用">
                         
-                        <span class="card-title">Lombok注解说明</span>
+                        <span class="card-title">JVM的符号引用和直接引用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1239,13 +1238,15 @@
                         
                               
 引言：
-在过往的Java项目中，充斥着太多不友好的代码：POJO的getter/setter/toString；异常处理；I/O流的关
+在JVM中类加载过程中，在链接（验证、准备、解析）的解析阶段，Java虚拟机会把类的二进制数据中的符号引用替换为直接引用。
+
+
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1258,12 +1259,15 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -1525,7 +1529,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">178.8k</span>&nbsp;字
+                class="white-color">182k</span>&nbsp;字
             
             
             

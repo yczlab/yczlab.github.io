@@ -6,7 +6,7 @@
   <link href="https://www.yczlab.top/atom.xml" rel="self"/>
   
   <link href="https://www.yczlab.top/"/>
-  <updated>2021-06-29T14:48:16.008Z</updated>
+  <updated>2021-06-30T06:17:42.080Z</updated>
   <id>https://www.yczlab.top/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JVM的符号引用和直接引用</title>
+    <link href="https://www.yczlab.top/2021/06/30/Java-notes/1/"/>
+    <id>https://www.yczlab.top/2021/06/30/Java-notes/1/</id>
+    <published>2021-06-30T05:12:03.000Z</published>
+    <updated>2021-06-30T06:17:42.080Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;  &lt;/p&gt;
+&lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
+    
+    
+    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
+    
+    <category term="JVM" scheme="https://www.yczlab.top/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Lombok注解说明</title>
     <link href="https://www.yczlab.top/2021/06/29/Java-notes/1/"/>
     <id>https://www.yczlab.top/2021/06/29/Java-notes/1/</id>
     <published>2021-06-29T11:32:31.000Z</published>
-    <updated>2021-06-29T14:48:16.008Z</updated>
+    <updated>2021-06-29T14:52:17.779Z</updated>
     
     
       
@@ -556,33 +584,6 @@
 &lt;p&gt;主要就是TCP/UDP网络通信的使用&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="Java" scheme="https://www.yczlab.top/categories/Java-notes/"/>
-    
-    
-    <category term="Java" scheme="https://www.yczlab.top/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中的动态代理(反射的应用)</title>
-    <link href="https://www.yczlab.top/2021/01/15/Java-notes/2/"/>
-    <id>https://www.yczlab.top/2021/01/15/Java-notes/2/</id>
-    <published>2021-01-15T09:12:24.000Z</published>
-    <updated>2021-02-18T09:23:11.446Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;  &lt;/p&gt;
-&lt;h2 id=&quot;引言：&quot;&gt;&lt;a href=&quot;#引言：&quot; class=&quot;headerlink&quot; title=&quot;引言：&quot;&gt;&lt;/a&gt;引言：&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;代理设计模式的原理：&lt;/strong&gt;使用一个代理将对象包装起来,</summary>
         
       
     
