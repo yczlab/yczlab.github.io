@@ -464,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-23
+                    2021-07-16
                 </div>
                 
 
@@ -817,7 +817,7 @@
 </ul>
 </blockquote>
 <p>  HashSet 集合判断两个元素相等的标准：<strong>两个对象通过 hashCode() 方法比较相等，并且两个对象的 equals() 方法返回值也相等</strong>。对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Object obj)方法，以实现对象相等规则。即：“<strong>相等的对象必须具有相等的散列码</strong>”。</p>
-<h5 id="向HashSet中添加元素的过程："><a href="#向HashSet中添加元素的过程：" class="headerlink" title="向HashSet中添加元素的过程："></a>向HashSet中添加元素的过程：</h5><p>  当向 HashSet 集合中存入一个元素时，HashSet 会调用该对象的 hashCode() 方法来得到该对象的 hashCode 值，然后根据 hashCode 值，通过某种<strong>散列函数</strong>决定该对象在 HashSet <strong>底层数组</strong>中的存储位置。（这个散列函数会与底层数组的长度相计算得到在数组中的下标，即使：索引位置。并且这种散列函数计算出的位置还尽可能地保证能均匀存储元素，越是散列分布，该散列函数设计得越好）。如果两个元素的 hashCode() 值相等，会继续调用 equals() 方法，如果equals方法结果为true，则添加失败；如果为false，那么会保存该元素，但是该数组的位置上已经有元素了，那么会通过<strong>链表的方式</strong>继续链接。如果两个元素的equals()方法返回true，但是他们的hashCode()返回值不相等，HashSet会将他们存储在不同的位置上，也就是说依然可以添加成功，这点很重要。</p>
+<h5 id="向HashSet中添加元素的过程："><a href="#向HashSet中添加元素的过程：" class="headerlink" title="向HashSet中添加元素的过程："></a>向HashSet中添加元素的过程：</h5><p>  当向 HashSet 集合中存入一个元素时，HashSet 会调用该对象的 hashCode() 方法来得到该对象的 hashCode 值，然后根据 hashCode 值，通过某种<strong>散列函数</strong>决定该对象在 HashSet <strong>底层数组</strong>中的存储位置。（这个散列函数会与底层数组的长度相计算得到在数组中的下标，即使：索引位置。并且这种散列函数计算出的位置还尽可能地保证能均匀存储元素，越是散列分布，该散列函数设计得越好）。如果两个元素的 hashCode() 值相等，会继续调用 equals() 方法，如果equals方法结果为true，则添加失败；如果为false，那么会保存该元素，但是该数组的位置上已经有元素了，那么会通过<strong>链表的方式</strong>继续链接。如果两个元素的equals()方法返回true，但是他们的hashCode()返回值不相等，HashSet会将他们存储在不同的位置上，也就是说依然可以添加成功，这点很重要，这也是为什么“相等的对象必须具有相等的散列码”的原因。</p>
 <blockquote>
 <p>  我们向HashSet中添加元素a时，首先调用元素a所在类对象的hashCode()方法，计算元素a的哈希值，此哈希值接着通过某种散列算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断：数组此位置上是否已经有元素：</p>
 <blockquote>
@@ -2028,7 +2028,7 @@ Annotat
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182.6k</span>&nbsp;字
+                class="white-color">183.1k</span>&nbsp;字
             
             
             
