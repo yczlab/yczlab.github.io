@@ -13,7 +13,7 @@ window.onload = function(){
     canvas.width = W;
     canvas.height = H;
     //每个文字的字体大小
-    var fontSize = 13;
+    var fontSize = 15;
     //计算列
     var colunms = Math.floor(W / fontSize);	
     //记录每列文字的y轴坐标
