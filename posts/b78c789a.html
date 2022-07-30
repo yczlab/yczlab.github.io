@@ -1,0 +1,1875 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java中的常用类常用方法, 大虫のBlog">
+    <meta name="description" content="电子科技大学 | 信软学院 | 软件工程">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java中的常用类常用方法 | 大虫のBlog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">大虫のBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">大虫のBlog</div>
+        <div class="logo-desc">
+            
+            电子科技大学 | 信软学院 | 软件工程
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://gitee.com/yczlab" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://gitee.com/yczlab" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java中的常用类常用方法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-01-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-07-31
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    23 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>  </p>
+<h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
+<p>Java中常用类中的常用方法，如果能够记住些，对刷题还是有一定的帮助的。</p>
+</blockquote>
+<h3 id="一、Object类"><a href="#一、Object类" class="headerlink" title="一、Object类"></a>一、Object类</h3><blockquote>
+<ul>
+<li>public final native Class&lt;?&gt; <strong>getClass()</strong>;<blockquote>
+<p>native方法，用于返回当前运行时对象的Class对象，使用了final关键字修饰，故不允许子类重写。</p>
+</blockquote>
+</li>
+<li>public native int <strong>hashCode()</strong>;<blockquote>
+<p>native方法，用于返回对象的哈希码，主要使用在哈希表中，比如JDK中的HashMap。</p>
+</blockquote>
+</li>
+<li>public boolean <strong>equals(Object obj)</strong><blockquote>
+<p>用于比较2个对象的内存地址是否相等，String类对该方法进行了重写用户比较字符串的值是否相等。</p>
+</blockquote>
+</li>
+<li>protected native Object <strong>clone()</strong> throws CloneNotSupportedException;<blockquote>
+<p>naitive方法，用于创建并返回当前对象的一份拷贝。一般情况下，对于任何对象 x，表达式 x.clone() !&#x3D; x 为true；x.clone().getClass() &#x3D;&#x3D; x.getClass() 为true。Object本身没有实现Cloneable接口，所以不重写clone方法并且进行调用的话会发生CloneNotSupportedException异常。</p>
+</blockquote>
+</li>
+<li>public String <strong>toString()</strong><blockquote>
+<p>返回类的名字@实例的哈希码的16进制的字符串。建议Object所有的子类都重写这个方法。</p>
+</blockquote>
+</li>
+<li>public final native void <strong>notify()</strong>;<blockquote>
+<p>native方法，并且不能重写。唤醒一个在此对象监视器上等待的线程(监视器相当于就是锁的概念)。如果有多个线程在等待只会任意唤醒一个。</p>
+</blockquote>
+</li>
+<li>public final native void <strong>notifyAll()</strong>;<blockquote>
+<p>native方法，并且不能重写。跟notify一样，唯一的区别就是会唤醒在此对象监视器上等待的所有线程，而不是一个线程。</p>
+</blockquote>
+</li>
+<li>public final native void <strong>wait(long timeout)</strong> throws InterruptedException;<blockquote>
+<p>native方法，并且不能重写。暂停线程的执行，使线程进入阻塞状态。注意：sleep方法没有释放锁，而wait方法释放了锁。timeout 是等待时间，以毫秒为单位。</p>
+</blockquote>
+</li>
+<li>public final void <strong>wait(long timeout, int nanos)</strong> throws InterruptedException<blockquote>
+<p>多了nanos参数，这个参数表示额外时间（以毫微秒为单位，范围是 0-999999）。所以超时的时间还需要加上nanos 毫秒。</p>
+</blockquote>
+</li>
+<li>public final void <strong>wait()</strong> throws InterruptedException<blockquote>
+<p>该方法一直等待，没有超时时间这个概念</p>
+</blockquote>
+</li>
+<li>protected void <strong>finalize()</strong> throws Throwable<blockquote>
+<p>实例被垃圾回收器回收的时候触发的操作@Deprecated(since &#x3D; “9”)</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、Objects工具类"><a href="#二、Objects工具类" class="headerlink" title="二、Objects工具类"></a>二、Objects工具类</h3><blockquote>
+<ul>
+<li>public static &lt;T&gt; int <strong>compare(T a, T b, Comparator&lt;? super T&gt; c)</strong></li>
+<li>public static boolean <strong>deepEquals(Object a, Objetc b)：</strong>可以深度比较两个数组是否相等</li>
+<li>public static boolean <strong>equals(Object a, Objetc b)</strong></li>
+<li>public static int <strong>hash(Object… values)</strong></li>
+<li>public static int <strong>hashCode(Object o)</strong></li>
+<li>public static boolean <strong>isNull(Objetc obj)</strong></li>
+<li>public static boolean <strong>nonNull(Object obj)</strong></li>
+<li>public static &lt;T&gt; T <strong>requireNonNull(T obj)</strong></li>
+<li>public static &lt;T&gt; T <strong>requireNonNull(T obj, String message)：</strong>抛出带指定消息异常</li>
+<li>public static &lt;T&gt; T <strong>requireNonNull(T obj, Supplier&lt;String&gt; messageSupplier)：</strong>抛出带指定消息异常</li>
+<li>public static &lt;T&gt; T <strong>requireNonNullElse(T obj, T defaultObj)</strong></li>
+<li>public static &lt;T&gt; T <strong>requireNonNullElseGet(T obj, Supplier&lt;? extends T&gt; supplier)</strong></li>
+<li>public static String <strong>toString(Object o)</strong></li>
+<li>public static String <strong>toString(Object o, String nullDefault)</strong></li>
+<li>public static int <strong>checkFromToIndex(int fromIndex, int toIndex, int length)：</strong>判断 [fromIndex, toIndex) 是否在 [0, length) 中</li>
+<li>public static int <strong>checkFromIndexSize(int fromIndex, int size, int length)：</strong>判断 [fromIndex, fromIndex + size) 是否在 [0, length) 中</li>
+</ul>
+</blockquote>
+<h3 id="三、String类"><a href="#三、String类" class="headerlink" title="三、String类"></a>三、String类</h3><ol>
+<li>int length()：返回字符串的长度：return value.length</li>
+</ol>
+<hr>
+<ol start="2">
+<li>char charAt(int index)： 返回某索引处的字符return value[index]</li>
+</ol>
+<hr>
+<ol start="3">
+<li>boolean isEmpty()：判断是否是空字符串：return value.length &#x3D;&#x3D; 0</li>
+</ol>
+<hr>
+<ol start="4">
+<li>String toLowerCase()：使用默认语言环境，将 String 中的所有字符转换为小写</li>
+<li>String toUpperCase()：使用默认语言环境，将 String 中的所有字符转换为大写<blockquote>
+<p>转换后的值用新变量接受，调用者本身的值不变。（不可变性）</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<ol start="6">
+<li>String trim()：返回字符串的副本，忽略前导空白和尾部空白，中间的空格不会忽略。</li>
+</ol>
+<hr>
+<ol start="7">
+<li>boolean equals(Object obj)：比较字符串的内容是否相同</li>
+<li>boolean equalsIgnoreCase(String anotherString)：与equals方法类似，但忽略大小写进行比较</li>
+</ol>
+<hr>
+<ol start="9">
+<li>String concat(String str)：将指定字符串连接到此字符串的结尾。 等价于用“+”</li>
+</ol>
+<hr>
+<ol start="10">
+<li>int compareTo(String anotherString)：比较两个字符串的大小</li>
+</ol>
+<hr>
+<ol start="11">
+<li>String substring(int beginIndex)：返回一个新的字符串，它是此字符串的从beginIndex开始截取到最后的一个子字符串。</li>
+<li>String substring(int beginIndex, int endIndex) ：返回一个新字符串，它是此字符串从beginIndex开始截取到endIndex(不包含)的一个子字符串。</li>
+</ol>
+<hr>
+<ol start="13">
+<li>boolean endsWith(String suffix)：测试此字符串是否以指定的后缀结束</li>
+<li>boolean startsWith(String prefix)：测试此字符串是否以指定的前缀开始</li>
+<li>boolean startsWith(String prefix, int toffset)：测试此字符串从指定索引开始的子字符串是否以指定前缀开始</li>
+</ol>
+<hr>
+<ol start="16">
+<li>boolean contains(CharSequence s)：当且仅当此字符串包含指定的 char 值序列时，返回 true</li>
+</ol>
+<hr>
+<ol start="17">
+<li>int indexOf(String str)：返回指定子字符串在此字符串中第一次出现处的索引</li>
+<li>int indexOf(String str, int fromIndex)：返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引处开始向后寻找。但返回值还是相对于首字母开始，并不是从指定索引处开始</li>
+<li>int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引</li>
+<li>int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索<blockquote>
+<p><strong>注：</strong>indexOf和lastIndexOf方法如果未找到都是返回-1<br>什么情况下，indexOf(str)和lastIndexOf(str)返回值相同？①：存在唯一的一个str。②：不存在str</p>
+<blockquote>
+<p>int indexOf(int ch)<br>int indexOf(int ch, int fromIndex)<br>int lastIndexOf(int ch)<br>int lastIndexOf(int ch, int fromIndex)</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<hr>
+<ol start="21">
+<li>String replace(char oldChar, char newChar)：返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。</li>
+<li>String replace(CharSequence target, CharSequence replacement)：使用指定的字面值替换序列替换此字符串所有匹配字面值目标序列的子字符串。</li>
+<li>String replaceAll(String regex, String replacement)：使用给定replacement 替换此字符串所有匹配给定的正则表达式的子字符串。</li>
+<li>String replaceFirst(String regex, String replacement)：使用给定的replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。</li>
+</ol>
+<hr>
+<ol start="25">
+<li>boolean matches(String regex)：告知此字符串是否匹配给定的正则表达式。</li>
+</ol>
+<hr>
+<ol start="26">
+<li>String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。</li>
+<li>String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。</li>
+</ol>
+<hr>
+<ul>
+<li>字符串 &lt;–&gt; 包装类</li>
+</ul>
+<ol start="28">
+<li>包装类.parseXxx(String str)：包装类中的 public static xxx parseXxx(String s) 可以将由“数字”字符组成的字符串转换为基本数据类型。这类包装类包括Byte、Short、Integer、Long、Float、Double。</li>
+<li>public static String valueOf(xxx x)：将相应的参数类型转换到字符串。valueOf(byte b)、valueOf(int i)、valueOf(long l)、valueOf(float f)、valueOf(double)、valueOf(boolean b)。</li>
+</ol>
+<hr>
+<ul>
+<li>字符串 –&gt; 字符数组</li>
+</ul>
+<ol start="30">
+<li>public char[] toCharArray()：将字符串中的全部字符存放在一个字符数组中。</li>
+<li>public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)：将指定索引范围内的字符串存放到指定数组中</li>
+</ol>
+<hr>
+<ul>
+<li>字符数组 –&gt; 字符串</li>
+</ul>
+<ol start="32">
+<li>public static String valueOf(char[] data)：将字符数组转换成字符串。</li>
+<li>public static String valueOf(char[] data, int offset, int count)：用指定的字符数组的一部分，即从数组起始位置offset开始取count个字节构造一个字符串对象。</li>
+<li>String(char[] value)：使用构造器</li>
+<li>String(chat[] value, int offset, int count)：使用构造器，指定字符数组中的一部分来构造字符串。</li>
+</ol>
+<hr>
+<ul>
+<li>编码（String –&gt; byte[]）</li>
+</ul>
+<ol start="36">
+<li>public byte[] getBytes()：使用平台的默认字符集将此 String 编码为byte 序列，并将结果存储到一个新的 byte 数组中。</li>
+<li>public byte[] getBytes(Charset charset)：使用指定的字符集将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</li>
+<li>public byte[] getBytes(String charsetName)：使用指定的字符集将此 String 编码到 byte 序列，并将结果存储到新的 byte 数组。</li>
+</ol>
+<hr>
+<ul>
+<li>解码（byte[] –&gt; String）</li>
+</ul>
+<ol start="39">
+<li>String(byte[] bytes)：通过使用平台的默认字符集解码指定的 byte 数组，构造一个新的 String。</li>
+<li>String(byte[] bytes, Charset charset)：指定字符集</li>
+<li>String(byte[] bytes, String charsetName)：指定字符集</li>
+<li>String(byte[] bytes, int offset, int count)：用指定的字节数组的一部分，即从数组起始位置offset开始取length个字节构造一个字符串对象。</li>
+<li>String(byte[] bytes, int offset, int count, Charset charset)：指定字符集</li>
+<li>String(byte[] bytes, int offset, int count, String charsetName)：指定字符集</li>
+</ol>
+<h3 id="四、StringBuffer-线程安全-、StringBuilder类"><a href="#四、StringBuffer-线程安全-、StringBuilder类" class="headerlink" title="四、StringBuffer(线程安全)、StringBuilder类"></a>四、StringBuffer(线程安全)、StringBuilder类</h3><ol>
+<li><p>字符串拼接</p>
+<blockquote>
+<ul>
+<li>StringBuffer append(boolean b)</li>
+<li>StringBuffer append(char c)</li>
+<li>StringBuffer append(charp[] str)</li>
+<li>StringBuffer append(char[] str, int offset, int len)</li>
+<li>StringBuffer append(double d)</li>
+<li>StringBuffer append(float f)</li>
+<li>StringBuffer append(int i)</li>
+<li>StringBuffer append(long lng)</li>
+<li>StringBuffer append(Object obj) &#x2F;&#x2F;实际上是obj.toString()</li>
+<li>StringBuffer append(String str)</li>
+<li>StringBuffer append(StringBuffer sb)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>删除</p>
+<blockquote>
+<ul>
+<li>StringBuffer delete(int start, int end)</li>
+<li>StringBuffer deleteCharAt(int index)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>替换</p>
+<blockquote>
+<ul>
+<li>StringBuffer replace(int start, int end, String str)：把[start, end)位置替换为str</li>
+<li>void setCharAt(int index, char ch)：替换指定位置的字符</li>
+</ul>
+</blockquote>
+</li>
+<li><p>指定位置插入</p>
+<blockquote>
+<ul>
+<li>StringBuffer insert(int offset, boolean b)</li>
+<li>StringBuffer insert(int offset, char c)</li>
+<li>StringBuffer insert(int offset, char[] str)</li>
+<li>StringBuffer insert(int idnex, char[] str, int offset, int len)</li>
+<li>StringBuffer insert(int offset, double d)</li>
+<li>StringBuffer insert(int offset, float f)</li>
+<li>StringBuffer insert(int offset, int i)</li>
+<li>StringBuffer insert(int offset, long l)</li>
+<li>StringBuffer insert(int offset, Object obj)</li>
+<li>StringBuffer insert(int offset, String str)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>查找</p>
+<blockquote>
+<ul>
+<li>int indexOf(String str)</li>
+<li>int indexOf(String str, int fromIndex)</li>
+<li>int lastIndexOf(String str)</li>
+<li>int lastIndexOf(String str, int fromIndex)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>子串</p>
+<blockquote>
+<ul>
+<li>String substring(int start)</li>
+<li>String substring(int start, int end)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>获取字符 char charAt(int index)</p>
+</li>
+<li><p>反转字符串 StringBuffer reverse()</p>
+</li>
+<li><p>总结：</p>
+<blockquote>
+<ul>
+<li><strong>增：</strong>append()</li>
+<li><strong>删：</strong>delete(int start, int end) &#x2F; deleteCharAt(int index)</li>
+<li><strong>改：</strong>setCharAt(int index, char ch) &#x2F; replace(int start, int end String str)</li>
+<li><strong>查：</strong>charAt(int index) &#x2F; indexOf() &#x2F; lastIndexOf()</li>
+<li><strong>插：</strong>insert()</li>
+<li><strong>长度：</strong>length()</li>
+<li><strong>遍历：</strong>for() + charAt() &#x2F; toString()</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、Collection-lt-E-gt-接口中的通用方法"><a href="#五、Collection-lt-E-gt-接口中的通用方法" class="headerlink" title="五、Collection&lt;E&gt;接口中的通用方法"></a>五、Collection&lt;E&gt;接口中的通用方法</h3><p>  注意，Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)实现。集合Collection中存储的如果是自定义类的对象，需要自定义类重写equals()方法，因为在调用equals()和contains()等方法时会用到。JDK 5.0增加了泛型，若未指定泛型 E 的具体类型，则默认为Object类型。</p>
+<ol>
+<li>添加元素<blockquote>
+<ul>
+<li><strong>boolean add(E e)：</strong>添加单个元素</li>
+<li><strong>boolean add(Collection&lt;? extends E&gt; c)：</strong>添加多个元素</li>
+</ul>
+</blockquote>
+</li>
+<li>获取有效元素个数：<strong>int size()</strong></li>
+<li>清空当前集合：<strong>void clear()</strong></li>
+<li>判断当前集合是否为空：<strong>boolean isEmpty()</strong></li>
+<li>判断是否包含某元素<blockquote>
+<ul>
+<li><strong>boolean contains(Object obj)：</strong>判断当前集合中是否包含形参元素。通过元素的equals()方法来判断是否为同一个对象。将当前集合中的元素依次作为obj.equals()方法的形参。</li>
+<li><strong>boolean containsAll(Collection&lt;?&gt; c)：</strong>判断当前集合中是否包含形参集合中的所有元素。依次遍历形参集合c中的元素obj，然后将调用者集合中的元素依次作为obj.equals()方法的形参来进行判断。相当于形参集合c中的每个元素都要挨个与调用者集合中的每个元素进行判断（最坏的情况下）。</li>
+</ul>
+</blockquote>
+</li>
+<li>判断两个集合是否相等<blockquote>
+<ul>
+<li><strong>boolean equals(Objext o)：</strong>当前集合和形参集合的元素都相同时返回true。针对具体的有序集合List和无序集合Set，稍有不同。</li>
+</ul>
+</blockquote>
+</li>
+<li>删除元素<blockquote>
+<ul>
+<li><strong>boolean remove(Object o)：</strong>通过元素的equals()方法判断是否为要删除的那个方法。<strong>只会删除找到的第一个元素</strong>。</li>
+<li><strong>boolean removeAll(Collection&lt;?&gt; c)：相当于求差集</strong></li>
+<li><strong>default boolean removeIf(Predicate&lt;? super E&gt; filter)：</strong>删除该集合中满足给定条件的所有元素。（这里的形参类型是函数式接口类型，可以使用Lambda表达式）</li>
+</ul>
+</blockquote>
+</li>
+<li>取两个集合的交集<blockquote>
+<ul>
+<li><strong>boolean remainAll(Collection&lt;?&gt; c)：把交集的结果存入当前集合中，不影响形参集合c</strong>。</li>
+</ul>
+</blockquote>
+</li>
+<li>转换成数组<blockquote>
+<ul>
+<li><strong>Object[] toArray()：</strong>转换成Object类型的数组</li>
+<li><strong>&lt;T&gt; T[] toArray(T[] a)：</strong>转换成指定类型的数组</li>
+</ul>
+</blockquote>
+</li>
+<li>获取集合对象的哈希值：<strong>int hashCode()</strong></li>
+<li>遍历<blockquote>
+<ul>
+<li><strong>Iterator&lt;E&gt; iterator()：</strong>返回迭代器对象，用于遍历集合元素。</li>
+<li>增强For循环（底层采用Iterator来实现）</li>
+<li><strong>void forEach(Consumer&lt;? super T&gt; action)：</strong>使用继承自Iterable接口的forEach方法。</li>
+<li>使用Stream新特新。Collection对象.stream().forEach(Consumer action)</li>
+</ul>
+</blockquote>
+</li>
+<li>其他默认方法（JDK 8在接口中可以定义默认方法）<blockquote>
+<ul>
+<li><strong>default Stream&lt;E&gt; parallelStream()</strong></li>
+<li><strong>default boolean removeIf(Predicate&lt;? super E&gt; filter)</strong></li>
+<li><strong>default Spliterator&lt;E&gt; spliterator()</strong></li>
+<li><strong>default Stream&lt;E&gt; stream()</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="六、List-lt-E-gt-接口中的通用方法"><a href="#六、List-lt-E-gt-接口中的通用方法" class="headerlink" title="六、List&lt;E&gt;接口中的通用方法"></a>六、List&lt;E&gt;接口中的通用方法</h3><p><strong>List除了从Collection集合中继承的方法外，还多了一些根据索引来操作集合元素的方法。因为我们知道List中存放的数据是有序的。</strong></p>
+<p><strong>在Collection接口中就具有的方法：</strong></p>
+<blockquote>
+<ul>
+<li>boolean add(E e)</li>
+<li>boolean addAll(Collection&lt;? extends E&gt; c)</li>
+<li>int size()</li>
+<li>int hashCode()</li>
+<li>void clear()</li>
+<li>boolean isEmpty()</li>
+<li>boolean equals(Object o)</li>
+<li>boolean contains(Object o)</li>
+<li>boolean containsAll(Collection&lt;?&gt; c)</li>
+<li>Iterator&lt;E&gt; iterator()</li>
+<li>boolean remove(Object o)</li>
+<li>boolean removeAll(Collection&lt;?&gt; c)</li>
+<li>boolean retainAll(Collection&lt;?&gt; c)</li>
+<li>Object[] toArray()</li>
+<li>&lt;T&gt; T[] toArray(T[] a)</li>
+<li>default boolean removeIf(Predicate&lt;? super E&gt; filter)</li>
+<li>default Spliterator&lt;E&gt; spliterator()</li>
+<li>default Stream&lt;E&gt; stream()</li>
+<li>default Stream&lt;E&gt; parallelStream()</li>
+</ul>
+</blockquote>
+<p><strong>特有的方法：</strong></p>
+<ol>
+<li>在给定索引位置处添加元素<blockquote>
+<ul>
+<li><strong>void add(int index, E element)</strong></li>
+<li><strong>boolean addAll(int index, Collection&lt;? extends E&gt; c)</strong></li>
+</ul>
+</blockquote>
+</li>
+<li>获取指定位置的元素：<strong>E get(int index)</strong></li>
+<li>查找元素<blockquote>
+<ul>
+<li><strong>int indexOf(Objext o)</strong></li>
+<li><strong>int lastIndexOf(Object o)</strong></li>
+</ul>
+</blockquote>
+</li>
+<li>删除指定位置的元素并返回：<strong>E remove(int index)</strong></li>
+<li>替换(改)元素<blockquote>
+<ul>
+<li><strong>E set(int index, E element)</strong></li>
+<li><strong>default void replaceAll(UnaryOperator&lt;E&gt; operator)：</strong>可能会用到Lambda表达式，UnaryOperator是函数式接口，对类型为E的对象进行一元运算，并返回E类型的结果。</li>
+</ul>
+</blockquote>
+</li>
+<li>获取子集：<strong>List&lt;E&gt; subList(int fromIndex, int toIndex)</strong></li>
+<li>定制排序：<strong>default void sort(Comparator&lt;? super E&gt; com)</strong></li>
+<li>遍历：<blockquote>
+<ul>
+<li><strong>ListIterator&lt;E&gt; listIterator()</strong></li>
+<li><strong>ListIterator&lt;E&gt; listIterator(int index)</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>总结：</strong></p>
+<blockquote>
+<p>增：add(Object o) &#x2F; addAll(Collection c)<br>删：remove(Object o) &#x2F; remove(int index) &#x2F; removeAll(Collection c)<br>改：set(int index, Object obj) &#x2F; repalceAll(UnaryOperator&lt;E&gt; operator)<br>取：get(int index)<br>查：indexOf(Object o) &#x2F; lastIndexOf(Object o)<br>插：add(int index, Object o) &#x2F; addAll(int index, Collection c)<br>长度：size()<br>遍历：①Iterator迭代器；②增强For循环；③普通循环(因为其具有索引)；④forEach方法；⑤利用stream()方法转换成流后，再使用forEach()方法。</p>
+</blockquote>
+<h3 id="七、Set-lt-E-gt-接口中的通用方法"><a href="#七、Set-lt-E-gt-接口中的通用方法" class="headerlink" title="七、Set&lt;E&gt;接口中的通用方法"></a>七、Set&lt;E&gt;接口中的通用方法</h3><p>  Set 接口是Collection接口的另一个子接口，没有提供额外的方法，其使用的都是Collection中声明过的方法。</p>
+<blockquote>
+<ul>
+<li>boolean add(E e)</li>
+<li>boolean addAll(Collection&lt;? extends E&gt; c)</li>
+<li>int size()</li>
+<li>int hashCode()</li>
+<li>void clear()</li>
+<li>boolean isEmpty()</li>
+<li>boolean equals(Object o)</li>
+<li>boolean contains(Object o)</li>
+<li>boolean containsAll(Collection&lt;?&gt; c)</li>
+<li>Iterator&lt;E&gt; iterator()</li>
+<li>boolean remove(Object o)</li>
+<li>boolean removeAll(Collection&lt;?&gt; c)</li>
+<li>boolean retainAll(Collection&lt;?&gt; c)</li>
+<li>Object[] toArray()</li>
+<li>&lt;T&gt; T[] toArray(T[] a)</li>
+<li>default boolean removeIf(Predicate&lt;? super E&gt; filter)</li>
+<li>default Spliterator&lt;E&gt; spliterator()</li>
+<li>default Stream&lt;E&gt; stream()</li>
+<li>default Stream&lt;E&gt; parallelStream()</li>
+</ul>
+</blockquote>
+<h3 id="八、Map-lt-K-V-gt-接口中的常用方法"><a href="#八、Map-lt-K-V-gt-接口中的常用方法" class="headerlink" title="八、Map&lt;K,V&gt;接口中的常用方法"></a>八、Map&lt;K,V&gt;接口中的常用方法</h3><h3 id="九、Collections工具类"><a href="#九、Collections工具类" class="headerlink" title="九、Collections工具类"></a>九、Collections工具类</h3><p>Collections工具类提供了很多静态方法。不仅可以用来操作Collection，还能用来操作Map。<br>1.添加元素</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; boolean <strong>addAll</strong>(Collection&lt;? super T&gt; c, T… elements)</li>
+</ul>
+</blockquote>
+<p>2.排序</p>
+<blockquote>
+<ul>
+<li>public static &lt;T extends Comparable&lt;? super T&gt;&gt; void <strong>sort</strong>(List&lt;T&gt; list)：自然排序</li>
+<li>public static &lt;T&gt; void <strong>sort</strong>(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)：定制排序</li>
+<li>public static void <strong>reverse</strong>(List&lt;?&gt; list)：逆序</li>
+<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>()：返回一个与自然排序逆序的比较器，要求泛型T需实现Comparabale接口。</li>
+<li>public static &lt;T&gt; Comparator&lt;T&gt; <strong>reverseOrder</strong>(Comparator&lt;T&gt; cmp)：返回一个与指定比较器逆序的比较器。</li>
+<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list)：每次打乱的顺序都不一样</li>
+<li>public static void <strong>shuffle</strong>(List&lt;?&gt; list, Random rnd)：每次打乱的顺序一样</li>
+<li>public static void <strong>swap</strong>(List&lt;?&gt; int i, int j)：交换对应位置的元素</li>
+</ul>
+</blockquote>
+<p>3.查找，统计</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)</li>
+<li>public static &lt;T&gt; int <strong>binarySearch</strong>(List&lt;? extends T&gt; list, T key, Comparator&lt;? super T&gt; c)</li>
+<li>public static int <strong>indexOfSubList</strong>(List<?> source, List<?> target)</li>
+<li>public static int <strong>lastIndexOfSubList</strong>(List<?> source, List<?> target)</li>
+<li>public static int <strong>frequency</strong>(Collection&lt;?&gt; c, Object o)</li>
+<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll)</li>
+<li>public static &lt;T&gt; T <strong>max</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+<li>public static &lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll)</li>
+<li>public static &lt;T&gt; T <strong>min</strong>(Collection&lt;? extends T&gt; coll, Comparator&lt;? super T&gt; comp)</li>
+<li>public static <strong>disjoint</strong>(Collection<?> c1, Collection<?> c2)：如果两个集合没有相同的集合，则返回 true</li>
+</ul>
+</blockquote>
+<p>4.替换</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; void <strong>fill</strong>(List&lt;? super T&gt; list, T obj)</li>
+<li>public static &lt;T&gt; boolean <strong>replaceAll</strong>(List&lt;T&gt; list, T oldVal, T newVal)</li>
+</ul>
+</blockquote>
+<p>5.复制</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; void <strong>copy</strong>(List&lt;? super T&gt; dest, List&lt;? extends T&gt; src)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>nCopies</strong>(int n, T o)：将 o 复制 n 份，形成不可变 list 并返回</li>
+</ul>
+</blockquote>
+<p>6.同步控制(返回线程安全的集合)</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Collection&lt;T&gt; <strong>synchronizedCollection</strong>(Collection&lt;T&gt; c)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>synchronizedList</strong>(List&lt;T&gt; list)</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>synchronizedSet</strong>(Set&lt;T&gt; s)</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>synchronizedMap</strong>(Map&lt;K,V&gt; m)</li>
+<li>public static &lt;T&gt; SortedSet&lt;T&gt; <strong>synchronizedSortedSet</strong>(SortedSet&lt;T&gt; s)</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>synchronizedSortedMap</strong>(SortedMap&lt;K,V&gt; m)</li>
+<li>public static &lt;T&gt; NavigableSet&lt;T&gt; <strong>synchronizedNavigableSet</strong>(NavigableSet&lt;T&gt; s)</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>synchronizedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m)</li>
+</ul>
+</blockquote>
+<p>7.返回一个空集合</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>emptyList</strong>()</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>emptySet</strong>()</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>emptyMap</strong>()</li>
+<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>emptySortedSet</strong>()</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>emptySortedMap</strong>()</li>
+<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>emptyEnumeration</strong>()</li>
+<li>public static &lt;T&gt; Iterator&lt;T&gt; <strong>emptyIterator</strong>()</li>
+<li>public static &lt;T&gt; ListIterator&lt;T&gt; <strong>emptyListIterator</strong>()</li>
+<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>emptyNavigableSet</strong>()</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>emptyNavigableMap</strong>()</li>
+</ul>
+</blockquote>
+<p>8.返回一个可进行元素类型检查(添加元素时)的集合，相当于将现有的集合封装成在添加元素时可以进行元素类型检查的集合。</p>
+<blockquote>
+<ul>
+<li>public static &lt;E&gt; Collection&lt;E&gt; <strong>checkedCollection</strong>(Collection&lt;E&gt; c, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; List&lt;E&gt; <strong>checkedList</strong>(List&lt;E&gt; list, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; Set&lt;E&gt; <strong>checkedSet</strong>(Set&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; Map&lt;K,V&gt; <strong>checkedMap</strong>(Map&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;E&gt; SortedSet&lt;E&gt; <strong>checkedSortedSet</strong>(SortedSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; SortedMap&lt;K,V&gt; <strong>checkedSortedMap</strong>(SortedMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+<li>public static &lt;E&gt; Queue&lt;E&gt; <strong>checkedQueue</strong>(Queue&lt;E&gt; queue, Class&lt;E&gt; type)</li>
+<li>public static &lt;E&gt; NavigableSet&lt;E&gt; <strong>checkedNavigableSet</strong>(NavigableSet&lt;E&gt; s, Class&lt;E&gt; type)</li>
+<li>public static &lt;K,V&gt; NavigableMap&lt;K,V&gt; <strong>checkedNavigableMap</strong>(NavigableMap&lt;K,V&gt; m, Class&lt;K&gt; keyType, Class&lt;V&gt; valueType)</li>
+</ul>
+</blockquote>
+<p>9.创建只读，不可改变的集合</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Collection&lt;T&gt; <strong>unmodifiableCollection</strong>(Collection&lt;? extends T&gt; c)</li>
+<li>public static &lt;T&gt; List&lt;T&gt; <strong>unmodifiableList</strong>(List&lt;? extends T&gt; list)</li>
+<li>public static &lt;T&gt; Set&lt;T&gt; <strong>unmodifiableSet</strong>(Set&lt;? extends T&gt; s)</li>
+<li>public static &lt;K, V&gt; Map&lt;K, V&gt; <strong>unmodifiableMap</strong>(Map&lt;? extends K, ? extends V&gt; m)</li>
+<li>public static &lt;T&gt; SortedSet&lt;T&gt; <strong>unmodifiableSortedSet</strong>(SortedSet&lt;T&gt; s)</li>
+<li>public static &lt;K, V&gt; SortedMap&lt;K, V&gt; <strong>unmodifiableSortedMap</strong>(SortedMap&lt;K, ? extends V&gt; m)</li>
+<li>public static &lt;T&gt; NavigableSet&lt;T&gt; <strong>unmodifiableNavigableSet</strong>(NavigableSet&lt;T&gt; s)</li>
+<li>public static &lt;K, V&gt; NavigableMap&lt;K, V&gt; <strong>unmodifiableNavigableMap</strong>(NavigableMap&lt;K, ? extends V&gt; m)</li>
+</ul>
+</blockquote>
+<p>10.其他</p>
+<blockquote>
+<ul>
+<li>public static &lt;T&gt; Enumeration&lt;T&gt; <strong>enumeration</strong>(Collection&lt;T&gt; c)</li>
+<li>public static &lt;E&gt; Set&lt;E&gt; <strong>newSetFromMap</strong>(Map&lt;E,Boolean&gt; map)：提供一个和 Map 实现相对应的Set实现</li>
+</ul>
+</blockquote>
+<h3 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h3>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">YangChongZhi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yczlab.top/posts/b78c789a.html">http://yczlab.top/posts/b78c789a.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">YangChongZhi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/8255cc5e.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Java中的泛型使用">
+                        
+                        <span class="card-title">Java中的泛型使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/566c9780.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java中的集合工具类Collections">
+                        
+                        <span class="card-title">Java中的集合工具类Collections</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="7565528433"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.4'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">YangChongZhi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">218.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">渝ICP备2021001798号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yczlab" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/yczlab" class="tooltipped" target="_blank" data-tooltip="访问我的码云" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2685733832@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2685733832" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2685733832" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2685733832" class="tooltipped" target="_blank" data-tooltip="微信联系我: yczlab" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/yczlab" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/yczlab" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/yczlab" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/yczlab" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.5'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

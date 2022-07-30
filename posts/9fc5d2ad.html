@@ -1,0 +1,1605 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="目标检测评价标准mAP, 大虫のBlog">
+    <meta name="description" content="电子科技大学 | 信软学院 | 软件工程">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>目标检测评价标准mAP | 大虫のBlog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">大虫のBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">大虫のBlog</div>
+        <div class="logo-desc">
+            
+            电子科技大学 | 信软学院 | 软件工程
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://gitee.com/yczlab" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://gitee.com/yczlab" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">目标检测评价标准mAP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/Pytorch/">
+                                <span class="chip bg-color">Pytorch</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Python/" class="post-category">
+                                Python
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-07-31
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="引言："><a href="#引言：" class="headerlink" title="引言："></a>引言：</h2><blockquote>
+<p>目标检测中的AP和mAP计算方法,看了几篇相关资料，知乎上一篇文章<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43068926">https://zhuanlan.zhihu.com/p/43068926</a> 写的容易理解，转载以学习，为了方便自己理解。</p>
+</blockquote>
+<h3 id="1、Recall-amp-Precision"><a href="#1、Recall-amp-Precision" class="headerlink" title="1、Recall &amp; Precision"></a>1、Recall &amp; Precision</h3><p>  mAP全称是mean Average Precision，这里的Average Precision，是在不同recall下计算得到的，所以要知道什么是mAP，要先了解recall（召回率）和precision（精确率）。<br>  recall和precision是二分类问题中常用的评价指标，通常以关注的类为正类，其他类为负类，分类器的结果在测试数据上有4种情况：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>实际 1</th>
+<th>实际 0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>预测 1</strong></td>
+<td>TP（True Positive）</td>
+<td>FP（False Positive）</td>
+</tr>
+<tr>
+<td><strong>预测 0</strong></td>
+<td>FN（False Negative）</td>
+<td>TN（True Negative）</td>
+</tr>
+</tbody></table>
+<p>计算公式分别为：<br><img src="/posts/9fc5d2ad/1.png" alt="image"><br><strong>用一个具体的例子说明：</strong><br>  假设我们在数据集上训练了一个识别猫咪的模型，测试集包含100个样本，其中猫咪60张，另外40张为小狗。测试结果显示为猫咪的一共有52张图片，其中确实为猫咪的共50张，也就是有10张猫咪没有被模型检测出来，而且在检测结果中有2张为误检。因为猫咪更可爱，我们更关注猫咪的检测情况，所以这里将猫咪认为是正类：</p>
+<p>所以TP&#x3D;50，TN&#x3D;38，FN&#x3D;10，FP&#x3D;2，P&#x3D;50&#x2F;52，R&#x3D;50&#x2F;60，acc&#x3D;(50+38)&#x2F;(50+38+10+2)</p>
+<p><strong>为什么要引入recall和precision？</strong></p>
+<p>recall和precision是模型性能两个不同维度的度量：</p>
+<p>  在图像分类任务中，虽然很多时候考察的是accuracy，比如ImageNet的评价标准。但具体到单个类别，如果recall比较高，但precision较低，比如大部分的汽车都被识别出来了，但把很多卡车也误识别为了汽车，这时候对应一个原因。如果recall较低，precision较高，比如检测出的飞机结果很准确，但是有很多的飞机没有被识别出来，这时候又有一个原因。</p>
+<p>  recall度量的是「查全率」，所有的正样本是不是都被检测出来了。比如在肿瘤预测场景中，要求模型有更高的recall，不能放过每一个肿瘤。</p>
+<p>  precision度量的是「查准率」，在所有检测出的正样本中是不是实际都为正样本。比如在垃圾邮件判断等场景中，要求有更高的precision，确保放到回收站的都是垃圾邮件。</p>
+<h3 id="2、mAP（mean-Average-Precision）"><a href="#2、mAP（mean-Average-Precision）" class="headerlink" title="2、mAP（mean Average Precision）"></a>2、mAP（mean Average Precision）</h3><p>在查找资料的过程中，发现从信息检索的角度出发更容易理解mAP的含义。</p>
+<p>  在信息检索当中，比如我们搜索一个条目，相关的条目在数据库中一共有5条，但搜索的结果一共有10条（包含4条相关条目）。这个时候精确率precision&#x3D;返回结果中相关的条目数&#x2F;返回总条目数，在这里等于4&#x2F;10。召回率recall&#x3D;返回结果中相关条目数&#x2F;相关条目总数，在这里等于4&#x2F;5。但对于一个搜索系统，相关条目在结果中的顺序是非常影响用户体验的，我们希望相关的结果越靠前越好。比如在这个例子中，4个条目出现在位置查询一（1，2，4，7）就比在查询二（3，5，6，8）效果要好，但两者的precision是相等的。这时候单单一个precision不足以衡量系统的好坏，于是引入了AP（Average Precision）——不同召回率上的平均precision。对于上面两个例子。</p>
+<p>查询一：</p>
+<pre class="language-text" data-language="text"><code class="language-text">rank | correct |   P   |   R
+-----------------------------
+  1   | right  |  1/1  |  1/5
+-----------------------------
+  2  |  right  | 2/2  |  2/5
+-----------------------------
+  3  |  wrong  | 2/3  |  2/5
+-----------------------------
+  4  |   right | 3/4  |  3/5
+-----------------------------
+  5  |  wrong  | 3/5  |  3/5
+-----------------------------
+  6  |  wrong  | 3/6  |  3/5
+-----------------------------
+  7  |  right  | 4/7  |  4/5
+-----------------------------
+  8  |  wrong  | 4/8  |  4/5
+-----------------------------
+  9  |  wrong  | 4/9  |  4/5
+-----------------------------
+  10 |  wrong  | 4/10 |  4/5
+------------------------------</code></pre>
+
+<p>查询一：</p>
+<pre class="language-text" data-language="text"><code class="language-text">rank | correct |   P   |   R
+ -----------------------------
+   1  |  wrong  |   0   |   0
+ -----------------------------
+   2  |  wrong  |   0   |   0
+ -----------------------------
+   3  |  right  | 1/3  |  1/5
+ -----------------------------
+   4  |  wrong  | 1/4  |  1/5
+ -----------------------------
+   5  |  right  | 2/5  |  2/5
+ -----------------------------
+   6  |  right  | 3/6  |  3/5
+ -----------------------------
+   7  |  wrong  | 3/7  |  3/5
+ -----------------------------
+   8  |  right  | 4/8  |  4/5
+ -----------------------------
+   9  |  wrong  | 4/9  |  4/5
+ -----------------------------
+  10  |  wrong  | 4/10 |  4/5
+ -----------------------------</code></pre>
+
+<p>AP(查询一) &#x3D; (1+1+3&#x2F;4+4&#x2F;7+0)&#x2F;5 &#x3D; 0.664</p>
+<p>AP(查询二) &#x3D; (1&#x2F;3+2&#x2F;5+3&#x2F;6+4&#x2F;8+0)&#x2F;5 &#x3D; 0.347</p>
+<p>这个时候mAP &#x3D; (0.664+0.347)&#x2F;2 &#x3D; 0.51</p>
+<p><strong>分析：</strong>对于上面的例子，最好的结果就是5个条目全部被检索到，并且分别排在rank&#x3D;1、2、3、4、5的位置，这时AP&#x3D;1。<strong>所以可以得出即使条目被全部检索到，但结果的先后顺序决定了一个系统的好坏。这个结论会用在目标检测当中。</strong></p>
+<p><strong>注：</strong>precision在计算的时候取各个召回率下最大的那个，因为同一recall下最大的precision表示该条目最先出现的位置。</p>
+<h3 id="3、目标检测中的mAP"><a href="#3、目标检测中的mAP" class="headerlink" title="3、目标检测中的mAP"></a>3、目标检测中的mAP</h3><p>  图像分类任务通常用accuracy来衡量模型的准确率，对于目标检测任务，比如测试集上的所有图片一共有1000个object（这里的object不是图片的数量，因为一张图片中可能包含若干个object），两个模型都正确检测出了900个object（IOU&gt;规定的阈值）。与图像分类任务不同的是，目标检测因为可能出现重复检测的情况，所以不是一个n to n的问题。在上面的例子中也就不能简单用分类任务的accuracy来衡量模型性能，因为模型A有可能是预测了2000个结果才中了900个，而模型B可能只预测了1200个结果。模型B的性能显然要好于A，因为模型A更像是广撒网，误检测的概率比较高。想象一下如果将模型A用在自动驾驶的汽车上，出现很多误检测的情况对汽车的安全性和舒适性都有很大影响。</p>
+<p>  那在目标检测任务中，应该怎样衡量模型的性能？其中一个标准就是信息检索那样，不仅要衡量检测出正确目标的数量，还应该评价模型是否能以较高的precision检测出目标。也就是在某个类别下的检测，在检测出正确目标之前，是不是出现了很多判断失误。AP越高，说明检测失误越少。对于所有类别的AP求平均就得到mAP了。</p>
+<h3 id="4、计算方法和相关代码"><a href="#4、计算方法和相关代码" class="headerlink" title="4、计算方法和相关代码"></a>4、计算方法和相关代码</h3><p><strong>voc2007的计算方法：</strong><br>在计算AP时，首先要把结果按照置信度排序，公式如下：<br><img src="/posts/9fc5d2ad/2.png" alt="image"></p>
+<p><strong>voc2010的计算方法：</strong><br>  比起07年，10年以后的新方法是取所有真实的recall值，按照07年的方法得到所有recall&#x2F;precision数据点以后，计算recall&#x2F;precision曲线下的面积：</p>
+<blockquote>
+<p>Compute a version of the measured precision&#x2F;recall curve with precision monotonically decreasing, by setting the precision for recall r to the maximum precision obtained for any recall r′ ≥ r.<br>Compute the AP as the area under this curve by numerical integration. No approximation is involved since the curve is piecewise constant.</p>
+</blockquote>
+<p><strong>举一个例子具体说明：</strong><br>对于Aeroplane类别，我们有以下输出（BB表示Bounding Box序号，IOU&gt;0.5时GT&#x3D;1）：</p>
+<pre class="language-text" data-language="text"><code class="language-text">BB  | confidence | GT
+----------------------
+BB1 |  0.9       | 1
+----------------------
+BB2 |  0.9       | 1
+----------------------
+BB1 |  0.8       | 1
+----------------------
+BB3 |  0.7       | 0
+----------------------
+BB4 |  0.7       | 0
+----------------------
+BB5 |  0.7       | 1
+----------------------
+BB6 |  0.7       | 0
+----------------------
+BB7 |  0.7       | 0
+----------------------
+BB8 |  0.7       | 1
+----------------------
+BB9 |  0.7       | 1
+----------------------</code></pre>
+<p>因此，我们有 TP&#x3D;5 (BB1, BB2, BB5, BB8, BB9), FP&#x3D;5 (重复检测到的BB1也算FP)。除了表里检测到的5个GT以外，我们还有2个GT没被检测到，因此: FN &#x3D; 2. 这时我们就可以按照Confidence的顺序给出各处的PR值，如下：</p>
+<pre class="language-text" data-language="text"><code class="language-text">rank=1  precision=1.00 and recall=0.14
+------------------------------
+rank=2  precision=1.00 and recall=0.29
+------------------------------
+rank=3  precision=0.66 and recall=0.29
+------------------------------
+rank=4  precision=0.50 and recall=0.29
+------------------------------
+rank=5  precision=0.40 and recall=0.29
+------------------------------
+rank=6  precision=0.50 and recall=0.43
+------------------------------
+rank=7  precision=0.43 and recall=0.43
+------------------------------
+rank=8  precision=0.38 and recall=0.43
+------------------------------
+rank=9  precision=0.44 and recall=0.57
+------------------------------
+rank=10 precision=0.50 and recall=0.71
+------------------------------</code></pre>
+<p><strong>07年的方法：</strong><br>  我们选取Recall &gt;&#x3D;{ 0, 0.1, …, 1}的11处Percision的最大值：1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0。AP &#x3D; 5.5 &#x2F; 11 &#x3D; 0.5</p>
+<p><strong>VOC2010及以后的方法：</strong><br>  对于Recall &gt;&#x3D; {0, 0.14, 0.29, 0.43, 0.57, 0.71, 1}，我们选取此时Percision的最大值：1, 1, 1, 0.5, 0.5, 0.5, 0。计算recall&#x2F;precision下的面积：AP &#x3D; (0.14-0)x1 + (0.29-0.14)x1 + (0.43-0.29)x0.5 + (0.57-0.43)x0.5 + (0.71-0.57)x0.5 + (1-0.71)x0 &#x3D; 0.5</p>
+<p>计算出每个类别的AP以后，对于所有类别的AP取均值就得到mAP了。</p>
+<p>代码:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token comment"># 计算recall, precision和AP</span>
+class_recs <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    npos <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> imagename <span class="token keyword">in</span> imagenames<span class="token punctuation">:</span>
+        R <span class="token operator">=</span> <span class="token punctuation">[</span>obj <span class="token keyword">for</span> obj <span class="token keyword">in</span> recs<span class="token punctuation">[</span>imagename<span class="token punctuation">]</span> <span class="token keyword">if</span> obj<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span> <span class="token operator">==</span> classname<span class="token punctuation">]</span> 
+        bbox <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">[</span><span class="token string">'bbox'</span><span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> R<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        difficult <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">[</span><span class="token string">'difficult'</span><span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> R<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span>np<span class="token punctuation">.</span><span class="token builtin">bool</span><span class="token punctuation">)</span>
+        det <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token boolean">False</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token builtin">len</span><span class="token punctuation">(</span>R<span class="token punctuation">)</span> <span class="token comment">#这个值是用来判断是否重复检测的</span>
+        npos <span class="token operator">=</span> npos <span class="token operator">+</span> <span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token operator">~</span>difficult<span class="token punctuation">)</span>
+        class_recs<span class="token punctuation">[</span>imagename<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'bbox'</span><span class="token punctuation">:</span> bbox<span class="token punctuation">,</span>
+                                 <span class="token string">'difficult'</span><span class="token punctuation">:</span> difficult<span class="token punctuation">,</span>
+                                 <span class="token string">'det'</span><span class="token punctuation">:</span> det<span class="token punctuation">&#125;</span>
+
+    <span class="token comment"># read dets</span>
+    detfile <span class="token operator">=</span> detpath<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>classname<span class="token punctuation">)</span>
+    <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>detfile<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        lines <span class="token operator">=</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    splitlines <span class="token operator">=</span> <span class="token punctuation">[</span>x<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> lines<span class="token punctuation">]</span>
+    image_ids <span class="token operator">=</span> <span class="token punctuation">[</span>x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> splitlines<span class="token punctuation">]</span>
+    confidence <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">float</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> splitlines<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    BB <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token builtin">float</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span> <span class="token keyword">for</span> z <span class="token keyword">in</span> x<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> splitlines<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># sort by confidence</span>
+    sorted_ind <span class="token operator">=</span> np<span class="token punctuation">.</span>argsort<span class="token punctuation">(</span><span class="token operator">-</span>confidence<span class="token punctuation">)</span>
+    BB <span class="token operator">=</span> BB<span class="token punctuation">[</span>sorted_ind<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span>
+    image_ids <span class="token operator">=</span> <span class="token punctuation">[</span>image_ids<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> sorted_ind<span class="token punctuation">]</span>
+
+    <span class="token comment"># go down dets and mark TPs and FPs</span>
+    nd <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>image_ids<span class="token punctuation">)</span>
+    tp <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>nd<span class="token punctuation">)</span>
+    fp <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span>nd<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> d <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>nd<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        R <span class="token operator">=</span> class_recs<span class="token punctuation">[</span>image_ids<span class="token punctuation">[</span>d<span class="token punctuation">]</span><span class="token punctuation">]</span>
+        bb <span class="token operator">=</span> BB<span class="token punctuation">[</span>d<span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">)</span>
+        ovmax <span class="token operator">=</span> <span class="token operator">-</span>np<span class="token punctuation">.</span>inf
+        BBGT <span class="token operator">=</span> R<span class="token punctuation">[</span><span class="token string">'bbox'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>astype<span class="token punctuation">(</span><span class="token builtin">float</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> BBGT<span class="token punctuation">.</span>size <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token comment"># compute overlaps</span>
+            <span class="token comment"># intersection</span>
+            ixmin <span class="token operator">=</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> bb<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            iymin <span class="token operator">=</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> bb<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            ixmax <span class="token operator">=</span> np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> bb<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            iymax <span class="token operator">=</span> np<span class="token punctuation">.</span>minimum<span class="token punctuation">(</span>BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> bb<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            iw <span class="token operator">=</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>ixmax <span class="token operator">-</span> ixmin <span class="token operator">+</span> <span class="token number">1.</span><span class="token punctuation">,</span> <span class="token number">0.</span><span class="token punctuation">)</span>
+            ih <span class="token operator">=</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>iymax <span class="token operator">-</span> iymin <span class="token operator">+</span> <span class="token number">1.</span><span class="token punctuation">,</span> <span class="token number">0.</span><span class="token punctuation">)</span>
+            inters <span class="token operator">=</span> iw <span class="token operator">*</span> ih
+
+            <span class="token comment"># union</span>
+            uni <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>bb<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> bb<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1.</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>bb<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> bb<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1.</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+                   <span class="token punctuation">(</span>BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">-</span> BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1.</span><span class="token punctuation">)</span> <span class="token operator">*</span>
+                   <span class="token punctuation">(</span>BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">-</span> BBGT<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1.</span><span class="token punctuation">)</span> <span class="token operator">-</span> inters<span class="token punctuation">)</span>
+
+            overlaps <span class="token operator">=</span> inters <span class="token operator">/</span> uni
+            ovmax <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>overlaps<span class="token punctuation">)</span>
+            jmax <span class="token operator">=</span> np<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>overlaps<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> ovmax <span class="token operator">></span> ovthresh<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> R<span class="token punctuation">[</span><span class="token string">'difficult'</span><span class="token punctuation">]</span><span class="token punctuation">[</span>jmax<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> <span class="token keyword">not</span> R<span class="token punctuation">[</span><span class="token string">'det'</span><span class="token punctuation">]</span><span class="token punctuation">[</span>jmax<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                    tp<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1.</span>
+                    R<span class="token punctuation">[</span><span class="token string">'det'</span><span class="token punctuation">]</span><span class="token punctuation">[</span>jmax<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">#判断是否重复检测，检测过一次以后，值就从False变为1了</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    fp<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1.</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            fp<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1.</span>
+
+    <span class="token comment"># compute precision recall</span>
+    fp <span class="token operator">=</span> np<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span>fp<span class="token punctuation">)</span>
+    tp <span class="token operator">=</span> np<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span>tp<span class="token punctuation">)</span>
+    rec <span class="token operator">=</span> tp <span class="token operator">/</span> <span class="token builtin">float</span><span class="token punctuation">(</span>npos<span class="token punctuation">)</span>
+    <span class="token comment"># avoid divide by zero in case the first detection matches a difficult</span>
+    <span class="token comment"># ground truth</span>
+    prec <span class="token operator">=</span> tp <span class="token operator">/</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>tp <span class="token operator">+</span> fp<span class="token punctuation">,</span> np<span class="token punctuation">.</span>finfo<span class="token punctuation">(</span>np<span class="token punctuation">.</span>float64<span class="token punctuation">)</span><span class="token punctuation">.</span>eps<span class="token punctuation">)</span>
+    ap <span class="token operator">=</span> voc_ap<span class="token punctuation">(</span>rec<span class="token punctuation">,</span> prec<span class="token punctuation">,</span> use_07_metric<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> rec<span class="token punctuation">,</span> prec<span class="token punctuation">,</span> ap</code></pre>
+
+<p>计算AP:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">voc_ap</span><span class="token punctuation">(</span>rec<span class="token punctuation">,</span> prec<span class="token punctuation">,</span> use_07_metric<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Compute VOC AP given precision and recall. If use_07_metric is true, uses
+    the VOC 07 11-point method (default:False).
+    """</span>
+    <span class="token keyword">if</span> use_07_metric<span class="token punctuation">:</span>
+        <span class="token comment"># 11 point metric</span>
+        ap <span class="token operator">=</span> <span class="token number">0.</span>
+        <span class="token keyword">for</span> t <span class="token keyword">in</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">0.</span><span class="token punctuation">,</span> <span class="token number">1.1</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> np<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>rec <span class="token operator">>=</span> t<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                p <span class="token operator">=</span> <span class="token number">0</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                p <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>prec<span class="token punctuation">[</span>rec <span class="token operator">>=</span> t<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            ap <span class="token operator">=</span> ap <span class="token operator">+</span> p <span class="token operator">/</span> <span class="token number">11.</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token comment"># correct AP calculation</span>
+        <span class="token comment"># first append sentinel values at the end</span>
+        mrec <span class="token operator">=</span> np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> rec<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        mpre <span class="token operator">=</span> np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.</span><span class="token punctuation">]</span><span class="token punctuation">,</span> prec<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        <span class="token comment"># compute the precision envelope</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>mpre<span class="token punctuation">.</span>size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            mpre<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>maximum<span class="token punctuation">(</span>mpre<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> mpre<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        i <span class="token operator">=</span> np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>mrec<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">!=</span> mrec<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+
+        <span class="token comment"># and sum (\Delta recall) * prec</span>
+        ap <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span><span class="token punctuation">(</span>mrec<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> mrec<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> mpre<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#计算面积</span>
+    <span class="token keyword">return</span> ap</code></pre>
+
+<p>计算mAP:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">mAP</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+    detpath<span class="token punctuation">,</span>annopath<span class="token punctuation">,</span>imagesetfile<span class="token punctuation">,</span>cachedir<span class="token punctuation">,</span>class_path <span class="token operator">=</span> get_dir<span class="token punctuation">(</span><span class="token string">'kitti'</span><span class="token punctuation">)</span>
+    ovthresh<span class="token operator">=</span><span class="token number">0.3</span><span class="token punctuation">,</span>
+    use_07_metric<span class="token operator">=</span><span class="token boolean">False</span>
+
+    rec <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> prec <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> mAP <span class="token operator">=</span> <span class="token number">0</span>
+    class_list <span class="token operator">=</span> get_classlist<span class="token punctuation">(</span>class_path<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> classname <span class="token keyword">in</span> class_list<span class="token punctuation">:</span>
+        rec<span class="token punctuation">,</span> prec<span class="token punctuation">,</span> ap <span class="token operator">=</span> voc_eval<span class="token punctuation">(</span>detpath<span class="token punctuation">,</span>
+                                 annopath<span class="token punctuation">,</span>
+                                 imagesetfile<span class="token punctuation">,</span>
+                                 classname<span class="token punctuation">,</span>
+                                 cachedir<span class="token punctuation">,</span>
+                                 ovthresh<span class="token operator">=</span><span class="token number">0.5</span><span class="token punctuation">,</span>
+                                 use_07_metric<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+                                 kitti<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'on &#123;&#125;, the ap is &#123;&#125;, recall is &#123;&#125;, precision is &#123;&#125;'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>classname<span class="token punctuation">,</span> ap<span class="token punctuation">,</span> rec<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> prec<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        mAP <span class="token operator">+=</span> ap
+    mAP <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span>mAP<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token builtin">len</span><span class="token punctuation">(</span>class_list<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> mAP</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">YangChongZhi</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yczlab.top/posts/9fc5d2ad.html">http://yczlab.top/posts/9fc5d2ad.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">YangChongZhi</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/Pytorch/">
+                                    <span class="chip bg-color">Pytorch</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/544335fd.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Java的继承性">
+                        
+                        <span class="card-title">Java的继承性</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/d2055be1.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="conda设置镜像后安装较大的包还是很慢">
+                        
+                        <span class="card-title">conda设置镜像后安装较大的包还是很慢</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="7565528433"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.4'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">YangChongZhi</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">218.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://beian.miit.gov.cn/" target="_blank">渝ICP备2021001798号-1</a>
+            </span>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yczlab" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/yczlab" class="tooltipped" target="_blank" data-tooltip="访问我的码云" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2685733832@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2685733832" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2685733832" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2685733832" class="tooltipped" target="_blank" data-tooltip="微信联系我: yczlab" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/yczlab" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/yczlab" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/yczlab" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/yczlab" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.5'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+    
+    <script type="text/javascript" size="150" alpha='0.6'
+        zIndex="-1" src="/libs/background/ribbon-refresh.min.js" async="async"></script>
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
