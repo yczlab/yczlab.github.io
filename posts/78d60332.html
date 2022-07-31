@@ -834,7 +834,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+快速排序由于排序效率在同为O(N*logN)的几种排序方法中效率较高，因此经常被采用。
+
+说明  快速排序算法经常被采用，而且快速排序也采用了分治的思想，因此很多软件公司的笔试面试，包括像腾讯，微软等知名IT公司都喜欢考这个，
                         
                     </div>
                     <div class="publish-info">
@@ -891,7 +895,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+关于“并查集”的解释和使用场景网上有很多教程，这里就不在啰嗦了。仅提供代码模板方便知情人快速使用。
+
+并查集的java实现// 开启了路径压缩和按秩合并的并查集
+class UnionFind &#123;
+    int n
                         
                     </div>
                     <div class="publish-info">
@@ -1419,6 +1429,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

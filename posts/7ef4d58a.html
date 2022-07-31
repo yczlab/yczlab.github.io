@@ -1347,7 +1347,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+代理设计模式的原理：使用一个代理将对象包装起来, 然后用该代理对象取代原始对象。任何对原始对象的调用都要通过代理。代理对象决定是否以及何时将方法调用转到原始对象上。
+
+  对于静态代理，代理类和目标对象的类都是在编译期间确定下
                         
                     </div>
                     <div class="publish-info">
@@ -1396,7 +1400,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+I&#x2F;O是Input&#x2F;Output的缩写，I&#x2F;O技术是非常实用的技术，用于处理设备之间的数据传输。如读&#x2F;写文件，网络通讯等。Java程序中，对于数据的输入&#x2F;输出操作以“流(str
                         
                     </div>
                     <div class="publish-info">
@@ -1916,6 +1922,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

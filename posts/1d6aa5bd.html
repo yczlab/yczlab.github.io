@@ -836,7 +836,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+最长递增子序列问题是一个很基本、较常见的小问题，但这个问题的求解方法却并不那么显而易见，需要较深入的思考和较好的算法素养才能得出良好的算法。这个问题能运用学过的基本的算法分析和设计的方法与思想，能够锻炼设计较复杂算法的思维。转
                         
                     </div>
                     <div class="publish-info">
@@ -893,7 +895,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+二进制数可以用来表示一个状态，比如当我们需要去表示一个集合的子集时，可以用二进制数来表示该子集。
+
+问题  比如有一个集合，集合中的元素为 {1, 5, 7, 9, 12}，如何快速找到其所有的子集合呢。这就可以采用二进制来压
                         
                     </div>
                     <div class="publish-info">
@@ -1421,6 +1427,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

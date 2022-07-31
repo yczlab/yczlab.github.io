@@ -794,7 +794,16 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+Java中的权限修饰符（private、缺省、protected、public）
+
+  Java权限修饰符public、protected、private置于类的成员定义前，用来限定对象对该类成员的访问权限。
+
+
+
+修饰符
+类
                         
                     </div>
                     <div class="publish-info">
@@ -843,7 +852,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+关于Java三大特性（封装、继承、多态）中的继承性说明。主要是为了自己方便理解。
+
+一、继承性的好处：  ① 减少了代码的冗余，提高了代码的复用性  ② 便于功能的扩展  ③ 为之后多态性的使用，提供了前提
+二、继承性的格式  cl
                         
                     </div>
                     <div class="publish-info">
@@ -1363,6 +1376,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

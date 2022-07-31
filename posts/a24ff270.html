@@ -2134,7 +2134,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+Reflect（反射）是被视为动态语言的关键，反射机制允许程序在执行期借助于Reflection API取得任何类的内部信息，并能直接操作任意对象的内部属性及方法。
+
+一、反射机制概述
+Reflect（反射）是被视为动态语言的
                         
                     </div>
                     <div class="publish-info">
@@ -2183,7 +2188,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+java.io.File 是用来表示文件和文件目录路径的抽象形式，与平台无关。
+
+
+File 能新建、删除、重命名文件和目录，但是File不能访问文件内容本身。如果需要访问文件内容本身，则需要使用输入&#x2F;输出流。
+想要
                         
                     </div>
                     <div class="publish-info">
@@ -2703,6 +2714,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

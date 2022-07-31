@@ -891,7 +891,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+Spring AOP可以使用@AfterThrowing注解来实现异常通知，在目标方法出现异常时执行的通知。在异常通知中可以访问到异常对象，且可以指定在出现特定异常时才执行通知代码。
+
+
+ArithmeticCalculator.j
                         
                     </div>
                     <div class="publish-info">
@@ -944,7 +948,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+Spring AOP可以使用@After注解来实现后置通知, 在目标方法执行后（无论是否发生异常）执行一段代码（可以用来做日志）。但是在后置通知中还不能访问目标方法的执行结果。
+
+
+ArithmeticCalculator.java
                         
                     </div>
                     <div class="publish-info">
@@ -1468,6 +1476,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

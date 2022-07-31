@@ -789,7 +789,17 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+Java中的JUnit单元测试说明
+
+一、步骤
+确认开发环境（如Eclipse或IDEA）能正常使用JUnit
+
+创建Java类，进行单元测试。
+
+此时的Java类要求：① 此类是public的② 此类提供公共的无参的构造器
+
                         
                     </div>
                     <div class="publish-info">
@@ -838,7 +848,16 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+java.lang.Object类相关知识点说明
+
+
+Object类是所有Java类的根父类
+
+如果在类的声明中未使用extends关键字指明其父类，则默认父类为java.lang.Object类
+
+Object类中的功能（属
                         
                     </div>
                     <div class="publish-info">
@@ -1358,6 +1377,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

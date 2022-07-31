@@ -853,7 +853,13 @@ Space losses: 3 bytes internal + 7 bytes external = 10 bytes total</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+对于二叉树的递归遍历比较简单，所以本文主要想讨论的是非递归版。其中，中序遍历和前序遍历的非递归写法都比较简单，后序遍历最难。
+
+一、二叉树节点表示public class TreeNode&#123;
+	int val;
+  
                         
                     </div>
                     <div class="publish-info">
@@ -910,7 +916,9 @@ Space losses: 3 bytes internal + 7 bytes external = 10 bytes total</code></pre>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+在过往的Java项目中，充斥着太多不友好的代码：POJO的getter&#x2F;setter&#x2F;toString；异常处理；I&#x2F;O流的关闭操作等等，这些样板代码既没有技术含量，又影响着代码的美观，Lombo
                         
                     </div>
                     <div class="publish-info">
@@ -1430,6 +1438,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

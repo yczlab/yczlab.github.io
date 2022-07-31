@@ -786,7 +786,25 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+常用的经典设计模式
+
+常用设计模式——23中经典的设计模式创建模式（共5种）
+工厂方法模式
+抽象工厂模式
+单例模式
+建造者模式
+原型模式
+
+结构模式（共7种）
+适配器模式
+装饰器模式
+代理模式
+外观模式
+桥接模式
+组合模式
+享
                         
                     </div>
                     <div class="publish-info">
@@ -835,7 +853,16 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+Java中类的成员除了常用的属性、方法、构造器以外，还有代码块和内部类。其中代码块主要是用来做一些初始化的工作。
+
+
+代码块的作用：用来初始化类、对象
+
+代码块如果有修饰的话，只能使用static.
+
+分类：静态代码块 and
                         
                     </div>
                     <div class="publish-info">
@@ -1355,6 +1382,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

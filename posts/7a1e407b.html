@@ -883,7 +883,12 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+通过静态工厂方法来配置bean，注意不是配置静态工厂方法实例，而是配置bean实例。通过实例工厂方法来配置bean，先配置工厂的bean实例，再配置所需bean实例。
+
+
+Car.java
+StaticCarFactory.java
                         
                     </div>
                     <div class="publish-info">
@@ -936,7 +941,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+可以在Spring中使用SpEL语言为Bean的属性赋一个字面值，引用其他类的静态属性，引用其他的Bean，引用其他Bean的属性，还可以在SpEL中使用运算符。
+
+
+Address.java
+Car.java
+Person.jav
                         
                     </div>
                     <div class="publish-info">
@@ -1460,6 +1471,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

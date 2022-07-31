@@ -867,7 +867,13 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+JVM提供了大量的参数配置，可以通过配置这些参数对JVM进行调优、记录GC日志等等。
+
+一、内存相关  通过这些参数可以对JVM的内存分配做调整
+Xms
+英文解释：Initial heap size(in bytes)中文释义
                         
                     </div>
                     <div class="publish-info">
@@ -920,7 +926,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                              
+引言：
+在JVM中类加载过程中，在链接（验证、准备、解析）的解析阶段，Java虚拟机会把类的二进制数据中的符号引用替换为直接引用。
+
+一、符号引用  符号引用（Symbolic Reference）以一组符号来描述所引用的目标，符号可
                         
                     </div>
                     <div class="publish-info">
@@ -1444,6 +1454,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 

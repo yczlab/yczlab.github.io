@@ -882,7 +882,14 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+对一些常用网站的收集(主要是为了方便自己换电脑时懒得去导出浏览器收藏夹)，会持续更新…
+
+常用网站
+软件安装管家（能找到满足日常办公的很多软件）
+chm格式的java API制作工具
+浏览器主页“简法主页”
+浏览器主页插件 itab
                         
                     </div>
                     <div class="publish-info">
@@ -931,7 +938,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            引言：
+Spring AOP可以使用@Around注解来实现环绕通知，环绕通知需要携带ProceedingJoinPoint类型的参数，环绕通知类似于动态代理的全过程，ProceedingJoinPoint类型的参数可以决定是否执行目标方法
                         
                     </div>
                     <div class="publish-info">
@@ -1455,6 +1463,31 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	var OriginTitile = document.title,st;
+	document.addEventListener("visibilitychange", function () {
+		document.hidden ? (document.title = "Σ(っ °Д °;)っ我隐藏了！", clearTimeout(st)) : (document.title="(๑•̀ㅂ•́) ✧被发现了！", st=setTimeout(function () {document.title = OriginTitile}, 3e3))
+	});
+	</script>
+	
+	<!-- 背景樱花飘落特效 -->
+	
+	
+	<!-- 背景雪花飘落特效 -->
+	
+	
+	<!-- 数字雨特效 -->
+	
+		<script type="text/javascript">
+		//只在桌面版网页启用特效
+		var windowWidth = $(window).width();
+		if (windowWidth > 768) {
+			document.write('<canvas id="digitalrain" width="1440" height="900" style="position:fixed; z-index:-2; right:0px; bottom:0px; min-width:100%; min-height:100%; height:auto; width:auto;"><\/canvas>');
+			document.write('<script type="text/javascript" src="/js/digitalrain.js"><\/script>');
+		}
+		</script>
+	
 
 </body>
 
