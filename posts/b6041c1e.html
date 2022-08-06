@@ -128,6 +128,40 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fa fa-list" style="zoom: 0.6;"></i>
+      
+      <span>其他</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://console.leancloud.cn">
+          
+          <i class="fa-solid fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>LeanCloud 应用</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="https://www.tidio.com/panel">
+          
+          <i class="fa-solid fa-link" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>TIDIO 聊天系统</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -228,6 +262,41 @@
 			
 			友情链接
 		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fa fa-list"></i>
+			
+			其他
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://console.leancloud.cn " style="margin-left:75px">
+				  
+				   <i class="fa fa-solid fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>LeanCloud 应用</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="https://www.tidio.com/panel " style="margin-left:75px">
+				  
+				   <i class="fa fa-solid fa-link" style="position: absolute;left:50px" ></i>
+			      
+		          <span>TIDIO 聊天系统</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -2663,8 +2732,8 @@
 </ul>
 <p>3、<strong>插入</strong>数据到视图中</p>
 <ul>
-<li><font color="#e96900">insert into myview1 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#97;&#x61;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#x61;&#97;&#x61;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a>&#39;, 1000000), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#x62;&#98;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#98;&#x62;&#98;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a>&#39;, 1100000);</font><br><font color="#0000ee">报错：Column ‘annual_salary’ is not updatable. 并不是所有的字段都能更新。</font></li>
-<li><font color="#e96900">insert into myview2 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#97;&#x61;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#x61;&#97;&#x61;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a>&#39;), (&#39;B&#39;, &#39;<a href="mailto:&#x62;&#x62;&#98;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x62;&#x62;&#98;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a>&#39;);</font><br><font color="#0000ee">成功插入，并且会插入到原始表中。这个时候由于原始表有了新数据，视图myview1中的数据也会变多，因为myview1是由原始表动态生成的。</font></li>
+<li><font color="#e96900">insert into myview1 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;</a>&#39;, 1000000), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#x62;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#98;&#x62;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a>&#39;, 1100000);</font><br><font color="#0000ee">报错：Column ‘annual_salary’ is not updatable. 并不是所有的字段都能更新。</font></li>
+<li><font color="#e96900">insert into myview2 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a>&#39;), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#98;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#98;&#98;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a>&#39;);</font><br><font color="#0000ee">成功插入，并且会插入到原始表中。这个时候由于原始表有了新数据，视图myview1中的数据也会变多，因为myview1是由原始表动态生成的。</font></li>
 </ul>
 <p>4、<strong>修改</strong>视图中的数据</p>
 <ul>
