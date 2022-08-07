@@ -623,7 +623,7 @@ hexo s</code></pre>
 <ul>
 <li><p><strong>生成ssh公钥添加到Github</strong><br>保证 Git 已经正确安装好。进入“C:\Users\Administrator.ssh”目录下（其中Administrator为你的用户名），鼠标右键点击打开“Git Bash Here”，输入以下命令，并连续按三次回车键：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"你的邮箱名称"</span> -f <span class="token string">"产生的公私钥名称"</span></code></pre>
-<p>其中“你的邮箱”为你注册Github时使用的邮箱地址，比如QQ邮箱；“产生的公私钥名称”为你想要为其命名的名称，若不命名，则会使用默认的名称，会覆盖以前也使用默认名称的公私钥文件。比如我执行 ‘ssh-keygen -t rsa -C “<a href="mailto:&#50;&#x36;&#x38;&#x35;&#55;&#x33;&#x33;&#56;&#51;&#50;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;">&#50;&#x36;&#x38;&#x35;&#55;&#x33;&#x33;&#56;&#51;&#50;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;</a>“ -f “github_rsa” ‘，结果如下：<br><img src="/posts/d55a993f/11.png" alt="image"><br>此时会在当前目录下生成两个文件“github_rsa”和“github_ras.pub”，一个为私钥（不要公开），另一个为私钥（可以公开）：<br><img src="/posts/d55a993f/12.png" alt="image"><br>用自己注册的账号登录Github官网，点击右上角的”Settings”——&gt;点击”SSH and GPG keys”——&gt;点击“New SSH key”，添加刚刚生成的公钥：<br><img src="/posts/d55a993f/13.png" alt="image"><br>现在还不能正常使用，因为在新生成这个公私钥文件的时候不是采用的默认命名，而是带了“-f”参数对该公私钥文件进行了重命名，所以本地的ssh服务可能就找不到我们新生成的公私钥文件，所以还需要在本地配置一下，才能正常使用。在该公私钥文件所在的目录下新建一个名为“config”的文件(注意该文件没有后缀)，往该文件中写入以下的信息，并保存：</p>
+<p>其中“你的邮箱”为你注册Github时使用的邮箱地址，比如QQ邮箱；“产生的公私钥名称”为你想要为其命名的名称，若不命名，则会使用默认的名称，会覆盖以前也使用默认名称的公私钥文件。比如我执行 ‘ssh-keygen -t rsa -C “<a href="mailto:&#x32;&#x36;&#56;&#x35;&#55;&#x33;&#x33;&#x38;&#51;&#50;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x32;&#x36;&#56;&#x35;&#55;&#x33;&#x33;&#x38;&#51;&#50;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a>“ -f “github_rsa” ‘，结果如下：<br><img src="/posts/d55a993f/11.png" alt="image"><br>此时会在当前目录下生成两个文件“github_rsa”和“github_ras.pub”，一个为私钥（不要公开），另一个为私钥（可以公开）：<br><img src="/posts/d55a993f/12.png" alt="image"><br>用自己注册的账号登录Github官网，点击右上角的”Settings”——&gt;点击”SSH and GPG keys”——&gt;点击“New SSH key”，添加刚刚生成的公钥：<br><img src="/posts/d55a993f/13.png" alt="image"><br>现在还不能正常使用，因为在新生成这个公私钥文件的时候不是采用的默认命名，而是带了“-f”参数对该公私钥文件进行了重命名，所以本地的ssh服务可能就找不到我们新生成的公私钥文件，所以还需要在本地配置一下，才能正常使用。在该公私钥文件所在的目录下新建一个名为“config”的文件(注意该文件没有后缀)，往该文件中写入以下的信息，并保存：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Github的公钥配置</span>
 Host github.com
 HostName github.com
@@ -1475,7 +1475,7 @@ Window中Node.js及npm详细安装配置过程，npm是Nodejs下的包管理工�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">231.6k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             

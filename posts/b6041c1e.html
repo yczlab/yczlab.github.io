@@ -532,21 +532,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-31
+                    2022-08-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    25.4k
+                    23.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    112 分
+                    100 分
                 </div>
                 
 
@@ -1747,18 +1747,18 @@
 <blockquote>
 <p>案例1：返回 location_id 是 1400或1700的部门中的所有员工姓名</p>
 <ul>
-<li><font color="#e96900">select last_name<br>from employees<br>where department_id in (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from departments<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where location_id in (1400, 1700)</strong><br>);</font></li>
-<li><font color="#e96900">select last_name<br>from employees<br>where department_id &#x3D; any(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from departments<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where location_id in (1400, 1700)</strong><br>);</font></li>
+<li><font color="#e96900">select last_name<br>from employees<br>where department_id in (<br>  <strong>select department_id<br>  from departments<br>  where location_id in (1400, 1700)</strong><br>);</font></li>
+<li><font color="#e96900">select last_name<br>from employees<br>where department_id &#x3D; any(<br>  <strong>select department_id<br>  from departments<br>  where location_id in (1400, 1700)</strong><br>);</font></li>
 </ul>
 <p>案例2：返回其他工种中比job_id为“IT_PROG”的工种任一工资低的员工的：工号、姓名、job_id、以及salary</p>
 <ul>
-<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; any(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select distinct salary<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
-<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select max(salary)<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
+<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; any(<br>  <strong>select distinct salary<br>  from employees<br>  where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
+<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; (<br>  <strong>select max(salary)<br>  from employees<br>  where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
 </ul>
 <p>案例3：返回其他工种中比job_id为“IT_PROG”的工种所有工资低的员工的：工号、姓名、job_id、以及salary</p>
 <ul>
-<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; all(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select distinct salary<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
-<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select min(salary)<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
+<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; all(<br>  <strong>select distinct salary<br>  from employees<br>  where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
+<li><font color="#e96900">select employee_id, last_name, job_id, salary<br>from employees<br>where salary &lt; (<br>  <strong>select min(salary)<br>  from employees<br>  where job_id &#x3D; &quot;IT_PROG&quot;</strong><br>) and job_id &lt;&gt; &quot;IT_PROG&quot;;</font></li>
 </ul>
 </blockquote>
 <p><strong>4、where或having 后面的行子查询</strong><br>  行子查询一般返回一行多列值，也可以是多行多列值。行子查询一般很少使用。</p>
@@ -1766,70 +1766,70 @@
 <p>案例1：查询员工编号最小并且工资最高的员工信息</p>
 <ul>
 <li><font color="#e96900">select *<br>from employees<br>where employee_id &#x3D; (<strong>select min(employee_id) from employees</strong>)<br>and salary &#x3D; (<strong>select max(salary) from employees</strong>);</font></li>
-<li><font color="#e96900">select *<br>from employees<br>where (employee_id, salary) &#x3D; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<strong>select min(employee_id), max(salary)<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees</strong><br>);</font></li>
+<li><font color="#e96900">select *<br>from employees<br>where (employee_id, salary) &#x3D; (<br>  <strong>select min(employee_id), max(salary)<br>  from employees</strong><br>);</font></li>
 </ul>
 </blockquote>
 <p><strong>5、select 后面的子查询</strong><br>  select后面的子查询仅仅只支持标量子查询，返回值只能是单值。</p>
 <blockquote>
 <p>案例1：查询每个部门的员工个数</p>
 <ul>
-<li><font color="#e96900">select d.*, (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select count(*)<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees e<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where e.department_id &#x3D; d.department_id<br>) as 员工个数<br>from departments d;</font></li>
+<li><font color="#e96900">select d.*, (<br>  select count(*)<br>  from employees e<br>  where e.department_id &#x3D; d.department_id<br>) as 员工个数<br>from departments d;</font></li>
 </ul>
 <p>案例1：查询员工号为102的员工的部门名</p>
 <ul>
-<li><font color="#e96900">select (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select department_name<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from departments d<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;inner join employees e on d.department_id &#x3D; e.department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where e.employee_id&#x3D;102<br>) 部门名;</font></li>
+<li><font color="#e96900">select (<br>  select department_name<br>  from departments d<br>  inner join employees e on d.department_id &#x3D; e.department_id<br>  where e.employee_id&#x3D;102<br>) 部门名;</font></li>
 </ul>
 </blockquote>
 <p><strong>6、from 后面的子查询</strong><br>  from后面的子查询一般是表子查询。该子查询结果直接充当一个新的数据表来使用，要求必须要起别名。</p>
 <blockquote>
 <p>案例1：查询每个部门的平均工资的工资等级</p>
 <ul>
-<li><font color="#e96900">select temp.*, grade_level<br>from (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select department_id, avg(salary) avg_sal<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;group by department_id<br>) as temp<br>left join job_grades g on temp.avg_sal between g.lowest_sal and g.highest_sal;</font></li>
+<li><font color="#e96900">select temp.*, grade_level<br>from (<br>  select department_id, avg(salary) avg_sal<br>  from employees<br>  group by department_id<br>) as temp<br>left join job_grades g on temp.avg_sal between g.lowest_sal and g.highest_sal;</font></li>
 </ul>
 </blockquote>
 <p><strong>7、exists 后面的子查询</strong><br>  有时也称为相关子查询。用exists来判断后面的子查询是否存在结果，返回 1 或 0。</p>
 <blockquote>
 <p>案例1：查询有员工名的部门名</p>
 <ul>
-<li><font color="#e96900">select department_name<br>from departments d<br>where exists(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select employee_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees e<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where e.department_id &#x3D; d.department_id<br>);</font></li>
-<li><font color="#e96900">select department_name<br>from departments d<br>where d.department_id in (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select distinct department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>);</font></li>
+<li><font color="#e96900">select department_name<br>from departments d<br>where exists(<br>  select employee_id<br>  from employees e<br>  where e.department_id &#x3D; d.department_id<br>);</font></li>
+<li><font color="#e96900">select department_name<br>from departments d<br>where d.department_id in (<br>  select distinct department_id<br>  from employees<br>);</font></li>
 </ul>
 <p>案例2：查询没有女朋友的男神信息</p>
 <ul>
-<li><font color="#e96900">select bo.*<br>from boys bo<br>where not exists(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from beauty<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where boyfriend_id &#x3D; bo.id<br>);</font></li>
-<li><font color="#e96900">select bo.*<br>from boys bo<br>where bo.id not in (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select distinct boyfriend_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from beauty<br>);</font></li>
+<li><font color="#e96900">select bo.*<br>from boys bo<br>where not exists(<br>  select id<br>  from beauty<br>  where boyfriend_id &#x3D; bo.id<br>);</font></li>
+<li><font color="#e96900">select bo.*<br>from boys bo<br>where bo.id not in (<br>  select distinct boyfriend_id<br>  from beauty<br>);</font></li>
 </ul>
 </blockquote>
 <p><strong>8、子查询案例</strong></p>
 <blockquote>
 <p>案例1：查询和‘Zlotkey’相同部门的员工姓名和工资</p>
 <ul>
-<li><font color="#e96900" size="3">select last_name, salary<br>from employees<br>where department_id &#x3D; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where last_name &#x3D; &quot;Zlotkey&quot;<br>);</font></li>
+<li><font color="#e96900" size="3">select last_name, salary<br>from employees<br>where department_id &#x3D; (<br>  select department_id<br>  from employees<br>  where last_name &#x3D; &quot;Zlotkey&quot;<br>);</font></li>
 </ul>
 <p>案例2：查询工资比公司平均工资高的员工的员工号，姓名和工资</p>
 <ul>
-<li><font color="#e96900" size="3">select employee_id, last_name, salary<br>from employees<br>where salary &gt; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select avg(salary)<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>);</font></li>
+<li><font color="#e96900" size="3">select employee_id, last_name, salary<br>from employees<br>where salary &gt; (<br>  select avg(salary)<br>  from employees<br>);</font></li>
 </ul>
 <p>案例3：查询各部门中工资比本部门中平均工资高的员工的员工号、姓名和工资</p>
 <ul>
-<li><font color="#e96900" size="3">select employee_id, last_name, salary<br>from employees e<br>left join (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select department_id, avg(salary) avg_sal<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;group by department_id<br>) as temp on e.department_id &#x3D; temp.department_id<br>where e.salary &gt; temp.avg_sal;</font></li>
+<li><font color="#e96900" size="3">select employee_id, last_name, salary<br>from employees e<br>left join (<br>  select department_id, avg(salary) avg_sal<br>  from employees<br>  group by department_id<br>) as temp on e.department_id &#x3D; temp.department_id<br>where e.salary &gt; temp.avg_sal;</font></li>
 </ul>
 <p>案例4：查询与姓名中包含字母‘u’的员工在相同部门的员工的员工号和姓名</p>
 <ul>
-<li><font color="#e96900" size="3">select employee_id, last_name<br>from employees<br>where department_id in (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select distinct department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where last_name like &#39;%u%&#39;<br>);</font></li>
+<li><font color="#e96900" size="3">select employee_id, last_name<br>from employees<br>where department_id in (<br>  select distinct department_id<br>  from employees<br>  where last_name like &#39;%u%&#39;<br>);</font></li>
 </ul>
 <p>案例5：查询在部门的location_id为1700的部门工作的员工的员工号</p>
 <ul>
-<li><font color="#e96900" size="3">select employee_id<br>from employees<br>where department_id &#x3D; any(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select distinct department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from departments<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where location_id &#x3D; 1700<br>);</font></li>
+<li><font color="#e96900" size="3">select employee_id<br>from employees<br>where department_id &#x3D; any(<br>  select distinct department_id<br>  from departments<br>  where location_id &#x3D; 1700<br>);</font></li>
 </ul>
 <p>案例6：查询管理者是K_ing的员工姓名和工资</p>
 <ul>
-<li><font color="#e96900" size="3">select last_name, salary<br>from employees<br>where manager_id in (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select employee_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where last_name &#x3D; &quot;K_ing&quot;<br>);</font></li>
+<li><font color="#e96900" size="3">select last_name, salary<br>from employees<br>where manager_id in (<br>  select employee_id<br>  from employees<br>  where last_name &#x3D; &quot;K_ing&quot;<br>);</font></li>
 </ul>
 <p>案例7：查询工资最高的员工的姓名，要求first_name和last_name显示为一列，列明为 姓·名</p>
 <ul>
-<li><font color="#e96900" size="3">select concat(last_name, first_name), salary<br>from employees<br>where salary &#x3D; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select max(salary)<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>);</font></li>
-<li><font color="#e96900" size="3">select concat(last_name, first_name), salary<br>from employees<br>where salary &#x3D; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select salary<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;order by salary desc<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;limit 1<br>);</font></li>
+<li><font color="#e96900" size="3">select concat(last_name, first_name), salary<br>from employees<br>where salary &#x3D; (<br>  select max(salary)<br>  from employees<br>);</font></li>
+<li><font color="#e96900" size="3">select concat(last_name, first_name), salary<br>from employees<br>where salary &#x3D; (<br>  select salary<br>  from employees<br>  order by salary desc<br>  limit 1<br>);</font></li>
 </ul>
 </blockquote>
 <h4 id="H、分页查询"><a href="#H、分页查询" class="headerlink" title="H、分页查询"></a>H、分页查询</h4><p>  非常具有应用场景，当要显示的数据，一页显示不全，就需要提交分页查询的sql请求。<br><strong>1、语法</strong></p>
@@ -2070,15 +2070,15 @@
 <blockquote>
 <p>语法：</p>
 <ul>
-<li><font color="#e96900" size="3">create table [if not exists] 表名(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;列名 列的类型[(长度)] [约束],<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;列名 列的类型[(长度)] [约束],<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;列名 列的类型[(长度)] [约束],<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;……<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;列名 列的类型[(长度)] [约束]<br>);</font></li>
+<li><font color="#e96900" size="3">create table [if not exists] 表名(<br>  列名 列的类型[(长度)] [约束],<br>  列名 列的类型[(长度)] [约束],<br>  列名 列的类型[(长度)] [约束],<br>  ……<br>  列名 列的类型[(长度)] [约束]<br>);</font></li>
 </ul>
 <p>案例1：创建表 Book</p>
 <ul>
-<li><font color="#e96900">create table book(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;bName VARCHAR(20),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;price DOUBLE,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;authorID INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;publishDate DATETIME<br>);</font></li>
+<li><font color="#e96900">create table book(<br>  id INT,<br>  bName VARCHAR(20),<br>  price DOUBLE,<br>  authorID INT,<br>  publishDate DATETIME<br>);</font></li>
 </ul>
 <p>案例2：创建表 Author</p>
 <ul>
-<li><font color="#e96900">create table if not exists author(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;au_name VARCHAR(20),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;nation VARCHAR(10)<br>);</font></li>
+<li><font color="#e96900">create table if not exists author(<br>  id INT,<br>  au_name VARCHAR(20),<br>  nation VARCHAR(10)<br>);</font></li>
 </ul>
 </blockquote>
 </li>
@@ -2199,7 +2199,7 @@
 </li>
 <li><p>如果不设置长度，会有默认的长度。该长度代表了显示的最大宽度，如果不够会用0在左侧填充，但必须搭配<strong>zerofill</strong>关键字一起使用才有效果。使用zerofill后，就<strong>自动变为了无符号的整数类型</strong>。</p>
 </li>
-<li><p><font color="#e96900">drop table if exists tab_int;<br>create table tab_int(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;c1 INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;c2 INT(7) ZEROFILL,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;c3 INT UNSIGNED,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;c4 INT(8) UNSIGNED<br>);</font></p>
+<li><p><font color="#e96900">drop table if exists tab_int;<br>create table tab_int(<br>  c1 INT,<br>  c2 INT(7) ZEROFILL,<br>  c3 INT UNSIGNED,<br>  c4 INT(8) UNSIGNED<br>);</font></p>
 </li>
 </ul>
 </blockquote>
@@ -2249,7 +2249,7 @@
 <li>如果超过范围，则插入临界值。</li>
 <li><font color="#0088ee"><strong>M</strong> 和 <strong>D</strong>都可以省略。如果是decimal，则M默认为10，D默认为0；如果是float和double，则会根据插入的数值的精度来决定精度。</font></li>
 <li>定点型的精度较高，如果要求插入数值的精度较高如货币运算等则考虑使用。</li>
-<li><font color="#e96900">drop table if exists tab_float;<br>create table tab_float(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;f1 FLOAT(5, 2),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;f2 DOUBLE(5, 2),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;f3 DECIMAL(5, 2)<br>);</font></li>
+<li><font color="#e96900">drop table if exists tab_float;<br>create table tab_float(<br>  f1 FLOAT(5, 2),<br>  f2 DOUBLE(5, 2),<br>  f3 DECIMAL(5, 2)<br>);</font></li>
 <li><code>insert into tab_float values(123.45, 123.45, 123.45);</code> 执行成功</li>
 <li><code>insert into tab_float values(123.456, 123.456, 123.456);</code> 四舍五入成123.46</li>
 <li><code>insert into tab_float values(123.4, 123.4, 123.4);</code> 结果为123.40</li>
@@ -2291,11 +2291,11 @@
 <li><strong>binary和varbinary类型</strong>类似于char和varchar类型，不同的是它们包含二进制字符串而不包含非二进制字符串。</li>
 <li><strong>bit(M)表示位类型</strong>，占 1 ~ 8 个字节，范围为 bit(1) ~ bit(8)。</li>
 <li><strong>enum类型</strong>，又称为枚举类型。要求插入的值必须为列表中指定的值之一。如果列表成员为1 ~ 255，则需要1个字节存储；如果列表成员为255 ~ 65535，则需要2个字节存储；最多需要65535个成员。</li>
-<li><font color="#e96900">drop table if exists tab_char;<br>create table tab_char(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;c1 ENUM(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)<br>);</font></li>
+<li><font color="#e96900">drop table if exists tab_char;<br>create table tab_char(<br>  c1 ENUM(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)<br>);</font></li>
 <li><code>insert into tab_char values(&#39;a&#39;);</code> 成功插入</li>
 <li><code>insert into tab_char values(&#39;m&#39;);</code> 报错</li>
 <li><strong>set类型</strong>，和enum类型类似，里面可以保存0 ~ 64个成员。和enum类型最大的区别是：set类型一次可以选取多个成员，而enum只能选取一个。根据成员个数的不同，存储所占的字节也不同。成员数1 ~ 8，字节数为1；成员数9 ~ 16，字节数为2；成员数17 ~ 24，字节数为3；成员数25 ~ 32，字节数为4；成员数33 ~ 64，字节数为8；</li>
-<li><font color="#e96900">drop table if exists tab_char;<br>create table tab_char(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;s1 SET(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)<br>);</font></li>
+<li><font color="#e96900">drop table if exists tab_char;<br>create table tab_char(<br>  s1 SET(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)<br>);</font></li>
 <li><code>insert into tab_char values(&#39;a&#39;);</code> 成功插入</li>
 <li><code>insert into tab_char values(&#39;A,B&#39;);</code> 成功插入</li>
 <li><code>insert into tab_char values(&#39;a,b,d&#39;);</code> 成功插入</li>
@@ -2366,7 +2366,7 @@
 <li>datetime的取值范围是：1000-01-01 00:00:00 —— 9999-12-31 23:59:59</li>
 <li><strong>timestamp和实际时区有关，更能反映实际的日期</strong>，而datetime则只能反映出插入时的当地时区</li>
 <li>timestamp的属性受MySql版本和SQLMode的影响很大</li>
-<li><font color="#e96900">drop table if exists tab_date;<br>create table tab_date(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;t1 DATETIME,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;t2 TIMESTAMP<br>);</font></li>
+<li><font color="#e96900">drop table if exists tab_date;<br>create table tab_date(<br>  t1 DATETIME,<br>  t2 TIMESTAMP<br>);</font></li>
 <li><code>insert into tab_date values(now(), now());</code></li>
 </ul>
 </blockquote>
@@ -2408,8 +2408,8 @@
 <blockquote>
 <p>案例：</p>
 <ul>
-<li><font color="#e96900">drop database if exists students;<br>create database students;<br>use students;<br>drop table if exists major;<br>create table major(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT primary key,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;majorName VARCHAR(20) not null<br>);</font></li>
-<li><font color="#e96900">use students;<br>drop table if exists stuinfo;<br>create table stuinfo(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT primary key,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stuName VARCHAR(20) not null,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gender CHAR(1) check(gender&#x3D;&#39;男&#39; or gender&#x3D;&#39;女&#39;),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;seat INT unique,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;age INT default 18,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;majorId INT foreign key references major(id)<br>);</font></li>
+<li><font color="#e96900">drop database if exists students;<br>create database students;<br>use students;<br>drop table if exists major;<br>create table major(<br>  id INT primary key,<br>  majorName VARCHAR(20) not null<br>);</font></li>
+<li><font color="#e96900">use students;<br>drop table if exists stuinfo;<br>create table stuinfo(<br>  id INT primary key,<br>  stuName VARCHAR(20) not null,<br>  gender CHAR(1) check(gender&#x3D;&#39;男&#39; or gender&#x3D;&#39;女&#39;),<br>  seat INT unique,<br>  age INT default 18,<br>  majorId INT foreign key references major(id)<br>);</font></li>
 <li>使用<code>show index from stuinfo;</code>可以查看该表上的索引，包括主键、外键、唯一键。主键(primary key)和唯一键(unique)会自动生成索引，主键会生成主键索引，整个表的数据是按照主键索引生成的树结构来组织的，唯一键会生成唯一索引，唯一索引不同于普通索引。这里使用<code>show index from stuinfo;</code>只能看到主键和唯一键，不能看到外键，因为外键约束加在列级约束上没有效果。</li>
 </ul>
 </blockquote>
@@ -2417,13 +2417,13 @@
 <blockquote>
 <p>案例：</p>
 <ul>
-<li><font color="#e96900">drop table if exists stuinfo;<br>create table stuinfo(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stuName VARCHAR(20),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gender CHAR(1),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;seat INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;age INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;majorId INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONSTRAINT pk PRIMARY KEY(id),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONSTRAINT uq UNIQUE(seat),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONSTRAINT ck CHECK(gender in (&#39;男&#39;, &#39;女&#39;)),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorId) references major(id)<br>);</font></li>
+<li><font color="#e96900">drop table if exists stuinfo;<br>create table stuinfo(<br>  id INT,<br>  stuName VARCHAR(20),<br>  gender CHAR(1),<br>  seat INT,<br>  age INT,<br>  majorId INT,<br>  CONSTRAINT pk PRIMARY KEY(id),<br>  CONSTRAINT uq UNIQUE(seat),<br>  CONSTRAINT ck CHECK(gender in (&#39;男&#39;, &#39;女&#39;)),<br>  CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorId) references major(id)<br>);</font></li>
 <li>这里使用<code>show index from stuinfo;</code>可以查看该表上的索引，包括主键、外键、唯一键。主键的名称即使我们为其改名为”pk”也没有效果，主键名称就叫”PRIMARY”（MySql中的奇怪规则）。</li>
 </ul>
 </blockquote>
 <p><strong>3、一般的约束写法</strong><br>  主键约束、非空约束、唯一约束、默认约束可以作为列级约束直接追加到每列申明的后面，外键约束使用表级约束的方式添加。而检查约束在mysql中只支持语法，也就是不报错，但是没有任何效果。</p>
 <blockquote>
-<p><font color="#e96900">create table if not exists stuinfo(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT primary key,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stuName VARCHAR(20) not null,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gender CHAR(1),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;seat INT unique,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;age int default 18,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;majorId INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorId) REFERENCES major(id)<br>);</font></p>
+<p><font color="#e96900">create table if not exists stuinfo(<br>  id INT primary key,<br>  stuName VARCHAR(20) not null,<br>  gender CHAR(1),<br>  seat INT unique,<br>  age int default 18,<br>  majorId INT,<br>  CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorId) REFERENCES major(id)<br>);</font></p>
 </blockquote>
 <p><strong>4、修改表时添加约束</strong></p>
 <ul>
@@ -2439,7 +2439,7 @@
 <blockquote>
 <p>建表：</p>
 <ul>
-<li><font color="#e96900">drop table if exists stuinfo;<br>create table stuinfo(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stuName VARCHAR(20),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;gender CHAR(1),<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;seat INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;age INT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;majorID INT<br>);</font></li>
+<li><font color="#e96900">drop table if exists stuinfo;<br>create table stuinfo(<br>  id INT,<br>  stuName VARCHAR(20),<br>  gender CHAR(1),<br>  seat INT,<br>  age INT,<br>  majorID INT<br>);</font></li>
 </ul>
 <p>添加非空约束：</p>
 <ul>
@@ -2492,7 +2492,7 @@
 <h4 id="D、自增长列（标识列）"><a href="#D、自增长列（标识列）" class="headerlink" title="D、自增长列（标识列）"></a>D、自增长列（标识列）</h4><p>  标识列又称为自增长列，可以不用手动地插入值，系统提供默认的序列值。<br><strong>1、创建表时设置标识列</strong></p>
 <blockquote>
 <ul>
-<li><font color="#e96900">drop table if exists tab_identity;<br>create table tab_identity(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;name VARCHAR(20)<br>);</font></li>
+<li><font color="#e96900">drop table if exists tab_identity;<br>create table tab_identity(<br>  id INT PRIMARY KEY AUTO_INCREMENT,<br>  name VARCHAR(20)<br>);</font></li>
 <li><code>INSERT INTO tab_identity VALUES(NULL, &#39;Tom&#39;);</code> id字段的值自动插入1</li>
 <li><code>INSERT INTO tab_identity VALUES(NULL, &#39;john&#39;);</code> id字段的值自动增长到2</li>
 <li><code>INSERT INTO tab_identity(name) VALUES(&#39;jerry&#39;);</code>id字段的值自动增长到3</li>
@@ -2580,7 +2580,7 @@
 <p>演示事务的使用步骤</p>
 <ul>
 <li>先建个表：<ul>
-<li><font color="#e96900">drop table if exists account;<br>  create table account(<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id INT PRIMARY KEY AUTO_INCREMENT,<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;username VARCHAR(20),<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;balance DOUBLE<br>  );</font></li>
+<li><font color="#e96900">drop table if exists account;<br>  create table account(<br>    id INT PRIMARY KEY AUTO_INCREMENT,<br>    username VARCHAR(20),<br>    balance DOUBLE<br>  );</font></li>
 </ul>
 </li>
 <li>插入数据进去：<ul>
@@ -2677,7 +2677,7 @@
 </ol>
 <p>案例3：查询平均工资最低的部门信息</p>
 <ul>
-<li><font color="#e96900">直接使用以上创建好的视图myv2<br>select d.*<br>from departments d<br>where d.department_id &#x3D; (<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select department_id from myv2 order by avg_sal limit 1<br>);</font></li>
+<li><font color="#e96900">直接使用以上创建好的视图myv2<br>select d.*<br>from departments d<br>where d.department_id &#x3D; (<br>  select department_id from myv2 order by avg_sal limit 1<br>);</font></li>
 </ul>
 </blockquote>
 <ul>
@@ -2732,8 +2732,8 @@
 </ul>
 <p>3、<strong>插入</strong>数据到视图中</p>
 <ul>
-<li><font color="#e96900">insert into myview1 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#99;&#111;&#109;</a>&#39;, 1000000), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#x62;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#98;&#x62;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a>&#39;, 1100000);</font><br><font color="#0000ee">报错：Column ‘annual_salary’ is not updatable. 并不是所有的字段都能更新。</font></li>
-<li><font color="#e96900">insert into myview2 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#x61;&#97;&#x61;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a>&#39;), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#98;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#98;&#98;&#98;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a>&#39;);</font><br><font color="#0000ee">成功插入，并且会插入到原始表中。这个时候由于原始表有了新数据，视图myview1中的数据也会变多，因为myview1是由原始表动态生成的。</font></li>
+<li><font color="#e96900">insert into myview1 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#x61;&#97;&#64;&#113;&#x71;&#46;&#99;&#111;&#109;">&#x61;&#x61;&#97;&#64;&#113;&#x71;&#46;&#99;&#111;&#109;</a>&#39;, 1000000), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#98;&#98;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#98;&#98;&#98;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a>&#39;, 1100000);</font><br><font color="#0000ee">报错：Column ‘annual_salary’ is not updatable. 并不是所有的字段都能更新。</font></li>
+<li><font color="#e96900">insert into myview2 values(&#39;A&#39;, &#39;<a href="mailto:&#x61;&#x61;&#x61;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x61;&#x61;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;</a>&#39;), (&#39;B&#39;, &#39;<a href="mailto:&#98;&#x62;&#98;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#98;&#x62;&#98;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a>&#39;);</font><br><font color="#0000ee">成功插入，并且会插入到原始表中。这个时候由于原始表有了新数据，视图myview1中的数据也会变多，因为myview1是由原始表动态生成的。</font></li>
 </ul>
 <p>4、<strong>修改</strong>视图中的数据</p>
 <ul>
@@ -2898,7 +2898,7 @@
 <blockquote>
 <p><strong><font color="#0000ee">1、创建存储过程</font></strong></p>
 <ul>
-<li><font color="#e96900">create procedure 存储过程名(参数列表)<br>BEGIN<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;存储过程体(一组合法有效的sql语句)<br>END</font></li>
+<li><font color="#e96900">create procedure 存储过程名(参数列表)<br>BEGIN<br>  存储过程体(一组合法有效的sql语句)<br>END</font></li>
 <li>注意事项<ul>
 <li>参数列表包含三部分信息：参数模式、参数名、参数类型。比如 <strong><code>IN stuname VARCHAR(20)</code></strong> 。</li>
 <li>其中参数模式有三种，分别是：<font color="#e96900">IN，OUT，INOUT</font><ul>
@@ -2925,7 +2925,7 @@
 <p><strong><font color="#0000ee">3、空参的存储过程</font></strong></p>
 <ul>
 <li>案例：插入到admin表中五条记录<ul>
-<li><font color="#e96900">delimiter $<br>  create procedure myp1()<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;insert into admin(username, `password`)<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;values(&#39;A&#39;, &#39;0000&#39;), (&#39;B&#39;, &#39;0000&#39;), (&#39;C&#39;, &#39;0000&#39;), (&#39;D&#39;, &#39;0000&#39;), (&#39;E&#39;, &#39;0000&#39;);<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure myp1()<br>  begin<br>    insert into admin(username, `password`)<br>    values(&#39;A&#39;, &#39;0000&#39;), (&#39;B&#39;, &#39;0000&#39;), (&#39;C&#39;, &#39;0000&#39;), (&#39;D&#39;, &#39;0000&#39;), (&#39;E&#39;, &#39;0000&#39;);<br>  end $</font></li>
 <li>调用：<font color="#e96900">call myp1();</font></li>
 </ul>
 </li>
@@ -2933,7 +2933,7 @@
 <p><strong><font color="#0000ee">4、带 IN 参数模式的存储过程</font></strong></p>
 <ul>
 <li>案例1：创建存储过程，根据女神名，查询对应的男神信息<ul>
-<li><font color="#e96900">delimiter $<br>  create procedure myp2(in beautyName varchar(20))<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select bo.*<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from boys bo<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;right join beauty b on bo.id&#x3D;b.boyfriend_id<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where b.name&#x3D;beautyName;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure myp2(in beautyName varchar(20))<br>  begin<br>    select bo.*<br>    from boys bo<br>    right join beauty b on bo.id&#x3D;b.boyfriend_id<br>    where b.name&#x3D;beautyName;<br>  end $</font></li>
 <li>调用方式一：<font color="#e96900">call myp2(&#39;赵敏&#39;);</font></li>
 <li>调用方式二：（新建一个变量作为参数传入）<ul>
 <li><font color="#e96900">set @beautyName&#x3D;&#39;赵敏&#39;;<br>  call myp2(@beautyName);</font></li>
@@ -2942,7 +2942,7 @@
 </ul>
 </li>
 <li>案例2：创建存储过程，实现判断用户是否登录成功<ul>
-<li><font color="#e96900">delimiter $<br>  create procedure myp3(in username varchar(20), in password varchar(20))<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare result int default 0; #① 声明并初始化<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select count(*) into result #② 赋值<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from admin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where admin.username&#x3D;username<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;and admin.`password`&#x3D;password;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select if(result&gt;0, &#39;成功&#39;, &#39;失败&#39;); #③ 使用<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure myp3(in username varchar(20), in password varchar(20))<br>  begin<br>    declare result int default 0; #① 声明并初始化<br>    select count(*) into result #② 赋值<br>    from admin<br>    where admin.username&#x3D;username<br>    and admin.`password`&#x3D;password;<br>    select if(result&gt;0, &#39;成功&#39;, &#39;失败&#39;); #③ 使用<br>  end $</font></li>
 <li>调用：<font color="#e96900">call myp3(&#39;A&#39;, &#39;0000&#39;);</font> 返回”成功”</li>
 <li>调用：<font color="#e96900">call myp3(&#39;A&#39;, &#39;1111&#39;);</font> 返回”失败”</li>
 </ul>
@@ -2951,7 +2951,7 @@
 <p><strong><font color="#0000ee">5、带 OUT 参数模式的存储过程</font></strong></p>
 <ul>
 <li>案例1：根据女神名，返回对应的男神名<ul>
-<li><font color="#e96900">delimiter $<br>  create procedure myp4(in beautyName varchar(20), out boyName varchar(20))<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select bo.boyName into boyName<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from boys bo<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;inner join beauty b on bo.id&#x3D;b.boyfriend_id<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where b.name&#x3D;beautyName;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure myp4(in beautyName varchar(20), out boyName varchar(20))<br>  begin<br>    select bo.boyName into boyName<br>    from boys bo<br>    inner join beauty b on bo.id&#x3D;b.boyfriend_id<br>    where b.name&#x3D;beautyName;<br>  end $</font></li>
 <li>调用：<ul>
 <li><font color="#e96900">call myp4(&#39;赵敏&#39;, @bName);</font></li>
 <li><font color="#e96900">select @bName;</font></li>
@@ -2960,7 +2960,7 @@
 </ul>
 </li>
 <li>案例2：根据女神名，返回对应的男神名和男神魅力值<ul>
-<li><font color="#e96900">delimiter $<br>  create procedure myp5(in beautyName varchar(20), out boyName varchar(20), out userCp int)<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select bo.boyName,bo.userCp into boyName, userCp<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from boys bo<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;inner join beauty b on bo.id&#x3D;b.boyfriend_id<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where b.name&#x3D;beautyName;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure myp5(in beautyName varchar(20), out boyName varchar(20), out userCp int)<br>  begin<br>    select bo.boyName,bo.userCp into boyName, userCp<br>    from boys bo<br>    inner join beauty b on bo.id&#x3D;b.boyfriend_id<br>    where b.name&#x3D;beautyName;<br>  end $</font></li>
 <li>调用<ul>
 <li><font color="#e96900">call myp5(&#39;赵敏&#39;, @bName, @userPc);</font></li>
 <li><font color="#e96900">select @bName, @userPc;</font></li>
@@ -2972,7 +2972,7 @@
 <p><strong><font color="#0000ee">6、带 INOUT 参数模式的存储过程</font></strong></p>
 <ul>
 <li>案例：传入a和b两个值，最终a和b都翻倍并返回<ul>
-<li><font color="#e96900">delimiter $<br>  create procedure myp6(inout a int, inout b int)<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set a &#x3D; 2 * a;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set b &#x3D; 2 * b;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure myp6(inout a int, inout b int)<br>  begin<br>    set a &#x3D; 2 * a;<br>    set b &#x3D; 2 * b;<br>  end $</font></li>
 <li>调用：<ul>
 <li><font color="#e96900">set | [select] @a:&#x3D;2, @b:&#x3D;3;</font> #首先需要定义出变量</li>
 <li><font color="#e96900">call myp6(@a, @b);</font></li>
@@ -3002,7 +3002,7 @@
 <blockquote>
 <p><strong><font color="#0000ee">1、函数的创建</font></strong></p>
 <ul>
-<li><font color="#e96900" size="4">create function 函数名(参数列表) returns 返回类型<br>begin<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;函数体<br>end</font></li>
+<li><font color="#e96900" size="4">create function 函数名(参数列表) returns 返回类型<br>begin<br>  函数体<br>end</font></li>
 <li>注意事项<ul>
 <li>参数列表包含两部分：参数名和参数类型。</li>
 <li>函数体中肯定会有 return 语句，如果没有就会报错。如果return语句没有放在函数体的最后也不会报错，但是不建议这样用。</li>
@@ -3022,19 +3022,19 @@
 <li>执行函数中的所有语句，并且查询出返回值，函数一定要有返回值<blockquote>
 <p><strong>案例1（无参有返回）：返回公司的员工个数</strong></p>
 <ul>
-<li><font color="#e96900">delimiter $<br>create function myf1() returns int<br>begin<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare result int default 0; #定义局部变量<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select count(*) into result from employees;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return result;<br>end $</font></li>
+<li><font color="#e96900">delimiter $<br>create function myf1() returns int<br>begin<br>  declare result int default 0; #定义局部变量<br>  select count(*) into result from employees;<br>  return result;<br>end $</font></li>
 <li>可能会报错 <code>This function has none of DETERMINISTIC, NO SQL, or READS SQL DATA in its declaration and binary logging is enabled (you *might* want to use the less safe log_bin_trust_function_creators variable)</code>。需要设置一下全局变量的值：<code>set @@global.log_bin_trust_function_creators=1;</code></li>
 <li>调用：<font color="#e96900">select myf1();</font></li>
 </ul>
 <p><strong>案例2（带参有返回值）：根据员工名，返回他的工资</strong></p>
 <ul>
-<li><font color="#e96900">delimiter $<br>create function myf2(empName varchar(20)) returns double<br>begin<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set @sal&#x3D;0.0; #也可以定义用户变量<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select salary into @sal<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where last_name&#x3D;empName;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return @sal;<br>end $</font></li>
+<li><font color="#e96900">delimiter $<br>create function myf2(empName varchar(20)) returns double<br>begin<br>  set @sal&#x3D;0.0; #也可以定义用户变量<br>  select salary into @sal<br>  from employees;<br>  where last_name&#x3D;empName;<br>  return @sal;<br>end $</font></li>
 <li>调用：<font color="#e96900">select myf2(&#39;Kochhar&#39;);</font></li>
 <li>注意：当查询结果多于一条时会报错 <code>Result consisted of more than one row</code></li>
 </ul>
 <p><strong>案例3（带参有返回值）：根据部门名，返回该部门的平均工资</strong></p>
 <ul>
-<li><font color="#e96900">delimiter $<br>create function myf3(deptName varchar(20)) returns double<br>begin<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare sal double; #定义局部变量<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;select avg(salary) into sal<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;from employees e<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;join departments d on e.department_id&#x3D;d.department_id<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;where d.department_name&#x3D;deptName;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;return sal;<br>end $</font></li>
+<li><font color="#e96900">delimiter $<br>create function myf3(deptName varchar(20)) returns double<br>begin<br>  declare sal double; #定义局部变量<br>  select avg(salary) into sal<br>  from employees e<br>  join departments d on e.department_id&#x3D;d.department_id<br>  where d.department_name&#x3D;deptName;<br>  return sal;<br>end $</font></li>
 <li>调用：<font color="#e96900">select myf3(&#39;IT&#39;);</font></li>
 </ul>
 </blockquote>
@@ -3100,7 +3100,7 @@
 </li>
 <li><p>案例；创建存储过程，根据传入的成绩，来显示等级。（90——100 显示A，80——90 显示B，60——80 显示C，否则显示D）</p>
 <ul>
-<li><font color="#e96900">delimiter $<br>  create procedure test_case(in score int)<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;case<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;when score &gt;&#x3D; 90 then select &#39;A&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;when score &gt;&#x3D; 80 then select &#39;B&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;when score &gt;&#x3D; 60 then select &#39;C&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else select &#39;D&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end case;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure test_case(in score int)<br>  begin<br>    case<br>    when score &gt;&#x3D; 90 then select &#39;A&#39;;<br>    when score &gt;&#x3D; 80 then select &#39;B&#39;;<br>    when score &gt;&#x3D; 60 then select &#39;C&#39;;<br>    else select &#39;D&#39;;<br>    end case;<br>  end $</font></li>
 <li>调用：<font color="#e96900">call test_case(85);</font></li>
 </ul>
 </li>
@@ -3110,7 +3110,7 @@
 <li><font color="#e96900" size="4">if 条件1 then 语句1;<br>elseif 条件2 then 语句2;<br>……<br>[else 语句n;]<br>end if;</font></li>
 <li>只能应用在begin end中，比如存储过程、函数</li>
 <li>案例：根据传入的成绩，来返回等级。（90——100 返回，80——90 返回，60——80 返回，否则返回D）<ul>
-<li><font color="#e96900">delimiter $<br>  create function test_if(score int) returns char<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if score &gt;&#x3D; 90 then return &#39;A&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;elseif score &gt;&#x3D; 80 then return &#39;B&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;elseif score &gt;&#x3D; 60 then return &#39;C&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else return &#39;D&#39;;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end if;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create function test_if(score int) returns char<br>  begin<br>    if score &gt;&#x3D; 90 then return &#39;A&#39;;<br>    elseif score &gt;&#x3D; 80 then return &#39;B&#39;;<br>    elseif score &gt;&#x3D; 60 then return &#39;C&#39;;<br>    else return &#39;D&#39;;<br>    end if;<br>  end $</font></li>
 <li>调用：<font color="#e96900">select test_if(85);</font></li>
 </ul>
 </li>
@@ -3130,31 +3130,31 @@
 </ul>
 </li>
 <li><strong><font color="#0000ee">3、while 循环的语法：（类似于java中的while）</font></strong><ul>
-<li><font color="#e96900" size="4">[标签:] while 循环条件 do<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;循环体;<br>  end while [标签];</font></li>
+<li><font color="#e96900" size="4">[标签:] while 循环条件 do<br>    循环体;<br>  end while [标签];</font></li>
 </ul>
 </li>
 <li><strong><font color="#0000ee">4、loop 循环的语法：（没有条件的死循环）</font></strong><ul>
-<li><font color="#e96900">[标签:] loop<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;循环体<br>  end loop [标签];</font></li>
+<li><font color="#e96900">[标签:] loop<br>    循环体<br>  end loop [标签];</font></li>
 <li>可以用来模拟简单的死循环，搭配循环控制语句使用</li>
 </ul>
 </li>
 <li><strong><font color="#0000ee">5、repeat 循环的语法：（类似java中的do while）</font></strong><ul>
-<li><font color="#e96900">[标签:] repeat<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;循环体;<br>  util 结束循环的条件<br>  end repeat [标签];</font></li>
+<li><font color="#e96900">[标签:] repeat<br>    循环体;<br>  util 结束循环的条件<br>  end repeat [标签];</font></li>
 </ul>
 </li>
 <li><strong><font color="#0000ee">6、案例演示：</font></strong><ul>
 <li><strong>案例1（无循环控制语句）：批量插入，根据次数插入到admin表中多条记录</strong><ul>
-<li><font color="#e96900">delimiter $<br>  create procedure test_while1(in insertCount int)<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare i int default 1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;while i&lt;&#x3D;insertCount do<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;insert into admin(username, `password`)<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;values(concat(&#39;Rose_&#39;, i), &#39;666&#39;);<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set i &#x3D; i+1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end while;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure test_while1(in insertCount int)<br>  begin<br>    declare i int default 1;<br>    while i&lt;&#x3D;insertCount do<br>      insert into admin(username, `password`)<br>    values(concat(&#39;Rose_&#39;, i), &#39;666&#39;);<br>      set i &#x3D; i+1;<br>    end while;<br>  end $</font></li>
 <li>调用：<font color="#e96900">call test_while1(100);</font></li>
 </ul>
 </li>
 <li><strong>案例2（带循环控制语句 leave）：批量插入，固定插入20条记录到admin表中</strong><ul>
-<li><font color="#e96900">delimiter $<br>  create procedure test_while2()<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare i int default 1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;label_a: while true do<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;insert into admin(username, `password`) values(concat(&#39;xiaohua_&#39;, i), &#39;000&#39;);<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if i&gt;&#x3D;20 then leave label_a; # 加了一条循环控制语句，必须带上标签<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end if;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set i &#x3D; i+1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end while label_a;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure test_while2()<br>  begin<br>    declare i int default 1;<br>    label_a: while true do<br>      insert into admin(username, `password`) values(concat(&#39;xiaohua_&#39;, i), &#39;000&#39;);<br>      if i&gt;&#x3D;20 then leave label_a; # 加了一条循环控制语句，必须带上标签<br>    end if;<br>      set i &#x3D; i+1;<br>    end while label_a;<br>  end $</font></li>
 <li>调用：<font color="#e96900">call test_while2();</font></li>
 </ul>
 </li>
 <li><strong>案例3（带循环控制语句 iterate）：批量插入，传入次数，只插入偶数次记录到admin表中</strong><ul>
-<li><font color="#e96900">delimiter $<br>  create procedure test_while3(in insertCount int)<br>  begin<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare i int default 1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;label_b: while i&lt;&#x3D;insertCount do<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if i%2&#x3D;1 then<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set i &#x3D; i+1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;iterate label_b; # 加了一条循环控制语句，必须带上标签<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;insert into admin(username, `password`) values(concat(&#39;yczlab_&#39;, i), &#39;000&#39;);<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set i &#x3D; i+1;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end if;<br>  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end while label_b;<br>  end $</font></li>
+<li><font color="#e96900">delimiter $<br>  create procedure test_while3(in insertCount int)<br>  begin<br>    declare i int default 1;<br>    label_b: while i&lt;&#x3D;insertCount do<br>      if i%2&#x3D;1 then<br>        set i &#x3D; i+1;<br>        iterate label_b; # 加了一条循环控制语句，必须带上标签<br>      else<br>          insert into admin(username, `password`) values(concat(&#39;yczlab_&#39;, i), &#39;000&#39;);<br>          set i &#x3D; i+1;<br>      end if;<br>    end while label_b;<br>  end $</font></li>
 <li>调用：<font color="#e96900">call test_while3(100);</font></li>
 </ul>
 </li>
@@ -3165,8 +3165,8 @@
 <h4 id="C、经典案例"><a href="#C、经典案例" class="headerlink" title="C、经典案例"></a>C、经典案例</h4><blockquote>
 <p>案例1：已知表 stringcontent(id int 自增长, content varchar(20))，向该表插入指定个数的随机字符串</p>
 <ul>
-<li><font color="#e96900">drop table if exists stringcontent;<br>create table stringcontent(<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;id int PRIMARY KEY AUTO_INCREMENT,<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;content varchar(20)<br>);</font></li>
-<li><font color="#e96900">delimiter $<br>create procedure test_randstr_insert(in insertCount int)<br>begin<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare str varchar(26) default &#39;abcdefghijklmnopqrstuvwxyz&#39;;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare startIndex int default 1;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;declare len int default 1;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;while insertCount&gt;&#x3D;1 do<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set startIndex &#x3D; floor(rand()*26 + 1); #随机产生[1,26]的整数<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set len &#x3D; floor(rand()*(26-startIndex+1)+1); #随机产生[1, 26-startIndex+1]的整数<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set len &#x3D; if(len&gt;20, 20, len); #保证长度最多为20<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;insert into stringcontent(content) values(substr(str, startIndex, len));<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;set insertCount &#x3D; insertCount-1;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;end while;<br>end $</font></li>
+<li><font color="#e96900">drop table if exists stringcontent;<br>create table stringcontent(<br>  id int PRIMARY KEY AUTO_INCREMENT,<br>  content varchar(20)<br>);</font></li>
+<li><font color="#e96900">delimiter $<br>create procedure test_randstr_insert(in insertCount int)<br>begin<br>  declare str varchar(26) default &#39;abcdefghijklmnopqrstuvwxyz&#39;;<br>  declare startIndex int default 1;<br>  declare len int default 1;<br>  while insertCount&gt;&#x3D;1 do<br>    set startIndex &#x3D; floor(rand()*26 + 1); #随机产生[1,26]的整数<br>    set len &#x3D; floor(rand()*(26-startIndex+1)+1); #随机产生[1, 26-startIndex+1]的整数<br>    set len &#x3D; if(len&gt;20, 20, len); #保证长度最多为20<br>    insert into stringcontent(content) values(substr(str, startIndex, len));<br>    set insertCount &#x3D; insertCount-1;<br>  end while;<br>end $</font></li>
 <li><font color="#e96900">call test_randstr_insert(100);</font></li>
 </ul>
 </blockquote>
@@ -3970,7 +3970,7 @@ Remote Dictionary Server（Redis）通常被称为结构服务器，因为值（
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">231.6k</span>&nbsp;字
+                class="white-color">230.1k</span>&nbsp;字
             
             
             
